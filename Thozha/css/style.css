@@ -725,8 +725,14 @@ border: 0;
 	}
 }
 .video_comment{
-	width: 657px;
+	width: 290px;
 	position: relative;
+}
+@media (min-width:789px){
+	.video_comment{
+		width: 657px;
+		position: relative;
+	}
 }
 .video_comment h2{
 	color: #393939;
@@ -883,7 +889,7 @@ border: 0;
 }
 .photos_holder{
 	background-color: #fff;
-    height: 415px;
+    height: 550px;
     margin: 29px -32px 0;
     width: 340px;
 }
@@ -1164,7 +1170,7 @@ border: 0;
  height: 360px;
 }
 .idp_views_tab {
- width: 312px;
+ width: 340px;
  float: left;
  padding: 30px 0px 0px 0px;
  margin: 0px 0px 20px 0px;
@@ -1680,6 +1686,67 @@ border: 0;
  font-family: Arial;
  font-size: 10px;
 }
+.view_gallery {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+.ec-comment-form fieldset{
+	background: transparent !important;
+}
+@media (min-width:789px){
+	.ec-comment-form fieldset{
+		background: rgba(0, 0, 0, 0) linear-gradient(#ffffff, #dddddd) repeat scroll 0 0 !important;
+	}
+}
+.ec-comment-pane{
+	margin: 35px 0 !important;
+    padding-left: 20px;
+    position: relative;
+}
+@media (min-width:789px){
+	.ec-comment-pane{
+		margin: 5px 0 !important;
+	    padding-left: 20px;
+	    position: relative;
+	}
+}
+.single_social_share{
+    padding: 15px 0;
+    text-align: center;
+    color: #fff;
+}
+.single_social_share a{
+    color: #fff;
+    font-size: 20px;
+    width: 47px;
+    line-height: 47px;
+    background: #f80104;
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+/*.single_social_share a:hover{
+    background: rgba(255,255,255,.2);
+}*/
+.social_share_logo_right{
+    overflow: hidden;
+}
+.social_share_logo_right .col-md-4:nth-child(1) .single_social_share{
+    background: #3b59a1;
+}
+.social_share_logo_right .col-md-4:nth-child(2) .single_social_share{
+    background: #46b0e4;
+}
+.social_share_logo_right .col-md-4:nth-child(3) .single_social_share{
+    background: #dd4c39;
+}
+.single_social_share span{
+    margin-top: 20px;
+    font-size: 15px;
+    display: block;
+     color: #000;
+}
 .image_poster,.image_info{
 	cursor:pointer;
 }
+
