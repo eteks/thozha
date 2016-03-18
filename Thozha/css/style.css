@@ -126,12 +126,14 @@ ul.nav.navbar-nav li {
 	width:100px;
 	height:93px;
 	margin:0px 15px 0px 0px;
+	box-shadow: 5px 5px 6px #aeaeae;
 }
 @media (min-width:789px){
 	.related_vedios ul li img {
 		width:116px;
 		height:93px;
 		margin:0px 15px 0px 0px;
+		box-shadow: 5px 5px 6px #aeaeae;
 	}
 }
 .related_vedios li {
@@ -940,10 +942,12 @@ border: 0;
 }
 .footer span{
 	color: #000;
+    float: left;
     font-family: Arial;
     font-size: 13px;
     position: relative;
-    top: 8px;
+    top: 20px;
+    left: 20px;
 }
 .footer {
     bottom: 0;
@@ -951,6 +955,15 @@ border: 0;
     position: relative;
     text-align: center;
     width: 100%;
+}
+.footer > p {
+    color: #000;
+    float: right;
+    font-family: Arial;
+    margin: 0;
+    position: relative;
+    top: 20px;
+    right: 20px;
 }
 .ec-comment-form fieldset legend {
     background: transparent none repeat scroll 0 0;
@@ -1030,6 +1043,9 @@ border: 0;
 	    margin: -11px 0 11px;
 	}
 }
+.desc_img img{
+	 box-shadow: 5px 5px 6px #aeaeae;
+}
 /* End index page */
 
 /* Form Page */
@@ -1041,7 +1057,7 @@ border: 0;
 .container_form{
 	left: 50px;
     position: relative;
-    width: 780px;
+    width: 825px;
 }
 .container_form h2 {
 	color: #000;
@@ -1084,37 +1100,23 @@ border: 0;
 .photos_upload {
 	margin:20px 0px 0px 0px;
 }
-
-#mrova-feedback{
-	background-color: #fff;
-    border: 1px solid #f750a5;
-    padding: 0 20px;
-    position: absolute;
-    right: -42px;
-    width: 10px;
-    height: 110px !important;
-}
-
-#mrova-img-control{
-	background: rgba(0, 0, 0, 0) url("../images/social.png") no-repeat scroll 0 0;
-    cursor: pointer;
-    height: 110px;
-    left: -22px;
-    position: absolute;
-    width: 20px;
-}
-
 .social_links{
 	list-style-type: none;
 }
 .face{
 	background:url("../images/facebook.png") no-repeat;
+	height: 28px;
+    width: 30px;
 }
 .yt{
 	background:url("../images/youtube.png") no-repeat;
+	height: 28px;
+    width: 30px;
 }
 .tw{
 	background:url("../images/twitter.png") no-repeat;
+	height: 28px;
+    width: 30px;
 }
 .visitor_count img {
     height: 25px;
@@ -1131,3 +1133,21 @@ border: 0;
     font-size: 18px;
     font-weight: normal;
 }
+/*.upload_selfie{
+	 background: #000 none repeat scroll 0 0;
+    box-shadow: none;
+    height: 33px;
+    width: 130px;
+}*/
+/*.photos_upload button {
+    background: #fdbc41 none repeat scroll 0 0;
+    height: 33px;
+    width: 130px;
+    font-family: Gotham;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #510707;
+    position: relative;
+    top: -33px;
+}*/

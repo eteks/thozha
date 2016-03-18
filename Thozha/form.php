@@ -99,7 +99,7 @@
   		</header><!--header_area-->
   	<div class="contest_wrapper">	
     <div class="container container_form">
-    	<h2>Participated in con<b>TEST FOR FREE TICKETS</b></h2>
+    	<h2>PARTICIPATED IN CON<b>TEST FOR FREE TICKETS</b></h2>
        <div class="form-box fl">
 			<form enctype="multipart/form-data" method="post" id="tec_reg" role="form">
                 <div class="form-group">
@@ -121,8 +121,9 @@
          </div>
          <div class="photos_upload fl">
       		<div class="form-group">
-                <label>Upload Your Photo</label>
-                <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M">
+                <!-- <label>Upload Your Photo</label> -->
+                <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie">
+                <!-- <button>UPLOAD</button> -->
                 <div id="image-holder"></div>
             </div>
        </div><!--photos_upload-->
