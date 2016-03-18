@@ -1,5 +1,5 @@
 <?php 
-	include('dbcon.php');
+	//include('dbcon.php');
 	if (isset($_POST["submit"])) {
 		//***************commented by muthu for admin purpose***************//
 	    // $target_dir = "uploads/";
