@@ -1715,12 +1715,32 @@ border: 0;
     text-align: center;
     color: #fff;
 }
-.single_social_share a{
+.facebook a{
     color: #fff;
     font-size: 20px;
     width: 47px;
     line-height: 47px;
-    background: #f80104;
+    background: #3A5795;
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.twitter a{
+    color: #fff;
+    font-size: 20px;
+    width: 47px;
+    line-height: 47px;
+    background: #2CAAE1;
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.youtube a{
+    color: #fff;
+    font-size: 20px;
+    width: 47px;
+    line-height: 47px;
+    background: #CC181E;
     display: block;
     border-radius: 50%;
     margin: 0 auto;
