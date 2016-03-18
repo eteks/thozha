@@ -890,7 +890,7 @@ border: 0;
 .photos_holder{
 	background-color: #fff;
     height: 550px;
-    margin: 29px -32px 0;
+    margin: 29px -17px 0;
     width: 340px;
 }
 @media (min-width:789px){
@@ -954,6 +954,7 @@ border: 0;
     position: relative;
     top: 20px;
     left: 20px;
+    font-weight:bold;
 }
 .footer {
     bottom: 0;
@@ -964,12 +965,18 @@ border: 0;
 }
 .footer > p {
     color: #000;
+    font-weight:bold;
     float: right;
     font-family: Arial;
     margin: 0;
     position: relative;
     top: 20px;
     right: 20px;
+}
+.footer > p > a {
+	text-decoration:none;
+	font-weight: bold;
+	color: #000;
 }
 .ec-comment-form fieldset legend {
     background: transparent none repeat scroll 0 0;
@@ -1159,11 +1166,18 @@ border: 0;
 }*/
 
 .idp_shoe_gallery {
- float: left;
- position: relative;
+	 float: left;
+	 position: relative;
+	 left: 13px;
  
 }
-
+@media (min-width:789px){
+	.idp_shoe_gallery {
+	 float: left;
+	 position: relative;
+ 		left:auto;
+	}
+}
 .idp_shoegallery_display {
  float: left;
  width: 480px;
@@ -1477,15 +1491,30 @@ border: 0;
 }
 
 #product_angle {
- background: #fff;
- margin: auto;
- clear: both;
+	 background: #fff;
+	 margin: auto;
+	 clear: both;
+     width: 312px;
 }
-
+@media (min-width:789px){
+	#product_angle {
+	 background: #fff;
+	 margin: auto;
+	 clear: both;
+	}
+}
 #product_angle img {
- margin-top: 10px;
+    margin-top: 10px;
+    left: -12px;
+    position: relative;
 }
-
+@media (min-width:789px){
+	#product_angle img {
+ 		margin-top: 10px;
+ 		left: auto;
+    	position: relative;
+	}
+}
 .add_to_cart_reviews {
  margin: 10px 0px 0px 0px;
 }
