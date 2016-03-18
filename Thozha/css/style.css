@@ -1660,3 +1660,6 @@ border: 0;
  font-family: Arial;
  font-size: 10px;
 }
+.image_poster,.image_info{
+	cursor:pointer;
+}
