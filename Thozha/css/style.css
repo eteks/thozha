@@ -40,7 +40,7 @@ ul.nav.navbar-nav li {
     font-size: 14px;
     font-weight: 700;
     color: #000000;
-    cursor: pointer;
+    cursor: default;
 }
 @media (min-width:789px){
 	ul.nav.navbar-nav li {
@@ -50,7 +50,7 @@ ul.nav.navbar-nav li {
 	    font-size: 14px;
 	    font-weight: 700;
 	    color: #000000;
-	    cursor: pointer;
+	    cursor: default;
 	}
 }
 .contest_btn, .contest_btn:hover {
@@ -59,6 +59,7 @@ ul.nav.navbar-nav li {
     margin: 0 !important;
     padding: 0 !important;
     width: 476px;
+    cursor: default;
 }
 .fl { float:left; }
 .fr { float:right; }
@@ -889,9 +890,16 @@ border: 0;
 }
 .photos_holder{
 	background-color: #fff;
-    height: 550px;
+    height: 505px;
     margin: 29px -17px 0;
     width: 340px;
+}
+.background_none, .background_none:hover {
+	background:none !important;
+	color:#000 !important;
+	border-radius:0px !important;
+	text-decoration:none !important;
+    line-height:inherit !important;
 }
 @media (min-width:789px){
 	.photos_holder{
@@ -946,7 +954,20 @@ border: 0;
 	width:100px;
 	margin: 0 0 0 10px;
 }
-.footer span{
+
+
+.footer span {
+    color: #000;
+    float: left;
+    font-family: Arial;
+    font-size: 9px;
+    font-weight: bold;
+    left: 4px;
+    position: relative;
+    top: 13px;
+}
+@media (min-width:789px){
+	.footer span {
 	color: #000;
     float: left;
     font-family: Arial;
@@ -955,7 +976,10 @@ border: 0;
     top: 20px;
     left: 20px;
     font-weight:bold;
+	}
 }
+
+
 .footer {
     bottom: 0;
     height: 30px;
@@ -963,8 +987,22 @@ border: 0;
     text-align: center;
     width: 100%;
 }
-.footer > p {
+
+
+.footer p {
     color: #000;
+    font-weight:bold;
+    float: right;
+    font-family: Arial;
+    margin: 0;
+    position: relative;
+    top: 12px;
+    right: 10px;
+    font-size:11px;
+}
+@media (min-width:789px){
+	.footer p {
+	color: #000;
     font-weight:bold;
     float: right;
     font-family: Arial;
@@ -972,7 +1010,13 @@ border: 0;
     position: relative;
     top: 20px;
     right: 20px;
+    font-size: 13px;
+	}
 }
+
+
+
+
 .footer > p > a {
 	text-decoration:none;
 	font-weight: bold;
@@ -1139,12 +1183,15 @@ border: 0;
     left: 35px;
     position: relative;
     top: 40px;
+    cursor: default;
 }
 .visitor_count > a {
     color: #000;
     font-family: Arial;
     font-size: 18px;
     font-weight: normal;
+    cursor: default;
+    text-decoration:none;
 }
 /*.upload_selfie{
 	 background: #000 none repeat scroll 0 0;
@@ -1799,4 +1846,11 @@ border: 0;
 .image_poster,.image_info{
 	cursor:pointer;
 }
-
+#image-holder {
+	width:100px;
+	height:100px;
+}
+#image-holder img{
+	height:100%;
+	width:100%;
+}
