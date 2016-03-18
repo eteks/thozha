@@ -55,11 +55,10 @@ ul.nav.navbar-nav li {
 }
 .contest_btn, .contest_btn:hover {
 	background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
-    font-size: 13px;
+    color: #000 !important;
     margin: 0 !important;
     padding: 0 !important;
-    width: 224px;
-    color:#000 !important; 
+    width: 476px;
 }
 .fl { float:left; }
 .fr { float:right; }
@@ -1084,4 +1083,51 @@ border: 0;
 }
 .photos_upload {
 	margin:20px 0px 0px 0px;
+}
+
+#mrova-feedback{
+	background-color: #fff;
+    border: 1px solid #f750a5;
+    padding: 0 20px;
+    position: absolute;
+    right: -42px;
+    width: 10px;
+    height: 110px !important;
+}
+
+#mrova-img-control{
+	background: rgba(0, 0, 0, 0) url("../images/social.png") no-repeat scroll 0 0;
+    cursor: pointer;
+    height: 110px;
+    left: -22px;
+    position: absolute;
+    width: 20px;
+}
+
+.social_links{
+	list-style-type: none;
+}
+.face{
+	background:url("../images/facebook.png") no-repeat;
+}
+.yt{
+	background:url("../images/youtube.png") no-repeat;
+}
+.tw{
+	background:url("../images/twitter.png") no-repeat;
+}
+.visitor_count img {
+    height: 25px;
+   	width: 100px;
+}
+.visitor_count {
+    left: 35px;
+    position: relative;
+    top: 40px;
+}
+.visitor_count > a {
+    color: #000;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: normal;
 }
