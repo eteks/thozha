@@ -66,38 +66,7 @@
 		<script src="js/bootstrap.js" type="text/javascript"></script>
 	</head>
 	<body class="bg_form form_body">
-	<header class="header_area">
-            <div class="container">
-                <div class="header_content">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-2">
-                            <div class="logo">
-                             	<a href="index.html"><img src="images/logo.png"></a>
-                                <div class="navbar-header">
-                                    <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"> </span>
-                                        <span class="icon-bar"> </span>
-                                        <span class="icon-bar"> </span>
-                                    </button>  -->
-                                </div><!--navbar-header-->                           
-                            </div><!--logo-->
-                        </div><!--col-md-3-->                                  
-                        <div class="col-md-9 col-sm-10 nav_area">
-                            <nav class="main_menu">
-                                <div class="navbar-collapse collapse"> 
-                                    <ul class="nav navbar-nav navbar-right">
-                                    	<!-- <li><div align='center'><a href='http://www.hit-counts.com'><img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div></li>
-                                        <li><img src="images/ticket_free.png" /></li> -->
-                                        <!-- <li>REGISTER</li> -->
-                                    </ul>                                                     
-                                </div><!--collapse-->
-                            </nav><!--main_menu->
-                        </div><!--nav_area-->
-                    </div><!--row-->
-                </div><!--header_content-->
-            </div><!--container-->
-  		</header><!--header_area-->
+	
   	<div class="contest_wrapper">	
     <div class="container container_form">
     	<h2>PARTICIPATED IN CON<b>TEST FOR FREE TICKETS</b></h2>
@@ -112,7 +81,11 @@
                     <input type="text" class="input-block-level form_align" name='phone' data-validation="number">
                 </div>
                 <div class="form-group">
-	          		<label>Comments</label><br>
+                    <label>Enter City/State</label><br>
+                    <input type="text" class="input-block-level form_align" name='phone' data-validation="number">
+                </div>
+                <div class="form-group">
+	          		<label>Enter your Comments</label><br>
                     <textarea name="description"></textarea>
                 </div>
               	

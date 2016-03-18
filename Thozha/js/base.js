@@ -29,7 +29,7 @@ function package_menu() {
 }
 
 function package_menu_1() {
-    var wh = window.innerHeight - 100;
+    var wh = window.innerHeight;
     var smh = wh - 30;
      $('.form_body').css({'height': wh + 'px'});
 }
