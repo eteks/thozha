@@ -17,6 +17,7 @@
                                                 <th>S.No</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
+                                                <th>State/City</th>
                                                 <th>Comment</th>
                                                 <th>Image</th>
                                                 
@@ -32,6 +33,7 @@
                                                     <td><?php echo $i; ?></td>
                                                     <td><?php echo $row['contest_email']; ?></td>
                                                     <td><?php echo $row['contest_mobile']; ?></td>
+                                                    <td><?php echo $row['contest_name']; ?></td>
                                                     <td><?php echo $row['contest_comment']; ?></td>
                                                     <td><a class="example-image-link" href="../<?php echo $row['contest_image']; ?>" data-lightbox="example-2" data-title="<?php echo $row['contest_comment']; ?>"><img class="example-image" src="../<?php echo $row['contest_image']; ?>" alt="image-1" height="50" width="50"/></a>
 													<!-- <img src="../<?php echo $row['contest_image']; ?>" height="50" width="50"></td> -->

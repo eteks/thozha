@@ -69,8 +69,8 @@
                                     <ul class="nav navbar-nav navbar-right">
                                     	
                                         <li><a class="contest_btn"><img src="images/ticket_free.png" /></a></li>
-                                       <!-- <li><div align='center' class="visitor_count"><a href='http://www.hit-counts.com'>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div></li> -->
-                                       <li><div align='center' class="visitor_count"><a>VISITORS<img src="http://hitwebcounter.com/counter/counter.php?page=6342609&style=0027&nbdigits=8&type=ip&initCount=0" border="0" ></a></li>
+                                       <li><div align='center' class="visitor_count"><a>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div></li>
+                                       <!-- <li><div align='center' class="visitor_count"><a>VISITORS<img src="http://hitwebcounter.com/counter/counter.php?page=6342609&style=0027&nbdigits=8&type=ip&initCount=0" border="0" ></a></li> -->
                                         <!-- <li>REGISTER</li> -->
                                     </ul>                                                     
                                 </div><!--collapse-->
@@ -94,10 +94,10 @@
 	
        <div class="wrapper">
         <div class="container container_bg">
-           <div class="video_holder fl visible-lg">
+           <div class="video_holder fl visible-lg desktop_video">
            		<iframe width="623" height="340" src="https://www.youtube.com/embed/EaxHnDbsfws" frameborder="0" allowfullscreen></iframe>
            </div><!-- video_holder -->
-           <div class="video_holder fl visible-xs">
+           <div class="video_holder fl visible-xs mobile_video">
            		<iframe width="260" height="200" src="https://www.youtube.com/embed/EaxHnDbsfws" frameborder="0" allowfullscreen></iframe>
            </div><!-- video_holder https://www.youtube-nocookie.com/embed/J9pvhzgeKZE-->
            <div class="related_vedios fl"> 
@@ -385,19 +385,21 @@
 			// Your other javascript code if any
 			
 		    $("#my-comment").EasyComment({
-		      path:"/Thozha/easy-comment/", //Change it to the folder where you put the easycomment files
+		      path:"/easy-comment/", //Change it to the folder where you put the easycomment files
 		      moderate:false,
 		      maxReply:5
 		    });
 			// Your other javascript code if any
 			$('.image_poster').click(function(){
 			    var id = $(this).attr('data_url');
-			    $('.video_holder').empty().prepend('<iframe width="623" height="340" src="'+id+'" frameborder="0" allowfullscreen></iframe>');
+			    $('.desktop_video').empty().prepend('<iframe width="623" height="340" src="'+id+'" frameborder="0" allowfullscreen></iframe>');
+			    $('.mobile_video').empty().prepend('<iframe width="260" height="200" src="'+id+'" frameborder="0" allowfullscreen></iframe>');
 
 			});
 			$('.image_info	').click(function(){
 				 var id = $(this).attr('data_url');
-			    $('.video_holder').empty().prepend('<iframe width="623" height="340" src="'+id+'" frameborder="0" allowfullscreen></iframe>'); 
+			    $('.desktop_video').empty().prepend('<iframe width="623" height="340" src="'+id+'" frameborder="0" allowfullscreen></iframe>');
+			    $('.mobile_video').empty().prepend('<iframe width="260" height="200" src="'+id+'" frameborder="0" allowfullscreen></iframe>'); 
 			});
 			});
 			

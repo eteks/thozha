@@ -1,25 +1,48 @@
+<?php
+session_start();
+?>
 <?php 
-	//include('dbcon.php');
+	include('dbcon.php');
 	if (isset($_POST["submit"])) {
 		//***************commented by muthu for admin purpose***************//
-	    // $target_dir = "uploads/";
-	    // $target_file = $target_dir . basename($_FILES["photo"]["name"]);
-	    // $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-	    // $check = getimagesize($_FILES["photo"]["tmp_name"]);
-	    // if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-	        // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	    // }else{
-	    	 // move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
-	        // $sql = "insert into contest (contest_email,contest_mobile,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["description"]."','".$target_file."','1')";
-	        // mysql_query($sql);
-	        ?>
-	        <script>
-	        	alert('Thanks for Participating.We will contact soon!');
-	        </script>
+		if(isset($_POST['captcha'])){
+    		if($_POST['captcha']==$_SESSION['captcha_id']) { 
+	    		$target_dir = "uploads/";
+	    		$target_file = $target_dir . basename($_FILES["photo"]["name"]);
+	    		$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+	    		$check = getimagesize($_FILES["photo"]["tmp_name"]);
+	    		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+	        		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    			}else{
+	    	 		move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
+	        		$sql = "insert into contest (contest_email,contest_mobile,contest_name,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["state"]."','".$_POST["description"]."','".$target_file."','1')";
+	        		
+	        		mysql_query($sql);
+	        	?>
+		        <script>
+		        	alert('Thanks for Participating.We will contact soon!');
+		        </script>
 	        <?php
-	    //}
+	    			}
+			}else if($_POST['captcha']!=$_SESSION['captcha_id']){
+			?>
+			 <script>
+		        	alert('Invalid captcha ID!');
+		     </script>
+			<?php
+			}
+		}
 	}
 ?>
+<?php
+		// Include the random string file for captcha
+		require 'includes/rand.php';
+		$randomObj = new RandomGen();
+		$str = $randomObj->createRandom();
+
+		// Set the session contents
+		$_SESSION['captcha_id'] = $str;
+	?>
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
@@ -64,6 +87,7 @@
 		<script type="text/javascript" src="easy-comment/jquery.easy-comment.js"></script>
 		<script src="js/base.js" type="text/javascript"></script>
 		<script src="js/bootstrap.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/captcha.js"></script>
 	</head>
 	<body class="bg_form form_body">
 	
@@ -74,38 +98,90 @@
 			<form enctype="multipart/form-data" method="post" id="tec_reg" role="form">
                 <div class="form-group">
                     <label>Enter your email</label><br>
-                    <input type="email" class="input-block-level form_align" name='email' data-validation="email">
+                    <input type="text" class="input-block-level form_align email" name='email' data-validation="email" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label>Enter your Mobile number</label><br>
-                    <input type="text" class="input-block-level form_align" name='phone' data-validation="number">
+                    <input type="text" class="input-block-level form_align mobile_number" name='phone' data-validation="number" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label>Enter City/State</label><br>
-                    <input type="text" class="input-block-level form_align" name='phone' data-validation="number">
+                    <input type="text" class="input-block-level form_align state" name='state' data-validation="number" autocomplete="off">
                 </div>
                 <div class="form-group">
 	          		<label>Enter your Comments</label><br>
-                    <textarea name="description"></textarea>
+                    <textarea class="comment" name="description"></textarea>
                 </div>
-              	
+              	<div class="form-group">
+              		<div id="captchaimage"><a href="" id="refreshimg"  title="Another image"><img src="captcha/image.php?<?php echo time(); ?>" alt="Captcha image" width="132" height="46" align="left" /></a></div>
+              		<input type="text" maxlength="6" name="captcha" id="captcha" autocomplete=off  />
+              	</div>
                 <div class="form-group">
-				   <button type="submit" class="btn-style pull-right" name="submit" value="submit">SUBMIT</button>
+				   <button type="submit" class="btn-style pull-right contest_submit" name="submit" value="submit">SUBMIT</button>
 				</div>
          </div>
          <div class="photos_upload fl">
       		<div class="form-group">
                 <!--<label>Upload Your Photo</label>-->
-                <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie">
+                <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie" >
                 <!-- <button>UPLOAD</button> -->
                  <div id="image-holder"></div>
             </div>
+   
        </div><!--photos_upload-->
+       </form>
     </div><!-- container -->
    </div><!-- contest_wrapper -->
    <script>
-   //***************commented by muthu for admin purpose***************//
-   		$("#fileUpload").on('change',function () {
+  $(document).ready(function(){
+  	$('.contest_submit').click(function(){
+  		var sEmail = $('.email').val();
+		// Checking Empty Fields
+		if ($.trim(sEmail).length == 0 || $(".mobile_number").val()=="" || $(".state").val()==""||$('#uploadImage').val() == '') {
+			alert('Email, Mobile and city fields are mandatory');
+			//e.preventDefault();
+			return false;
+		}
+		else if (!validateEmail(sEmail)) {
+			alert('Invalid Email Address');
+			//e.preventDefault();
+			return false;
+		}else if($('.mobile_number').val().length != 10 ){
+			alert('Mobile number should be 10 digit only!');
+			return false;
+			
+		}else{
+			return true;
+		}
+		
+	});
+  });
+  $(".mobile_number").keypress(function (e) {
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+               return false;
+     }
+  });
+   $(document).on('change','#fileUpload',function(){
+          files = this.files;
+          size = files[0].size;
+          //max size 50kb => 50*1000
+          if( size > 1000*1000){
+             alert('Please upload less than 50kb file');
+             $('#image-holder').empty();
+             return false;
+          }
+          return true;
+     });
+  function validateEmail(sEmail) {
+	var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+		if (filter.test(sEmail)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+  }
+   $("#fileUpload").on('change',function () {
  
      //Get count of selected files
      var countFiles = $(this)[0].files.length;

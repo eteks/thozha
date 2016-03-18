@@ -58,10 +58,36 @@ EasyComment.prototype.init = function(container,path,moderate,nHeight,bHasSubjec
       .append(
          this.totalComment = $("<div class='ec-total'></div>").html("Be the first person to leave a comment")[0]
       );
+    
    if ( this.countPerPage > 0 ){
       $(this.container).append(this.paging = $("<div class='ec-paging'></div>")[0]);
    }
+   EasyComment.prototype.addCmtForm = function(){
+   var _this = this;
+   var arrForm = [
+            '<div class="ec-comment-form">',
+            '<form method="post" name="ec-comment-form">',
+            '<fieldset>',
+            '<legend class="title">Leave your comment here</legend>',
+            this._getFormFields(),
+                     
+            '<div style="text-align:right;position:relative;">',
+            '<div style="position:absolute;left:0px;bottom:0px;color:#444488;font:11px arial;"></div>',
+            '<button name="submit">Submit</button>&nbsp;&nbsp;&nbsp;',
+            '</div>',
+            '</fieldset>',
+            '</form>',
+            '</div>'
+   ]; 
+   $(this.container).append(arrForm.join(""));
+   this.commentForm = $(this.container).find(".ec-comment-form form[name=ec-comment-form]")[0];
    
+   $(this.commentForm).find("button[name=submit]").click(function(){
+      _this.submitMessage(_this.commentForm,false,"");
+      return false;
+   });
+   return this;
+};
    $(this.container).append(
       this.commentUL = $("<ul></ul>").addClass("ec-comment-list")[0]
    );
@@ -117,32 +143,7 @@ EasyComment.prototype._getFormFields = function(){
             '</div>'+
             '</fieldset>';
 };
-EasyComment.prototype.addCmtForm = function(){
-   var _this = this;
-   var arrForm = [
-            '<div class="ec-comment-form">',
-            '<form method="post" name="ec-comment-form">',
-            '<fieldset>',
-            '<legend class="title">Leave your comment here</legend>',
-            this._getFormFields(),
-                     
-            '<div style="text-align:right;position:relative;">',
-            '<div style="position:absolute;left:0px;bottom:0px;color:#444488;font:11px arial;"></div>',
-            '<button name="submit">Submit</button>&nbsp;&nbsp;&nbsp;',
-            '</div>',
-            '</fieldset>',
-            '</form>',
-            '</div>'
-   ]; 
-   $(this.container).append(arrForm.join(""));
-   this.commentForm = $(this.container).find(".ec-comment-form form[name=ec-comment-form]")[0];
-   
-   $(this.commentForm).find("button[name=submit]").click(function(){
-      _this.submitMessage(_this.commentForm,false,"");
-      return false;
-   });
-   return this;
-};
+
 
 EasyComment.prototype.addReplyForm = function(){
    var arrForm = [
