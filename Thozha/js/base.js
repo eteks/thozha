@@ -1,6 +1,19 @@
 $(document).ready(function () {
     package_menu();
     package_menu_1();
+     $(".view_gallery> span").hover(function(){
+	  $('.color_gallery> div').hide(); 
+	  $(this).addClass('view_glallery_opacity');
+	  $(this).siblings().removeClass('view_glallery_opacity');
+	 });
+
+	 $(".view_gallery> span").hover(function(){
+		  $(this).siblings('div:visible').hide();
+		 
+		  $(this).next().fadeIn('fast');
+		  return false
+		  }, function(){
+	  });
 });
 
 $(window).resize(function () {
