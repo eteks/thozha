@@ -1746,4 +1746,7 @@ border: 0;
     display: block;
      color: #000;
 }
+.image_poster,.image_info{
+	cursor:pointer;
+}
 

@@ -1,22 +1,23 @@
 <?php 
-	include('dbcon.php');
+	//include('dbcon.php');
 	if (isset($_POST["submit"])) {
-	    $target_dir = "uploads/";
-	    $target_file = $target_dir . basename($_FILES["photo"]["name"]);
-	    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-	    $check = getimagesize($_FILES["photo"]["tmp_name"]);
-	    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-	        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	    }else{
-	    	 move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
-	        $sql = "insert into contest (contest_email,contest_mobile,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["description"]."','".$target_file."','1')";
-	        mysql_query($sql);
+		//***************commented by muthu for admin purpose***************//
+	    // $target_dir = "uploads/";
+	    // $target_file = $target_dir . basename($_FILES["photo"]["name"]);
+	    // $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+	    // $check = getimagesize($_FILES["photo"]["tmp_name"]);
+	    // if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+	        // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	    // }else{
+	    	 // move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
+	        // $sql = "insert into contest (contest_email,contest_mobile,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["description"]."','".$target_file."','1')";
+	        // mysql_query($sql);
 	        ?>
 	        <script>
 	        	alert('Thanks for Participating.We will contact soon!');
 	        </script>
 	        <?php
-	    }
+	    //}
 	}
 ?>
 <!DOCTYPE html>
@@ -121,49 +122,50 @@
          </div>
          <div class="photos_upload fl">
       		<div class="form-group">
-                <!-- <label>Upload Your Photo</label> -->
+                <!--<label>Upload Your Photo</label>-->
                 <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie">
                 <!-- <button>UPLOAD</button> -->
-                <div id="image-holder"></div>
+                 <!-- <div id="image-holder"></div>-->
             </div>
        </div><!--photos_upload-->
     </div><!-- container -->
    </div><!-- contest_wrapper -->
    <script>
-   		$("#fileUpload").on('change',function () {
- 
-     //Get count of selected files
-     var countFiles = $(this)[0].files.length;
- 
-     var imgPath = $(this)[0].value;
-     var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-     var image_holder = $("#image-holder");
-     image_holder.empty();
-     if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
-         if (typeof (FileReader) != "undefined") {
- 
-             //loop for each file selected for uploaded.
-             for (var i = 0; i < countFiles; i++) {
- 
-                 var reader = new FileReader();
-                 reader.onload = function (e) {
-                     $("<img />", {
-                         "src": e.target.result,
-                             "class": "thumb-image"
-                     }).appendTo(image_holder);
-                 }
- 
-                 image_holder.show();
-                 reader.readAsDataURL($(this)[0].files[i]);
-             }
- 
-         } else {
-             alert("This browser does not support FileReader.");
-         }
-     } else {
-         alert("Pls select only images");
-     }
- });
+   //***************commented by muthu for admin purpose***************//
+   		// $("#fileUpload").on('change',function () {
+//  
+     // //Get count of selected files
+     // var countFiles = $(this)[0].files.length;
+//  
+     // var imgPath = $(this)[0].value;
+     // var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+     // var image_holder = $("#image-holder");
+     // image_holder.empty();
+     // if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+         // if (typeof (FileReader) != "undefined") {
+//  
+             // //loop for each file selected for uploaded.
+             // for (var i = 0; i < countFiles; i++) {
+//  
+                 // var reader = new FileReader();
+                 // reader.onload = function (e) {
+                     // $("<img />", {
+                         // "src": e.target.result,
+                             // "class": "thumb-image"
+                     // }).appendTo(image_holder);
+                 // }
+//  
+                 // image_holder.show();
+                 // reader.readAsDataURL($(this)[0].files[i]);
+             // }
+//  
+         // } else {
+             // alert("This browser does not support FileReader.");
+         // }
+     // } else {
+         // alert("Pls select only images");
+     // }
+ // });
    	</script>
 	</body>
 	
