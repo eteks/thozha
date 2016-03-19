@@ -1,5 +1,5 @@
 body {
-	background: url('../images/bgintro.png') no-repeat center center fixed; 
+	background: url('../images/index_bg.jpg') no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -11,7 +11,21 @@ body {
 	-ms-animation: blurFadeIn 3s ease-in 2s backwards;
 	animation: blurFadeIn 3s ease-in 2s backwards;
 }
-
+@media (min-width:789px){
+	body {
+		background: url('../images/bgintro.png') no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		position:relative;
+		overflow: hidden;
+		-webkit-animation: blurFadeIn 3s ease-in 2s backwards;
+		-moz-animation: blurFadeIn 1s ease-in 2s backwards;
+		-ms-animation: blurFadeIn 3s ease-in 2s backwards;
+		animation: blurFadeIn 3s ease-in 2s backwards;
+	}
+}
 .left_img {
 	background: url('../images/karthi.png') -65px 0px no-repeat; 
 	/*-webkit-background-size: cover;
@@ -26,18 +40,28 @@ body {
 	 	
 }
 .thozha_net {
-	background: url('../images/thozha_net.png') no-repeat; 
-	width:632px;
-	height:181px;
-	position:absolute;
-	top:13%;
-	left:38%;
-	/*-webkit-animation: blurFadeInOut 3s ease-in backwards;
-	-moz-animation: blurFadeInOut 3s ease-in backwards;
-	-ms-animation: blurFadeInOut 3s ease-in backwards;
-	animation: blurFadeInOut 3s ease-in backwards;*/
-	-webkit-animation-name: swashIn;
-  	animation-name: swashIn;
+	background: rgba(0, 0, 0, 0) url("../images/thozha_net.png") no-repeat scroll 0 0 / 65% auto;
+    height: 100px;
+    left: 10%;
+    position: relative;
+    top: 18%;
+    width: 375px;
+}
+@media (min-width:789px){
+	.thozha_net {
+		background: rgba(0, 0, 0, 0) url("../images/thozha_net.png") no-repeat scroll 0 0 / 100% auto; 
+		width:632px;
+		height:181px;
+		position:absolute;
+		top:13%;
+		left:38%;
+		/*-webkit-animation: blurFadeInOut 3s ease-in backwards;
+		-moz-animation: blurFadeInOut 3s ease-in backwards;
+		-ms-animation: blurFadeInOut 3s ease-in backwards;
+		animation: blurFadeInOut 3s ease-in backwards;*/
+		-webkit-animation-name: swashIn;
+	  	animation-name: swashIn;
+	}
 }
 .band_right {
 	background: hsla(0, 0%, 0%, 0) url("../images/blueribon_band.png") no-repeat scroll 141px 54px / 75% auto;
@@ -68,8 +92,8 @@ body {
 	background: hsla(0, 0%, 0%, 0) url("../images/orange_button.png") no-repeat scroll 0 0;
     height: 187px;
     position: absolute;
-    right: 25%;
-    top: 54%;
+    right: 18%;
+    top: 43%;
     width: 192px;
     border-radius: 145px;
    	-webkit-animation: fadeInRotate 1s linear 3s backwards;
@@ -82,7 +106,27 @@ body {
 	-ms-transform: scale(1) rotate(0deg);
 	transform: scale(1) rotate(0deg);
 	cursor: pointer;
-	
+}
+@media (min-width:789px){
+	.center_btn {
+		background: hsla(0, 0%, 0%, 0) url("../images/orange_button.png") no-repeat scroll 0 0;
+	    height: 187px;
+	    position: absolute;
+	    right: 25%;
+	    top: 54%;
+	    width: 192px;
+	    border-radius: 145px;
+	   	-webkit-animation: fadeInRotate 1s linear 3s backwards;
+		-moz-animation: fadeInRotate 1s linear 3s backwards;
+		-ms-animation: fadeInRotate 1s linear 3s backwards;
+		animation: fadeInRotate 1s linear 3s backwards;
+		-webkit-transform: scale(1) rotate(0deg);
+		-moz-transform: scale(1) rotate(0deg);
+		-o-transform: scale(1) rotate(0deg);
+		-ms-transform: scale(1) rotate(0deg);
+		transform: scale(1) rotate(0deg);
+		cursor: pointer;
+	}
 }
 .glow{
 	height: 187px;
