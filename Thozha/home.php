@@ -2,20 +2,15 @@
 include('dbcon.php');
 ?>
 <!DOCTYPE html>
-<!--[if IE]><![endif]-->
-<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
+<html lang="en">
+<head>
+<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Thozha New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - ComingSoon.net</title>
+        <title>Thozha New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - thozha.net</title>
 		<meta name="description" content="Check out the latest new movies coming soon to theaters &amp; video games to come to market. Read latest buzz &amp; watch exclusive trailers!"/>
 		<link rel="canonical" href="http://thozha.net" />
-		<link rel="next" href="http://thozha.net" />
+		<link rel="next" href="http://thozha.net/" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - thozha.net" />
@@ -37,11 +32,10 @@ include('dbcon.php');
 		<meta property="og:type" content="website">
 		<meta property="og:site_name" content="thozha">
 		<meta property="og:url" content="http://thozha.net">
-		<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-		<link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
-		<link rel="stylesheet" type="text/css" href="css/jquery-comments.css">
-		<link href="css/style.css" rel="stylesheet" type="text/css"/>
 		<link rel="icon" href="images/fav.png"/> 
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<link rel="stylesheet" href="css/intro.css">
 		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/jquery-comments.js"></script>
 		<script src="js/base.js" type="text/javascript"></script>
@@ -484,9 +478,8 @@ include('dbcon.php');
 				    $('.mobile_video').empty().prepend('<iframe width="260" height="200" src="'+id+'" frameborder="0" allowfullscreen></iframe>'); 
 				});
 			});
-			
+</script>
 
-		</script>
 	
-	</body><!-- Syntax Highlighter -->
-</html>
+</body> <!-- body closed -->
+</html> <!-- html closed -->
