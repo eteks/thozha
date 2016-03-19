@@ -16,7 +16,6 @@ session_start();
     			}else{
 	    	 		move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
 	        		$sql = "insert into contest (contest_email,contest_mobile,contest_name,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["state"]."','".$_POST["description"]."','".$target_file."','1')";
-	        		
 	        		mysql_query($sql);
 	        	?>
 		        <script>
@@ -93,16 +92,18 @@ session_start();
 	
   	<div class="contest_wrapper">	
     <div class="container container_form">
-    	<h2>PARTICIPATED IN CON<b>TEST FOR FREE TICKETS</b></h2>
+    	<h2>PARTICIPATE IN CON<b>TEST FOR FREE TICKETS</b></h2>
        <div class="form-box fl">
 			<form enctype="multipart/form-data" method="post" id="tec_reg" role="form">
                 <div class="form-group">
-                    <label>Enter your email</label><br>
+                    <label>Enter your email*</label><br>
                     <input type="text" class="input-block-level form_align email" name='email' data-validation="email" autocomplete="off">
+                	<span class="error_msg">Please enter valid email</span>
                 </div>
                 <div class="form-group">
-                    <label>Enter your Mobile number</label><br>
+                    <label>Enter your Mobile number*</label><br>
                     <input type="text" class="input-block-level form_align mobile_number" name='phone' data-validation="number" autocomplete="off">
+                	<span class="error_msg">Mobile number should be 10 digit only!</span>
                 </div>
                 <div class="form-group">
                     <label>Enter City/State</label><br>
@@ -120,15 +121,25 @@ session_start();
 				   <button type="submit" class="btn-style pull-right contest_submit" name="submit" value="submit">SUBMIT</button>
 				</div>
          </div>
-         <div class="photos_upload fl">
-      		<div class="form-group">
-                <!--<label>Upload Your Photo</label>-->
-                <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie" >
-                <!-- <button>UPLOAD</button> -->
-                 <div id="image-holder"></div>
-            </div>
-   
-       </div><!--photos_upload-->
+         <div class="uploads fl">
+         	<div class="upload_info">
+         		<p>UPLOAD SELFIES</p>
+         	</div>
+      		<div class="preview">
+      			<span>Preview</span>
+
+      		</div><!--preview-->
+	         <div class="photos_upload fl">
+	         	<label>UPLOAD</label>
+	      		<div class="form-group photo-browse">
+	                <!--<label>Upload Your Photo</label>-->
+	                <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie" >
+	                <!-- <button>UPLOAD</button> -->
+	                 <div id="image-holder"></div>
+	            </div>
+	   		</div><!--photos_upload-->
+      </div><!--uploads-->
+
        </form>
     </div><!-- container -->
    </div><!-- contest_wrapper -->
@@ -137,17 +148,30 @@ session_start();
   	$('.contest_submit').click(function(){
   		var sEmail = $('.email').val();
 		// Checking Empty Fields
-		if ($.trim(sEmail).length == 0 || $(".mobile_number").val()=="" || $(".state").val()==""||$('#uploadImage').val() == '') {
-			alert('Email, Mobile and city fields are mandatory');
+		if ($.trim(sEmail).length == 0) {
+			//alert('Email, Mobile and city fields are mandatory');
 			//e.preventDefault();
+			$('.error_msg').css({'display':'block'});
+			return false;
+		}
+		else if ($(".mobile_number").val()==""){
+			$('.error_msg').css({'display':'block'});
+			return false;
+		}
+		else if ( $(".state").val()=="" ){
+			return false;
+		}
+		else if ($('#uploadImage').val() == ''){
 			return false;
 		}
 		else if (!validateEmail(sEmail)) {
-			alert('Invalid Email Address');
+			$('.error_msg').css({'display':'block'});
+			//alert('Invalid Email Address');
 			//e.preventDefault();
 			return false;
 		}else if($('.mobile_number').val().length != 10 ){
-			alert('Mobile number should be 10 digit only!');
+			$('.error_msg').css({'display':'block'});
+			//alert('Mobile number should be 10 digit only!');
 			return false;
 			
 		}else{
