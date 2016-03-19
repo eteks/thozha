@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2016 at 09:15 PM
+-- Generation Time: Mar 18, 2016 at 12:35 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -53,9 +53,7 @@ INSERT INTO `contest` (`contest_id`, `contest_name`, `contest_email`, `contest_m
 (20, '', 'dfgsfg@sdfsdf.com', 2147483647, 'asdfasdfdasfas', 'uploads/Desert.jpg', 1, '2016-03-18 09:10:41'),
 (21, '', 'asdfasdf@sfgsdf.com', 2147483647, 'asdfasdfasd', 'uploads/Koala.jpg', 1, '2016-03-18 09:10:55'),
 (22, '', 'xsdfgasdfga@dfgdsfg.com', 0, 'asdfasdf', 'uploads/Hydrangeas.jpg', 1, '2016-03-18 09:11:31'),
-(23, '', 'test@gmail.com', 2147483647, 'test', 'uploads/Tulips.jpg', 1, '2016-03-18 11:29:54'),
-(24, '', 'asdfasdf@sgfsa.com', 2147483647, 'asdfasdf', 'uploads/Penguins.jpg', 1, '2016-03-18 15:13:21'),
-(25, 'ewrawr', 'testtest@test.com', 2147483647, 'asdfasdfasd', 'uploads/Desert.jpg', 1, '2016-03-18 19:54:31');
+(23, '', 'test@gmail.com', 2147483647, 'test', 'uploads/Tulips.jpg', 1, '2016-03-18 11:29:54');
 
 -- --------------------------------------------------------
 
@@ -115,7 +113,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contest`
 --
 ALTER TABLE `contest`
-  MODIFY `contest_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `contest_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `users`
 --

@@ -114,7 +114,7 @@ ul.nav.navbar-nav li {
 		margin:0px 0px 20px 0px;
 	}
 }
-.related_vedios h2 b,.video_comment h2 b,.related_photos h2 b{
+.related_vedios h2 b,.video_comment h2 b,.related_photos h2 b,.comment_heading h2 b{
 	color:#f80104;
 	font-weight:bold;
 }
@@ -917,13 +917,13 @@ border: 0;
     	margin: 0 0 0 22px;
 	}
 }
-.related_photos h2{
+.related_photos h2,.comment_heading h2{
 	color: #393939;
     font-family: Gotham;
     font-size: 18px;
 }
 @media (min-width:789px){
-	.related_photos h2{
+	.related_photos h2,.comment_heading h2{
 		color: #393939;
 	    font-family: Gotham;
 	    font-size:30px;

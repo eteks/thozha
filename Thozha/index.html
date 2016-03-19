@@ -12,7 +12,7 @@
         <title>Thozha New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - ComingSoon.net</title>
 		<meta name="description" content="Check out the latest new movies coming soon to theaters &amp; video games to come to market. Read latest buzz &amp; watch exclusive trailers!"/>
 		<link rel="canonical" href="http://thozha.net" />
-		<link rel="next" href="http://thozha.net/page/2" />
+		<link rel="next" href="http://thozha.net" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - thozha.net" />
@@ -36,10 +36,11 @@
 		<meta property="og:url" content="http://thozha.net">
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 		<link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/jquery-comments.css">
 		<link href="css/style.css" rel="stylesheet" type="text/css"/>
 		<link rel="icon" href="images/fav.png"/> 
 		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
-		<script type="text/javascript" src="easy-comment/jquery.easy-comment.js"></script>
+		<script type="text/javascript" src="js/jquery-comments.js"></script>
 		<script src="js/base.js" type="text/javascript"></script>
 		<script src="js/bootstrap.js" type="text/javascript"></script>
 		<script src="js/mrova-feedback-form.js" type="text/javascript"></script>
@@ -67,8 +68,7 @@
                             <nav class="main_menu">
                                 <div class="navbar-collapse collapse"> 
                                     <ul class="nav navbar-nav navbar-right">
-                                    	
-                                        <li><a class="contest_btn"><img src="images/ticket_free.png" /></a></li>
+                                       <li><a class="contest_btn" href="form.php" style="cursor: pointer;"><img src="images/ticket_free.png" /></a></li>
                                        <li><div align='center' class="visitor_count"><a>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div></li>
                                        <!-- <li><div align='center' class="visitor_count"><a>VISITORS<img src="http://hitwebcounter.com/counter/counter.php?page=6342609&style=0027&nbdigits=8&type=ip&initCount=0" border="0" ></a></li> -->
                                         <!-- <li>REGISTER</li> -->
@@ -336,8 +336,12 @@
             </div><!--  -->
            			</div><!--photos_holder-->
            </div><!--related_photos-->
-           <div class="video_comment fl" id="my-comment">
+           <!-- <div class="comment_heading">
+           	<h2>POST YOUR<b>COMMENTS</b></h2>
+           </div> -->
            
+           <div class="video_comment fl" id="comments-container">
+           		
            </div><!--video_comment-->
            <div class="related_photos fl visible-lg visible-md visible-sm">
            			<h2>RELATED <b>PHOTOS</b></h2>
@@ -383,12 +387,41 @@
 		<script type="text/javascript">
 	    	jQuery(document).ready(function(){
 			// Your other javascript code if any
-			
-		    $("#my-comment").EasyComment({
-		      path:"/easy-comment/", //Change it to the folder where you put the easycomment files
-		      moderate:false,
-		      maxReply:5
-		    });
+			$('#comments-container').comments({
+			    profilePictureURL: 'https://app.viima.com/static/media/user_profiles/user-icon.png',
+		    	roundProfilePictures: true,
+				textareaRows: 1,
+				enableReplying: false,
+				enableUpvoting: false,
+				refresh: function() {
+        			$('#comments-container').addClass('rendered');
+    	},
+			  
+			   postComment: function(commentJSON, success, error) {
+			        $.ajax({
+			            type: 'post',
+			            url: '/Thozha/comments.php?post_comment=true',
+			            data: commentJSON,
+			            success: function(comment) {
+			                success(comment);
+			                location.reload();
+			            },
+			            error: error
+			        });
+    		},
+    		 getComments: function(success, error) {
+			        $.ajax({
+			            type: 'get',
+			            url: '/Thozha/comments.php?get_comments=true',
+			            success: function(data) {
+			            	var commentsArray = $.parseJSON(data);
+			                success(commentsArray)
+			            },
+			            error: error
+			        });
+    		   },
+    		
+			});
 			// Your other javascript code if any
 			$('.image_poster').click(function(){
 			    var id = $(this).attr('data_url');
