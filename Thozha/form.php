@@ -15,12 +15,7 @@ session_start();
 	        		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     			}else{
 	    	 		move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
-<<<<<<< HEAD
-	        		$sql = "insert into contest (contest_email,contest_mobile,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["description"]."','".$target_file."','1')";
-=======
 	        		$sql = "insert into contest (contest_email,contest_mobile,contest_name,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["state"]."','".$_POST["description"]."','".$target_file."','1')";
-	        		
->>>>>>> 05d1bc69c35c7e42ef82d16c53e8fb13b3f1c929
 	        		mysql_query($sql);
 	        	?>
 		        <script>
