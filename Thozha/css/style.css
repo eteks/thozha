@@ -66,7 +66,7 @@ ul.nav.navbar-nav li {
     color: #000 !important;
     margin: 0 !important;
     padding: 0 !important;
-    width: 476px;
+    display: block;
     cursor: pointer;
 }
 .fl { float:left; }
@@ -1127,9 +1127,9 @@ border: 0;
 	}
 }
 .container_form{
-	left: 25px;
+	left: 0px;
     position: relative;
-    width: 340px;
+    width: 320px;
     top: 8%;
 }
 @media (min-width:789px){
@@ -1179,7 +1179,12 @@ border: 0;
 	}
 }
 .form-box {
-    margin: 30px 35px 0px 0px;
+    margin: 31px 36px 3px 20px;
+}
+@media (min-width:789px){
+	.form-box {
+    	margin: 30px 35px 0px 0px;
+	}
 }
 .form-box textarea{
 	border:1px solid #b4b4b4;
@@ -1204,7 +1209,7 @@ border: 0;
     width: 113px;
 }
 .photos_upload {
-	float: right;
+	float: left;
     margin: 20px 40px 0 20px;
 }
 .photos_upload label {
@@ -1239,10 +1244,10 @@ border: 0;
    	width: 100px;
 }
 .visitor_count {
-    left: 35px;
-    position: relative;
-    top: 40px;
     cursor: default;
+    position: absolute;
+    right: 35px;
+    top: 40px;
 }
 .visitor_count > a {
     color: #000;
@@ -1915,7 +1920,7 @@ border: 0;
     box-shadow: 5px 5px 6px #aeaeae;
     height: 100%;
     position: relative;
-    right: 270%;
+    right: 120%;
     width: 100%;
 }
 #signupform { 
@@ -1990,4 +1995,53 @@ input{
     font-size: 15px;
     position: relative;
     top: 35px;
+}
+.social_links{
+	background: url("../images/social_link.png");
+    background-color: white;
+    bottom: 0px;
+    float: right;
+    height: 125px;
+    position: relative;
+    width: 22px;
+    cursor: pointer;
+}
+.slider{
+    bottom: 0px;
+    float: right;
+    height: 125px;
+    position: relative;
+    width: 45px;
+    background-color: white;
+    border:1px solid transparent;
+    border-color: #f750a5;
+    cursor: pointer;
+}
+.icon1{
+	background:url("../images/facebook.png");
+	position: absolute;
+	/*display: none;*/
+	height: 28px;
+	width: 28px;
+	top: 5px;
+	left:5px;
+
+}
+.icon2{
+	background:url("../images/youtube.png");
+	position: absolute;
+	/*display: none;*/
+	height: 28px;
+	width: 28px;
+	top: 45px;
+	left:5px;
+}
+.icon3{
+	background:url("../images/twitter.png");
+	position: absolute;
+	/*display: none;*/
+	height: 28px;
+	width: 28px;
+	top: 85px;
+	left:5px;
 }
