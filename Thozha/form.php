@@ -2,7 +2,7 @@
 session_start();
 ?>
 <?php 
-	//include('dbcon.php');
+	include('dbcon.php');
 	if (isset($_POST["submit"])) {
 		//***************commented by muthu for admin purpose***************//
 		if(isset($_POST['captcha'])){
@@ -15,7 +15,12 @@ session_start();
 	        		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     			}else{
 	    	 		move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
+<<<<<<< HEAD
 	        		$sql = "insert into contest (contest_email,contest_mobile,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["description"]."','".$target_file."','1')";
+=======
+	        		$sql = "insert into contest (contest_email,contest_mobile,contest_name,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["state"]."','".$_POST["description"]."','".$target_file."','1')";
+	        		
+>>>>>>> 05d1bc69c35c7e42ef82d16c53e8fb13b3f1c929
 	        		mysql_query($sql);
 	        	?>
 		        <script>
@@ -105,7 +110,7 @@ session_start();
                 </div>
                 <div class="form-group">
                     <label>Enter City/State</label><br>
-                    <input type="text" class="input-block-level form_align state" name='phone' data-validation="number" autocomplete="off">
+                    <input type="text" class="input-block-level form_align state" name='state' data-validation="number" autocomplete="off">
                 </div>
                 <div class="form-group">
 	          		<label>Enter your Comments</label><br>
@@ -130,12 +135,13 @@ session_start();
          	<label>UPLOAD</label>
       		<div class="form-group photo-browse">
                 <!--<label>Upload Your Photo</label>-->
-                <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie">
+                <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie" >
                 <!-- <button>UPLOAD</button> -->
                  <div id="image-holder"></div>
             </div>
    		</div><!--photos_upload-->
       </div><!--uploads-->
+
        </form>
     </div><!-- container -->
    </div><!-- contest_wrapper -->
