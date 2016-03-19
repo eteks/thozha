@@ -4,14 +4,17 @@
     <?php include('navbar.php') ?>
     <div class="container-fluid">
         <div class="row-fluid">
-            <div id="block_bg" class="block">
+        	<?php include('sidebar_dashboard.php'); ?>
+        	<div class="span9" id="content">
+                <div class="row-fluid"></div>
+                	<div class="row-fluid">
+            			<div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Thozha</div>
+                                <div class="muted pull-left">Selfie Contest</div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
                                     <table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
-                                        
                                         <thead>
                                             <tr>
                                                 <th>S.No</th>
@@ -44,6 +47,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
         </div>
          <script src="js/lightbox-plus-jquery.js"></script>
         <?php include('footer.php'); ?>

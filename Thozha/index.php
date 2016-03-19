@@ -1,3 +1,6 @@
+<?php
+include('dbcon.php');
+?>
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
@@ -96,7 +99,7 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-2 col-xs-4">
                             <div class="logo">
-                             	<a href="index.html"><img src="images/logo.png"></a>
+                             	<a href="index.php"><img src="images/logo.png"></a>
                              	
                                 <div class="navbar-header">
                                     <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -143,51 +146,69 @@
 		<div class="social_links slider_show"> </div><!-- social_links -->
         </div><!-- slider_holder -->
         <div class="container container_bg">
+        	<?php
+           		$sql1 = "select * from related_video order by related_video_id desc limit 1";
+           		$query1 = mysql_query($sql1);
+           		while($row1= mysql_fetch_array($query1)){
+           		?>
            <div class="video_holder fl visible-lg desktop_video">
-           		<iframe width="623" height="340" src="https://www.youtube.com/embed/EaxHnDbsfws" frameborder="0" allowfullscreen></iframe>
+           		<iframe width="623" height="340" src="https://www.youtube.com/embed/<?php echo $row1['video_url'] ?>" frameborder="0" allowfullscreen></iframe>
            </div><!-- video_holder -->
            <div class="video_holder fl visible-xs mobile_video">
-           		<iframe width="260" height="200" src="https://www.youtube.com/embed/EaxHnDbsfws" frameborder="0" allowfullscreen></iframe>
+           		<iframe width="260" height="200" src="https://www.youtube.com/embed/<?php echo $row1['video_url'] ?>" frameborder="0" allowfullscreen></iframe>
            </div><!-- video_holder https://www.youtube-nocookie.com/embed/J9pvhzgeKZE-->
            <div class="related_vedios fl"> 
+           		<?php
+           		}
+           		?>
            	<h2>RELATED <b>VIDEOS</b></h2>
            	<ul>
+           		<?php
+           		$sql = "select * from related_video order by related_video_id desc limit 3";
+           		$query = mysql_query($sql);
+           		while($row= mysql_fetch_array($query)){
+					$content = file_get_contents("http://youtube.com/get_video_info?video_id=".$row['video_url']);
+					parse_str($content, $ytarr);
+           		?>
            		<li>
            			<div class="related_vedios_holder">
-           				<div class="image_poster fl" data_url = "https://www.youtube.com/embed/EaxHnDbsfws">
-           					<a><img src="images/related_video1.png"/></a>
+           				<div class="image_poster fl" data_url = "https://www.youtube.com/embed/<?php echo $row['video_url']; ?>">
+           					<a><img src="http://img.youtube.com/vi/<?php echo $row['video_url'] ?>/3.jpg"/></a>
            				</div><!-- image_poster -->
-           				<div class="image_info fl" data_url = "https://www.youtube.com/embed/EaxHnDbsfws">
-           					<h3><a>Thozha Theatrical Trailer</a></h3>
+           				<div class="image_info fl" data_url = "https://www.youtube.com/embed/<?php echo $row['video_url']; ?>">
+           					<h3><a><?php  echo $ytarr['title']; ?></a></h3>
            					<span></span>
            				</div>
            				<div class="clear_both"> </div>
            			</div><!-- related_vedios_holder -->
            		</li>
-           		<li>
+           		<?php
+           		}
+           		?>
+           		<!-- <li>
            			<div class="related_vedios_holder">
            				<div class="image_poster fl" data_url="https://www.youtube.com/embed/zZ56bTZtKlA">
            					<a><img src="images/related_video2.png"/></a>
-           				</div><!-- image_poster -->
+           				</div><!- image_poster ->
            				<div class="image_info fl" data_url="https://www.youtube.com/embed/zZ56bTZtKlA">
            					<h3><a >THOZHA full audio launch | Karthi | Nagarjuna | Tamannaah | Gopi Sundar </a></h3>
            					<span></span>
            				</div>
            				<div class="clear_both"> </div>
-           			</div><!-- related_vedios_holder -->
+           			</div><!- related_vedios_holder ->
            		</li>
            		<li>
            			<div class="related_vedios_holder">
            				<div class="image_poster fl" data_url="https://www.youtube.com/embed/O36B6U5aguA">
            					<a><img src="images/related_video3.png"/></a>
-           				</div><!-- image_poster -->
+           				</div><!- image_poster ->
            				<div class="image_info fl" data_url="https://www.youtube.com/embed/O36B6U5aguA">
            					<h3><a>Thozha Audio Jukebox | Karthi | Nagarjuna | Tamannah | Gopi Sundar </a></h3>
            					<span></span>
            				</div>
            				<div class="clear_both"> </div>
-           			</div><!-- related_vedios_holder -->
-           		</li>
+           			</div><!- related_vedios_holder >
+           		</li> -->
            	</ul>
            </div><!-- related_vedios -->
            <div class="clear_both"> </div>
@@ -359,12 +380,22 @@
                   <img src="images/1.jpg" alt="" />                                        </div><!-- product_angle -->
                  <div class="idp_views_tab">
                      <div class="view_gallery" id="black" style="display:block;">
-                         <span class="view_glallery_opacity"><img src="images/1_t.jpg" alt="" /></span>
-                         <div><img src="images/1.jpg" alt="" /></div>
-                         <span><img src="images/2_t.jpg" alt="" /></span>
+                     	<?php
+			           		$sql2 = "select * from related_image order by related_image_id desc limit 9";
+			           		$query2 = mysql_query($sql2);
+			           		while($row2= mysql_fetch_array($query2)){
+           				?>
+                         <span class="view_glallery_opacity"><img src="admin/uploads/thumb/<?php $row2['image'] ?>" alt="" /></span>
+                         <div><img src="admin/uploads/original/<?php $row2['image'] ?>" alt="" /></div>
+                         <?php
+                        }
+                         ?>
+                         <!-- <span><img src="images/2_t.jpg" alt="" /></span>
                          <div><img src="images/2.jpg" alt="" /></div>
+                         
                          <span><img src="images/3_t.jpg" alt="" /></span>
                          <div><img src="images/3.jpg" alt="" /></div>
+                         
                          <span><img src="images/4_t.jpg" alt="" /></span>
                          <div><img src="images/4.jpg" alt="" /></div>
                          <span><img src="images/5_t.jpg" alt="" /></span>
@@ -376,7 +407,7 @@
                          <span><img src="images/8_t.jpg" alt="" /></span>
                          <div><img src="images/8.jpg" alt="" /></div>
                          <span><img src="images/9_t.jpg" alt="" /></span>
-                         <div><img src="images/9.jpg" alt="" /></div>
+                         <div><img src="images/9.jpg" alt="" /></div> -->
                
                      </div><!-- view_gallery -->
                      <div class="clear_both"></div>
@@ -397,28 +428,31 @@
            			<div class="photos_holder">
            	<div class="idp_shoe_gallery">
               <div id="product_angle">
-                  <img src="images/1.jpg" alt="" />                                        </div><!-- product_angle -->
+              	<?php
+			           		$sql3 = "select * from related_image order by related_image_id desc limit 1";
+			           		$query3 = mysql_query($sql3);
+			           		while($row3= mysql_fetch_array($query3)){
+           				?>
+                  <img src="admin/uploads/original/<?php echo $row3['image']; ?>" alt="" />    
+                   <?php
+                        }
+                     ?>                                    </div><!-- product_angle -->
                  <div class="idp_views_tab">
                      <div class="view_gallery" id="black" style="display:block;">
-                         <span class="view_glallery_opacity"><img src="images/1_t.jpg" alt="" /></span>
-                         <div><img src="images/1.jpg" alt="" /></div>
-                         <span><img src="images/2_t.jpg" alt="" /></span>
-                         <div><img src="images/2.jpg" alt="" /></div>
-                         <span><img src="images/3_t.jpg" alt="" /></span>
-                         <div><img src="images/3.jpg" alt="" /></div>
-                         <span><img src="images/4_t.jpg" alt="" /></span>
-                         <div><img src="images/4.jpg" alt="" /></div>
-                         <span><img src="images/5_t.jpg" alt="" /></span>
-                         <div><img src="images/5.jpg" alt="" /></div>
-                         <span><img src="images/6_t.jpg" alt="" /></span>
-                         <div><img src="images/6.jpg" alt="" /></div>
-                         <span><img src="images/7_t.jpg" alt="" /></span>
-                         <div><img src="images/7.jpg" alt="" /></div>
-                         <span><img src="images/8_t.jpg" alt="" /></span>
-                         <div><img src="images/8.jpg" alt="" /></div>
-                         <span><img src="images/9_t.jpg" alt="" /></span>
-                         <div><img src="images/9.jpg" alt="" /></div>
-               
+                     	<?php
+			           		$sql2 = "select * from related_image order by related_image_id desc limit 9";
+			           		$query2 = mysql_query($sql2);
+			           			$j=1;	
+			           		while($row2= mysql_fetch_array($query2)){
+			           	
+           				?>
+                         <span <?php if($j==1){ echo "class='view_glallery_opacity'"; }?>><img src="admin/uploads/thumb/<?php echo $row2['image']; ?>" alt="" /></span>
+                         <div><img src="admin/uploads/original/<?php echo $row2['image']; ?>" alt="" /></div>
+                         <?php
+                         $j++;
+                        }
+                         ?>
+                    
                      </div><!-- view_gallery -->
                      <div class="clear_both"></div>
                  </div><!-- idp_views_tab -->

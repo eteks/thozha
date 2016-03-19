@@ -8,12 +8,132 @@ session_start();
 		$target_dir = "uploads/";
 		$target_file = $target_dir . basename($_FILES["photo"]["name"]);
 		$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-		$check = getimagesize($_FILES["photo"]["tmp_name"]);
+		// $check = getimagesize($_FILES["photo"]["tmp_name"]);
+		// //thumbnail
+		// $add="uploads/".$_FILES['photo']['name'];
+		// $value = explode('.', $_FILES['photo']['name']);
+		// $tsrc="uploads/".$value[0].'_t.'.$value[1];
+// 		
+		// $n_width=200;
+		// $n_height=200;
+		// if($_FILES['photo']['type']=="image/jpeg"){
+			// $im=ImageCreateFromJPEG($add); 
+			// $width=ImageSx($im);              // Original picture width is stored
+			// $height=ImageSy($im);             // Original picture height is stored
+			// $n_height=($n_width/$width) * $height; // Add this line to maintain aspect ratio
+			// $newimage=imagecreatetruecolor($n_width,$n_height);                 
+			// imageCopyResized($newimage,$im,0,0,0,0,$n_width,$n_height,$width,$height);
+			// imagejpeg($newimage,$tsrc);
+			// chmod("$tsrc",0777);
+		// }
+		// if($_FILES['photo']['type']=="image/png"){
+			// $im=imagecreatefrompng($add); 
+			// $width=ImageSx($im);              // Original picture width is stored
+			// $height=ImageSy($im);             // Original picture height is stored
+			// $n_height=($n_width/$width) * $height; // Add this line to maintain aspect ratio
+			// $newimage=imagecreatetruecolor($n_width,$n_height);                 
+			// imageCopyResized($newimage,$im,0,0,0,0,$n_width,$n_height,$width,$height);			
+			// move_uploaded_file($_FILES["photo"]["tmp_name"], imagepng($newimage,$tsrc));
+			// chmod("$tsrc",0777);
+		// }
+		// if($_FILES['photo']['type']=="image/gif"){
+			// $im=imagecreatefromgif($add); 
+			// $width=ImageSx($im);              // Original picture width is stored
+			// $height=ImageSy($im);             // Original picture height is stored
+			// $n_height=($n_width/$width) * $height; // Add this line to maintain aspect ratio
+			// $newimage=imagecreatetruecolor($n_width,$n_height);                 
+			// imageCopyResized($newimage,$im,0,0,0,0,$n_width,$n_height,$width,$height);
+			// imagegif($newimage,$tsrc);
+			// chmod("$tsrc",0777);
+		// }
+		
+		
+		
+		
+// Below lines are to display file name, temp name and file type , you can use them for testing your script only//////
+
+///////////////////////////////////////////////////////////////////////////
+$add="uploads/original/".$_FILES['photo']['name']; // the path with the file name where the file will be stored, upload is the directory name. 
+//echo $add;
+if(move_uploaded_file ($_FILES['photo']['tmp_name'],$add)){
+//echo "Successfully uploaded the mage";
+chmod("$add",0777);
+
+}else{
+//echo "Failed to upload file Contact Site admin to fix the problem";
+exit;
+}
+
+///////// Start the thumbnail generation//////////////
+$n_width=200;          // Fix the width of the thumb nail images
+$n_height=200;         // Fix the height of the thumb nail imaage
+////////////////////////////////////////////
+
+$tsrc="uploads/thumb/".$_FILES['photo']['name'];   // Path where thumb nail image will be stored
+//echo $tsrc;
+if (!($_FILES['photo']['type'] =="image/jpeg" OR $_FILES['photo']['type']=="image/gif" OR $_FILES['photo']['type']=="image/png")){echo "Your uploaded file must be of JPG or GIF. Other file types are not allowed<BR>";
+exit;}
+/////////////////////////////////////////////// Starting of GIF thumb nail creation///////////
+if (@$_FILES['photo']['type']=="image/gif")
+{
+$im=ImageCreateFromGIF($add);
+$width=ImageSx($im);              // Original picture width is stored
+$height=ImageSy($im);                  // Original picture height is stored
+$n_height=($n_width/$width) * $height; // Add this line to maintain aspect ratio
+$newimage=imagecreatetruecolor($n_width,$n_height);
+imagealphablending($newimage, false);
+imagesavealpha($newimage,true);
+$transparent = imagecolorallocatealpha($newimage, 255, 255, 255, 127);
+imagefilledrectangle($newimage, 0, 0, $width, $height, $transparent); 
+imageCopyResized($newimage,$im,0,0,0,0,$n_width,$n_height,$width,$height);
+if (function_exists("imagegif")) {
+Header("Content-type: image/gif");
+ImageGIF($newimage,$tsrc);
+}
+elseif (function_exists("imagejpeg")) {
+Header("Content-type: image/jpeg");
+ImageJPEG($newimage,$tsrc);
+}
+chmod("$tsrc",0777);
+}////////// end of gif file thumb nail creation//////////
+
+////////////// starting of JPG thumb nail creation//////////
+if($_FILES['photo']['type']=="image/jpeg"){
+$im=ImageCreateFromJPEG($add); 
+$width=ImageSx($im);              // Original picture width is stored
+$height=ImageSy($im);             // Original picture height is stored
+$n_height=($n_width/$width) * $height; // Add this line to maintain aspect ratio
+$newimage=imagecreatetruecolor($n_width,$n_height);
+imagealphablending($newimage, false);
+imagesavealpha($newimage,true);
+$transparent = imagecolorallocatealpha($newimage, 255, 255, 255, 127);
+imagefilledrectangle($newimage, 0, 0, $width, $height, $transparent);                  
+imageCopyResized($newimage,$im,0,0,0,0,$n_width,$n_height,$width,$height);
+ImageJpeg($newimage,$tsrc);
+chmod("$tsrc",0777);
+}
+if($_FILES['photo']['type']=="image/png"){
+$im=imagecreatefrompng($add); 
+$width=ImageSx($im);              // Original picture width is stored
+$height=ImageSy($im);             // Original picture height is stored
+$n_height=($n_width/$width) * $height; // Add this line to maintain aspect ratio
+$newimage=imagecreatetruecolor($n_width,$n_height);      
+imagealphablending($newimage, false);
+imagesavealpha($newimage,true);
+$transparent = imagecolorallocatealpha($newimage, 255, 255, 255, 127);
+imagefilledrectangle($newimage, 0, 0, $width, $height, $transparent);           
+imageCopyResized($newimage,$im,0,0,0,0,$n_width,$n_height,$width,$height);
+imagepng($newimage,$tsrc);
+chmod("$tsrc",0777);
+}
+////////////////  End of JPG thumb nail creation //////////
+//echo "<br>width = ($width) $n_width , height = ($height) $n_height ";
+
 		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
     		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 		}else{
-	 		move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
-    		$sql = "insert into contest (contest_email,contest_mobile,contest_name,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["state"]."','".$_POST["description"]."','".$target_file."','1')";
+	 		//move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
+    		$sql = "insert into contest (contest_email,contest_mobile,contest_name,contest_comment,contest_image,contest_status) values ('".$_POST["email"]."','".$_POST["phone"]."','".$_POST["state"]."','".$_POST["description"]."','".$add."','1')";// changed add to $targetfil
     		mysql_query($sql);
 ?>
 		        <script>
@@ -104,7 +224,7 @@ session_start();
                     <div class="row">
                         <div class="col-md-3 col-sm-2 col-xs-4">
                             <div class="logo">
-                             	<a href="index.html"><img src="images/logo.png"></a>
+                             	<a href="index.php"><img src="images/logo.png"></a>
                              	
                                 <div class="navbar-header">
                                     <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -131,89 +251,66 @@ session_start();
   		</header><!--header_area-->	
     <div class="container container_form">
     	<h2>PARTICIPATE IN CON<b>TEST FOR FREE TICKETS</b></h2>
-       <div class="form-box fl">
-			<form enctype="multipart/form-data" method="post" id="tec_reg" role="form">
-                <div class="form-group">
-                    <label>Enter your email*</label><br>
-                    <input type="text" class="input-block-level form_align email" name='email' data-validation="email" autocomplete="off">
-                	<span class="error_msg">Please enter valid email</span>
-                </div>
-                <div class="form-group">
-                    <label>Enter your Mobile number*</label><br>
-                    <input type="text" class="input-block-level form_align mobile_number" name='phone' data-validation="number" autocomplete="off">
-                	<span class="error_msg">Mobile number should be 10 digit only!</span>
-                </div>
-                <div class="form-group">
-                    <label>Enter City/State*</label><br>
-                    <input type="text" class="input-block-level form_align state" name='state' data-validation="number" autocomplete="off">
-                    <span class="error_msg">Please enter state name or rcity!</span>
-                </div>
-                <div class="form-group">
-	          		<label>Enter your Comments</label><br>
-                    <textarea class="comment" name="description"></textarea>
-                </div>
-              	
-                
-         </div>
-         <div class="uploads fl">
-         	<div class="upload_info">
-         		<p>UPLOAD SELFIES</p>
-         	</div>
-      		<div class="preview">
-      			<span>Preview</span>
-      			
-
-      		</div><!--preview-->
-      		<span class="error_msg">please upload image as jpeg,jpg and png with 1 MB.</span>
-	         <div class="photos_upload fl">
-	         	<label>UPLOAD</label>
-	      		<div class="form-group photo-browse">
-	                <!--<label>Upload Your Photo</label>-->
-	                <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie" >
-	                <!-- <button>UPLOAD</button> -->
-	                 <div id="image-holder"></div>
-	                 
-	            </div>
-	            
-	   		</div><!--photos_upload-->
-	   		<div class="clear_both"></div>
-	   		<div class="form-group captcha">
-              		<img src="get_captcha.php" alt="" id="captcha" />
-              		
-              		<input name="code" type="text" id="code" autocomplete=off maxlength="6"/>
-              		<img src="images/refresh.png" width="25" alt="" id="refresh" />
-              		<span class="error_msg captacha_valid">please enter valid captcha</span>
-              	</div><!-- captcha -->
-      </div><!--uploads-->
-      <div class="clear_both"></div>
-      <div class="form-group">
-				   <button type="submit" class="btn-style contest_submit" name="submit" value="submit">SUBMIT</button>
+       
+			<form enctype="multipart/form-data" method="post" name="banner_signup_form" id="tec_reg" role="form" >
+				<div class="form-box fl">
+	                <div class="form-group">
+	                    <label>Enter your email*</label><br>
+	                    <input type="text" class="input-block-level form_align email" name='email' data-validation="email" autocomplete="off" >
+	                	<span class="error_msg">Please enter valid email</span>
+	                </div>
+	                <div class="form-group">
+	                    <label>Enter your Mobile number*</label><br>
+	                    <input type="text" maxlength="10" class="input-block-level form_align mobile_number" name='phone' data-validation="number" autocomplete="off" >
+	                	<span class="error_msg">Mobile number should be 10 digit only!</span>
+	                </div>
+	                <div class="form-group">
+	                    <label>Enter City/State*</label><br>
+	                    <input type="text" class="input-block-level form_align state" name='state' data-validation="number" autocomplete="off" >
+	                    <span class="error_msg">Please enter state name or city!</span>
+	                </div>
+	                <div class="form-group">
+		          		<label>Enter your Comments</label><br>
+	                    <textarea class="comment" name="description"></textarea>
+	                </div>
+         		</div>
+         		<div class="uploads fl">
+         			<div class="upload_info">
+         				<p>UPLOAD SELFIES</p>
+         			</div>
+      				<div class="preview">
+      					<span>Preview</span>
+      				</div><!--preview-->
+      				<span class="error_msg">please upload image as jpeg,jpg and png with 1 MB.</span>
+	         		<div class="photos_upload fl">
+	         			<label>UPLOAD</label>
+      					<div class="form-group photo-browse">
+	                	<!--<label>Upload Your Photo</label>-->
+	                		<input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie" >
+	                	<!-- <button>UPLOAD</button> -->
+	                 		<div id="image-holder"></div>
+	            		</div>
+	   				</div><!--photos_upload-->
+	   				<div class="clear_both"></div>
+	   				<div class="form-group captcha">
+              			<img src="get_captcha.php" alt="" id="captcha" />
+              			<input name="code" type="text" id="code" autocomplete=off maxlength="6" required/>
+              			<img src="images/refresh.png" width="25" alt="" id="refresh" />
+              			<span class="error_msg captacha_valid">please enter valid captcha</span>
+              		</div><!-- captcha -->
+      			</div><!--uploads-->
+      			<div class="clear_both"></div>
+      			<div class="form-group">
+				   <button type="button" class="btn-style contest_submit" name="submit" value="submit" >SUBMIT</button>
 				   <div class="clear_both"> </div>
 				</div>
-
-       </form>
+   			</form>
     </div><!-- container -->
    </div><!-- contest_wrapper -->
-   <script>
-  $(document).ready(function(){
-  	$('#code').blur(function(){
-  		var code = $(this).val();
-  		  $.ajax({
-             type: "POST",
-             url: "comments.php?captcha_check=true",
-             data: {'code':code},
-             cache: false,
-             success: function(data) {
-             	if(data.trim() == 'invalid'){
-             		$('.captacha_valid').show();
-             	}else{
-             		$('.captacha_valid').hide();
-             	}
-             }
-             
-         });
-  	
-  	});
+   <script type="text/javascript">
+	$(document).ready(function(){
+		
+
   	$('#refresh').click(function() {  
 			
 			change_captcha();
@@ -231,48 +328,71 @@ session_start();
 		$("#email").val('');
 		$("#message").val('');
 	 }
-  	$('.contest_submit').click(function(){
-  		$("input").each(function() {
-			   var element = $(this);
-			   if (element.val() == "") {
-			       $('.error_msg').css({'display':'block'});
-			   }else{
-			   		$('.error_msg').css({'display':'none'});
-			   }
-		});
-  		var sEmail = $('.email').val();
-		// Checking Empty Fields
-		if ($.trim(sEmail).length == 0 || !validateEmail(sEmail)) {
-			//alert('Email, Mobile and city fields are mandatory');
-			//e.preventDefault();
-			$('.email').next('.error_msg').css({'display':'block'});
-			//$('.error_msg').css({'display':'block'});
-			return false;
-		}else{
-			$('.email').next('.error_msg').css({'display':'none'});
-		}
-		if ($(".mobile_number").val()=="" || $(".mobile_number").val().length != 10){
-			$('.mobile_number').next('.error_msg').css({'display':'block'});
-			return false;
-		}else{
-			$('.mobile_number').next('.error_msg').css({'display':'none'});
-		}
-		if ( $(".state").val()=="" ){
-			$('.state').next('.error_msg').css({'display':'block'});
-			return false;
-		}
-		else{
-			$('.state').next('.error_msg').css({'display':'none'});
-		}
-		if( $("#uploadImage").files.length == 0 ){
-			$('.#uploadImage').next('.error_msg').css({'display':'block'});
-			return false;
-		}else{
+	 function validateEmail(sEmail) {
+		var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+		if (filter.test(sEmail)) {
 			return true;
 		}
-		
-	});
+		else {
+			return false;
+		}
+	  }
+  	$('.contest_submit').click(function(){
+  		
+  			var sEmail = $('.email').val();
+  			
+  			if (!validateEmail(sEmail) || sEmail == '') {
+  				
+				$('.email').next('.error_msg').addClass('db');
+				return false;
+			}else{
+				$('.email').next('.error_msg').removeClass('db');
+			}
+			if($(".mobile_number").val()==''||$(".mobile_number").val().length !=10){
+				$('.mobile_number').next('.error_msg').addClass('db');
+				return false;
+			}else{
+				$('.mobile_number').next('.error_msg').removeClass('db');
+			}		
+			if( $(".state").val() == '' ){
+				$('.state').next('.error_msg').addClass('db');
+				return false;
+			}else{
+				$('.state').next('.error_msg').removeClass('db');
+			}
+			if( $("#fileUpload").val() == '' ){
+				$('.preview').next('.error_msg').addClass('db');
+				return false;
+			}else{
+				$('.preview').next('.error_msg').removeClass('db');
+			}
+			if($("#code").val()=="" ){
+				$('.captacha_valid').addClass('db');
+				return false;
+			}
+			else{
+				var code = $("#code").val();
+		  		 $.ajax({
+		             type: "POST",
+		             url: "comments.php?captcha_check=true",
+		             data: {'code':code},
+		             cache: false,
+		             success: function(data) {
+		             	if(data.trim() == 'invalid'){
+		             		$('.captacha_valid').addClass('db');
+		             		return false;
+		             	}else{
+		             		return data;
+		             	}
+		         
+		             }
+				});
+		}
   });
+  $('#code').blur(function(){
+  		
+  });
+    		
   $(".mobile_number").keypress(function (e) {
      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
                return false;
@@ -283,21 +403,14 @@ session_start();
           size = files[0].size;
           //max size 50kb => 50*1000
           if( size > 1000*1000){
-             alert('Please upload less than 50kb file');
-             $('#image-holder').empty();
+             //alert('Please upload less than 50kb file');
+             $('.preview').empty();
+             $('.preview').next('.error_msg').addClass('db');
              return false;
           }
           return true;
      });
-  function validateEmail(sEmail) {
-	var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-		if (filter.test(sEmail)) {
-			return true;
-		}
-		else {
-			return false;
-		}
-  }
+  
    $("#fileUpload").on('change',function () {
  
      //Get count of selected files
@@ -329,11 +442,11 @@ session_start();
              alert("This browser does not support FileReader.");
          }
      } else {
-         alert("Pls select only images");
+         $('.preview').next('.error_msg').addClass('db');
      }
      
  });
+ 	});
    	</script>
 	</body>
-	
 </html>
