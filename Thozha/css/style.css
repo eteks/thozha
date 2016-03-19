@@ -1148,10 +1148,10 @@ border: 0;
 }
 @media (min-width:789px){
 	.container_form{
-		left: 50px;
+		 left: 50px;
 	    position: relative;
+	    top: 0;
 	    width: 825px;
-	    top: 8%;
 	}
 }
 .container_form h2 {
@@ -1221,6 +1221,22 @@ border: 0;
     font-weight: bold;
     height: 40px;
     width: 113px;
+	float:none !important;
+	margin:10px 0px 0px 13px;
+}
+@media (min-width:789px){
+	.btn-style{
+	background: #fdbc41 none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #510707;
+    font-family: Gotham;
+    font-size: 15px;
+    font-weight: bold;
+    height: 40px;
+    width: 113px;
+    margin:0px;
+    float:left !important;
+}
 }
 .photos_upload {
 	float: left;
@@ -1301,6 +1317,22 @@ border: 0;
 	    text-decoration:none;
 	}
 }
+.captcha {
+	position:relative;
+	width:200px;
+	margin:10px 0px 0px 0px;
+}
+.captcha input{
+	display:block;
+	border:1px solid #b4b4b4;
+	margin:10px 0px 0px 0px;
+}
+img#refresh{
+position:absolute;
+top:0px;
+cursor:pointer;
+right:0px;			
+		}
 /*.upload_selfie{
 	 background: #000 none repeat scroll 0 0;
     box-shadow: none;
@@ -2000,7 +2032,7 @@ input{
    	border-radius: 5px;
 }
 .uploads {
-    margin: 25px 0 0 15px;
+    margin: 0px 0 0 15px;
     width: 280px;
 }
 @media (min-width:789px){
