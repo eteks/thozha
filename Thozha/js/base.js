@@ -14,6 +14,10 @@ $(document).ready(function () {
 		  return false
 		  }, function(){
 	  });
+	  	$(".slider").hide();
+     	$(".social_links").on('click',function(){
+        $(".slider").toggle(150);
+     });
 });
 
 $(window).resize(function () {
