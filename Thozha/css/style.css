@@ -117,8 +117,15 @@ ul.nav.navbar-nav li {
 }
 .related_vedios {
 	margin:0px 0px 0px 15px;
-	width:339px;
+	width:300px;
 	position:relative;
+}
+@media (min-width:789px){
+	.related_vedios {
+		margin:0px 0px 0px 15px;
+		width:339px;
+		position:relative;
+	}
 }
 .related_vedios h2 {
 	font-family:Gotham;
@@ -748,13 +755,17 @@ border: 0;
 	}
 }
 .video_comment{
-	width: 290px;
+	width: 337px;
 	position: relative;
+	background: #fff none repeat scroll 0 0;
+	left:-15px;
 }
 @media (min-width:789px){
 	.video_comment{
 		width: 657px;
 		position: relative;
+		background:transparent;
+		left:auto;
 	}
 }
 .video_comment h2{
@@ -1144,7 +1155,7 @@ border: 0;
 	left: 0px;
     position: relative;
     width: 320px;
-    top: 8%;
+    top: 0px;
 }
 @media (min-width:789px){
 	.container_form{
@@ -1158,7 +1169,7 @@ border: 0;
 	color: #000;
     font-family: Gotham;
     margin: -25px 0 0;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     font-size: 19px;
 }
@@ -1222,7 +1233,7 @@ border: 0;
     height: 40px;
     width: 113px;
 	float:none !important;
-	margin:10px 0px 0px 13px;
+	margin:10px 0px 0px 25px;
 }
 @media (min-width:789px){
 	.btn-style{
@@ -1234,7 +1245,7 @@ border: 0;
     font-weight: bold;
     height: 40px;
     width: 113px;
-    margin:0px;
+    margin:0 0 0 6px;
     float:left !important;
 }
 }
@@ -1321,6 +1332,13 @@ border: 0;
 	position:relative;
 	width:200px;
 	margin:10px 0px 0px 0px;
+}
+@media (min-width:789px){
+	.captcha {
+		position:relative;
+		width:200px;
+		margin:30px 0px 0px 0px;
+	}
 }
 .captcha input{
 	display:block;
@@ -2032,7 +2050,7 @@ input{
    	border-radius: 5px;
 }
 .uploads {
-    margin: 0px 0 0 15px;
+    margin: 0px 0 0 25px;
     width: 280px;
 }
 @media (min-width:789px){
@@ -2054,6 +2072,18 @@ input{
     font-size: 11px;
     display: none;
     height: 2px;
+     width: 187px;
+}
+@media (min-width:789px){
+	.error_msg{
+		color:#f80104;
+		font-family: Gotham;
+		display: inherit;
+	    font-size: 11px;
+	    display: none;
+	    height: 2px;
+	    width: 300px;
+	}
 }
 #captcha {
     border: 1px solid #b4b4b4;
@@ -2126,7 +2156,7 @@ input{
 }
 .contest_btn > img {
     height: 100px;
-    left: 15px;
+    left: 30px;
     position: relative;
     right: 0;
     width: 187px;
@@ -2140,3 +2170,22 @@ input{
    		width: 90%;
 	}
 }
+.form-group p{
+	color: #dd1144;
+    display: inline;
+    margin: 0 0 0 3px;
+}
+.upload_note{
+	font-family: Gotham;
+    font-size: 10px;
+    color:#000;
+}
+@media (min-width:789px){
+	.upload_note{
+		font-family: Gotham;
+	    font-size: 14px;
+	    color:#000;
+	}
+}
+
+

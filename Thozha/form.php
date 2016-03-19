@@ -43,7 +43,7 @@ session_start();
 		<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Thozha New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - ComingSoon.net</title>
+        <title>Thozha New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - thozha.net</title>
 		<meta name="description" content="Check out the latest new movies coming soon to theaters &amp; video games to come to market. Read latest buzz &amp; watch exclusive trailers!"/>
 		<link rel="canonical" href="http://thozha.net" />
 		<link rel="next" href="http://thozha.net/" />
@@ -86,14 +86,40 @@ session_start();
 		    z-index: 9999 !important;
 		}
 		.logo {
-    		margin: 15px 0 0 85px !important;
+    		margin: 10px 0 0 5px !important;
+		}
+		@media (min-width:789px){
+			.logo {
+    			margin: 15px 0 0 85px !important;
+			}
 		}
 		.visitor_count {
 		    cursor: default !important;
+		    left: 15px !important;
 		    position: absolute !important;
-		    right: 126px !important;
-		    top: 14px !important;
+		    right: 0 !important;
+		    top: 40px !important;
 		    width: 213px !important;
+		}
+		@media (min-width:789px){
+			.visitor_count {
+			    cursor: default !important;
+			    position: absolute !important;
+			    right: 126px !important;
+			    top: 14px !important;
+			    width: 213px !important;
+			    left: auto !important;
+			}
+		}
+		.logo img {
+		    height: 65px !important;
+		    width: 100px !important;
+		}
+		@media (min-width:789px){
+			.logo img {
+			    height: 65px !important;
+			    width: 100px !important;
+			}
 		}
 	</style>
 	<body class="bg_form form_body">
@@ -104,7 +130,7 @@ session_start();
                     <div class="row">
                         <div class="col-md-3 col-sm-2 col-xs-4">
                             <div class="logo">
-                             	<a href="index.html"><img src="images/logo.png"></a>
+                             	<a href="home.html"><img src="images/logo.png"></a>
                              	
                                 <div class="navbar-header">
                                     <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -134,17 +160,17 @@ session_start();
        <div class="form-box fl">
 			<form enctype="multipart/form-data" method="post" id="tec_reg" role="form">
                 <div class="form-group">
-                    <label>Enter your email*</label><br>
+                    <label>Enter your email<p>*</p></label><br>
                     <input type="text" class="input-block-level form_align email" name='email' data-validation="email" autocomplete="off">
                 	<span class="error_msg">Please enter valid email</span>
                 </div>
                 <div class="form-group">
-                    <label>Enter your Mobile number*</label><br>
+                    <label>Enter your Mobile number<p>*</p></label><br>
                     <input type="text" class="input-block-level form_align mobile_number" name='phone' data-validation="number" autocomplete="off">
                 	<span class="error_msg">Mobile number should be 10 digit only!</span>
                 </div>
                 <div class="form-group">
-                    <label>Enter City/State*</label><br>
+                    <label>Enter City/State<p>*</p></label><br>
                     <input type="text" class="input-block-level form_align state" name='state' data-validation="number" autocomplete="off">
                     <span class="error_msg">Please enter state name or rcity!</span>
                 </div>
@@ -164,19 +190,22 @@ session_start();
       			
 
       		</div><!--preview-->
-      		<span class="error_msg">please upload image as jpeg,jpg and png with 1 MB.</span>
+      		
 	         <div class="photos_upload fl">
 	         	<label>UPLOAD</label>
 	      		<div class="form-group photo-browse">
 	                <!--<label>Upload Your Photo</label>-->
 	                <input id="fileUpload" type="file" name="photo" data-validation="mime size required" data-validation-allowing="jpg, png" data-validation-max-size="2M" class="upload_selfie" >
 	                <!-- <button>UPLOAD</button> -->
+	               
+	                <span class="error_msg">Please upload image</span>
 	                 <div id="image-holder"></div>
 	                 
 	            </div>
 	            
 	   		</div><!--photos_upload-->
 	   		<div class="clear_both"></div>
+	   		<span class="upload_note">Hint: Upload JPG,JPEG,PNG images with 1 MB only</span>
 	   		<div class="form-group captcha">
               		<img src="get_captcha.php" alt="" id="captcha" />
               		
@@ -187,7 +216,8 @@ session_start();
       </div><!--uploads-->
       <div class="clear_both"></div>
       <div class="form-group">
-				   <button type="submit" class="btn-style contest_submit" name="submit" value="submit">SUBMIT</button>
+      				<button type="submit" class="btn-style contest_submit" name="submit" value="submit">SUBMIT</button>
+				   <button type="reset" class="btn-style contest_submit" name="submit" value="clear">CLEAR</button>
 				   <div class="clear_both"> </div>
 				</div>
 
