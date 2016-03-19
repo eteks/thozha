@@ -12,6 +12,14 @@
     height: 100%;
     width: 100%;
 }
+.logo {
+    margin:10px 0px 0px 0px;
+}
+@media (min-width:789px){
+	.logo {
+	    margin:0px;
+	}
+}
 .header_area{
 	background: rgba(0, 0, 0, 0) url("../images/header_img.jpg") no-repeat scroll center center / cover ;
     height: 100px;
@@ -40,7 +48,7 @@ ul.nav.navbar-nav li {
     font-size: 14px;
     font-weight: 700;
     color: #000000;
-    cursor: pointer;
+    cursor: default;
 }
 @media (min-width:789px){
 	ul.nav.navbar-nav li {
@@ -50,7 +58,7 @@ ul.nav.navbar-nav li {
 	    font-size: 14px;
 	    font-weight: 700;
 	    color: #000000;
-	    cursor: pointer;
+	    cursor: default;
 	}
 }
 .contest_btn, .contest_btn:hover {
@@ -59,6 +67,7 @@ ul.nav.navbar-nav li {
     margin: 0 !important;
     padding: 0 !important;
     width: 476px;
+    cursor: default;
 }
 .fl { float:left; }
 .fr { float:right; }
@@ -889,9 +898,16 @@ border: 0;
 }
 .photos_holder{
 	background-color: #fff;
-    height: 550px;
+    height: 505px;
     margin: 29px -17px 0;
     width: 340px;
+}
+.background_none, .background_none:hover {
+	background:none !important;
+	color:#000 !important;
+	border-radius:0px !important;
+	text-decoration:none !important;
+    line-height:inherit !important;
 }
 @media (min-width:789px){
 	.photos_holder{
@@ -946,7 +962,20 @@ border: 0;
 	width:100px;
 	margin: 0 0 0 10px;
 }
-.footer span{
+
+
+.footer span {
+    color: #000;
+    float: left;
+    font-family: Arial;
+    font-size: 9px;
+    font-weight: bold;
+    left: 4px;
+    position: relative;
+    top: 13px;
+}
+@media (min-width:789px){
+	.footer span {
 	color: #000;
     float: left;
     font-family: Arial;
@@ -955,7 +984,10 @@ border: 0;
     top: 20px;
     left: 20px;
     font-weight:bold;
+	}
 }
+
+
 .footer {
     bottom: 0;
     height: 30px;
@@ -963,8 +995,22 @@ border: 0;
     text-align: center;
     width: 100%;
 }
-.footer > p {
+
+
+.footer p {
     color: #000;
+    font-weight:bold;
+    float: right;
+    font-family: Arial;
+    margin: 0;
+    position: relative;
+    top: 12px;
+    right: 10px;
+    font-size:11px;
+}
+@media (min-width:789px){
+	.footer p {
+	color: #000;
     font-weight:bold;
     float: right;
     font-family: Arial;
@@ -972,7 +1018,13 @@ border: 0;
     position: relative;
     top: 20px;
     right: 20px;
+    font-size: 13px;
+	}
 }
+
+
+
+
 .footer > p > a {
 	text-decoration:none;
 	font-weight: bold;
@@ -1112,7 +1164,17 @@ border: 0;
     width: 113px;
 }
 .photos_upload {
-	margin:20px 0px 0px 0px;
+	float: right;
+    margin: 20px 40px 0 20px;
+}
+.photos_upload label {
+	color: #510707;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    left: 10px;
+    position: relative;
+    top: 32px;	
 }
 .social_links{
 	list-style-type: none;
@@ -1140,12 +1202,15 @@ border: 0;
     left: 35px;
     position: relative;
     top: 40px;
+    cursor: default;
 }
 .visitor_count > a {
     color: #000;
     font-family: Arial;
     font-size: 18px;
     font-weight: normal;
+    cursor: default;
+    text-decoration:none;
 }
 /*.upload_selfie{
 	 background: #000 none repeat scroll 0 0;
@@ -1800,4 +1865,56 @@ border: 0;
 .image_poster,.image_info{
 	cursor:pointer;
 }
-
+#image-holder {
+	width:100px;
+	height:100px;
+}
+#image-holder img{
+	border: 6px solid #fff;
+    bottom: 75%;
+    height: 100%;
+    position: relative;
+    right: 290%;
+    width: 100%;
+    box-shadow: 5px 5px 6px #aeaeae;
+}
+#signupform { 
+    padding-left: 40px;
+     font-size: 15px;
+  
+}
+#signUpText {    
+  font-family: Monaco, Verdana, Sans-serif; 
+    font-size: 13px;
+}
+input{
+   font-size: 15px;
+ 
+}
+.status {
+	color:crimson;
+    font-family: arial,helvetica,sans-serif;
+    font-size:14px;
+}
+.photos_upload input {
+    display: block !important;
+    width: 78px !important;
+    height: 30px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+}
+.photo-browse{
+	width: 78px;
+    height: 30px;
+   	background: #fdbc41;
+}
+.uploads {
+    margin: 25px 0 0 15px;
+    width: 420px;
+}
+.upload_info p{
+	font-size:16px;
+	font-family: Gotham;
+	line-height: 1.5;
+}
