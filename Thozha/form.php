@@ -185,34 +185,41 @@ session_start();
 		$("#message").val('');
 	 }
   	$('.contest_submit').click(function(){
+  		$("input").each(function() {
+			   var element = $(this);
+			   if (element.val() == "") {
+			       $('.error_msg').css({'display':'block'});
+			   }else{
+			   		$('.error_msg').css({'display':'none'});
+			   }
+		});
   		var sEmail = $('.email').val();
 		// Checking Empty Fields
-		if ($.trim(sEmail).length == 0) {
+		if ($.trim(sEmail).length == 0 || !validateEmail(sEmail)) {
 			//alert('Email, Mobile and city fields are mandatory');
 			//e.preventDefault();
-			$('.error_msg').css({'display':'block'});
+			$('.email').next('.error_msg').css({'display':'block'});
+			//$('.error_msg').css({'display':'block'});
+			return false;
+		}else{
+			$('.email').next('.error_msg').css({'display':'none'});
+		}
+		if ($(".mobile_number").val()=="" || $(".mobile_number").val().length != 10){
+			$('.mobile_number').next('.error_msg').css({'display':'block'});
+			return false;
+		}else{
+			$('.mobile_number').next('.error_msg').css({'display':'none'});
+		}
+		if ( $(".state").val()=="" ){
+			$('.state').next('.error_msg').css({'display':'block'});
 			return false;
 		}
-		else if ($(".mobile_number").val()==""){
-			$('.error_msg').css({'display':'block'});
-			return false;
+		else{
+			$('.state').next('.error_msg').css({'display':'none'});
 		}
-		else if ( $(".state").val()=="" ){
+		if( $("#uploadImage").files.length == 0 ){
+			$('.#uploadImage').next('.error_msg').css({'display':'block'});
 			return false;
-		}
-		else if ($('#uploadImage').val() == ''){
-			return false;
-		}
-		else if (!validateEmail(sEmail)) {
-			$('.error_msg').css({'display':'block'});
-			//alert('Invalid Email Address');
-			//e.preventDefault();
-			return false;
-		}else if($('.mobile_number').val().length != 10 ){
-			$('.error_msg').css({'display':'block'});
-			//alert('Mobile number should be 10 digit only!');
-			return false;
-			
 		}else{
 			return true;
 		}

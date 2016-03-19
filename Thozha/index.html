@@ -54,7 +54,10 @@
 				textareaRows: 1,
 				enableReplying: false,
 				enableUpvoting: false,
-				currentUserIsAdmin: true,
+				enableEditing: false,
+				fieldMappings: {
+			       fullname: 'anonymous',
+    		    },
 				refresh: function() {
         			$('#comments-container').addClass('rendered');
     			},

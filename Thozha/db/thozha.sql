@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2016 at 12:35 PM
+-- Generation Time: Mar 19, 2016 at 12:13 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -23,6 +23,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `comment_id` int(11) NOT NULL,
+  `content` varchar(500) DEFAULT NULL,
+  `created` varchar(250) DEFAULT '0000-00-00 00:00:00',
+  `fullname` varchar(100) DEFAULT NULL,
+  `id` varchar(10) DEFAULT NULL,
+  `modified` varchar(250) DEFAULT NULL,
+  `parent` varchar(50) DEFAULT NULL,
+  `profile_picture_url` varchar(255) DEFAULT NULL,
+  `upvote_count` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `contest`
 --
 
@@ -36,24 +54,6 @@ CREATE TABLE `contest` (
   `contest_status` tinyint(1) NOT NULL,
   `contest_create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `contest`
---
-
-INSERT INTO `contest` (`contest_id`, `contest_name`, `contest_email`, `contest_mobile`, `contest_comment`, `contest_image`, `contest_status`, `contest_create_date`) VALUES
-(12, '', 'test@gmail.com', 2147483647, 'teststestest', 'uploads/Desert.jpg', 1, '2016-03-18 08:16:25'),
-(13, '', 'test@gmail.com', 2147483647, 'teststestest', 'uploads/Desert.jpg', 1, '2016-03-18 08:17:15'),
-(14, '', 'asdfasdf@sgfsa.com', 2147483647, 'asdfasdfa sdfgasdfasdf', 'uploads/Penguins.jpg', 1, '2016-03-18 08:27:38'),
-(15, '', 'asdfkjkasjdflksj@gmail.com', 2147483647, 'asdfasdfasdfasdf', 'uploads/Koala.jpg', 1, '2016-03-18 08:32:32'),
-(16, '', 'testtest@gmail.com', 2147483647, 'qerqwerqwre', 'uploads/Hydrangeas.jpg', 1, '2016-03-18 08:34:33'),
-(17, '', 'sfgas@fasdf.com', 0, 'asdfasdf', 'uploads/Lighthouse.jpg', 1, '2016-03-18 09:09:11'),
-(18, '', 'asdfasd@dfgsg.com', 2147483647, 'asdxczvcxzv', 'uploads/Tulips.jpg', 1, '2016-03-18 09:09:27'),
-(19, '', 'asdfasdfwe@sdfgfsd.com', 0, 'werwerwer', 'uploads/Chrysanthemum.jpg', 1, '2016-03-18 09:09:43'),
-(20, '', 'dfgsfg@sdfsdf.com', 2147483647, 'asdfasdfdasfas', 'uploads/Desert.jpg', 1, '2016-03-18 09:10:41'),
-(21, '', 'asdfasdf@sfgsdf.com', 2147483647, 'asdfasdfasd', 'uploads/Koala.jpg', 1, '2016-03-18 09:10:55'),
-(22, '', 'xsdfgasdfga@dfgdsfg.com', 0, 'asdfasdf', 'uploads/Hydrangeas.jpg', 1, '2016-03-18 09:11:31'),
-(23, '', 'test@gmail.com', 2147483647, 'test', 'uploads/Tulips.jpg', 1, '2016-03-18 11:29:54');
 
 -- --------------------------------------------------------
 
@@ -93,6 +93,12 @@ INSERT INTO `users` (`user_id`, `user_type`, `username`, `password`, `firstname`
 --
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`comment_id`);
+
+--
 -- Indexes for table `contest`
 --
 ALTER TABLE `contest`
@@ -110,15 +116,20 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
 -- AUTO_INCREMENT for table `contest`
 --
 ALTER TABLE `contest`
-  MODIFY `contest_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `contest_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
