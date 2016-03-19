@@ -76,18 +76,59 @@ session_start();
 		<script src="js/base.js" type="text/javascript"></script>
 		<script src="js/bootstrap.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/captcha.js"></script>
-		<style>
-			img#refresh{
-			float:left;
-			margin-top:30px;
-			margin-left:4px;
-			cursor:pointer;
-		}
-		</style>
+		
 	</head>
+	<style>
+		.header_area{
+			background:transparent !important;
+			height: 130px !important;
+		    width: 100% !important;
+		    z-index: 9999 !important;
+		}
+		.logo {
+    		margin: 15px 0 0 85px !important;
+		}
+		.visitor_count {
+		    cursor: default !important;
+		    position: absolute !important;
+		    right: 126px !important;
+		    top: 14px !important;
+		    width: 213px !important;
+		}
+	</style>
 	<body class="bg_form form_body">
-	
-  	<div class="contest_wrapper">	
+  	<div class="contest_wrapper">
+  		<header class="header_area">
+            <div class="container">
+                <div class="header_content">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-2 col-xs-4">
+                            <div class="logo">
+                             	<a href="index.html"><img src="images/logo.png"></a>
+                             	
+                                <div class="navbar-header">
+                                    <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"> </span>
+                                        <span class="icon-bar"> </span>
+                                        <span class="icon-bar"> </span>
+                                    </button>  -->
+                                </div><!--navbar-header-->                           
+                            </div><!--logo-->
+                        </div><!--col-md-3-->                                  
+                        <div class="col-md-9 col-sm-10 nav_area visible-lg">
+                        	<!-- <a class="contest_btn" href="form.php"><img src="images/ticket_free.png" /></a> -->
+                        	<div align='center' class="visitor_count"><a>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
+                        </div><!--nav_area-->
+                        
+                        <div class="col-md-9 col-sm-10 col-xs-8 nav_area visible-xs">
+                        	
+                        	<div align='center' class="visitor_count"><a>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
+                        </div><!--nav_area-->
+                    </div><!--row-->
+                </div><!--header_content-->
+            </div><!--container-->
+  		</header><!--header_area-->	
     <div class="container container_form">
     	<h2>PARTICIPATE IN CON<b>TEST FOR FREE TICKETS</b></h2>
        <div class="form-box fl">
@@ -111,16 +152,8 @@ session_start();
 	          		<label>Enter your Comments</label><br>
                     <textarea class="comment" name="description"></textarea>
                 </div>
-              	<div class="form-group">
-              		<img src="get_captcha.php" alt="" id="captcha" />
-              		
-              		<input name="code" type="text" id="code" autocomplete=off maxlength="6"/>
-              		<img src="images/refresh.jpg" width="25" alt="" id="refresh" />
-              		<span class="error_msg captacha_valid">please enter valid captcha</span>
-              	</div>
-                <div class="form-group">
-				   <button type="submit" class="btn-style pull-right contest_submit" name="submit" value="submit">SUBMIT</button>
-				</div>
+              	
+                
          </div>
          <div class="uploads fl">
          	<div class="upload_info">
@@ -141,8 +174,22 @@ session_start();
 	                 <div id="image-holder"></div>
 	                 
 	            </div>
+	            
 	   		</div><!--photos_upload-->
+	   		<div class="clear_both"></div>
+	   		<div class="form-group captcha">
+              		<img src="get_captcha.php" alt="" id="captcha" />
+              		
+              		<input name="code" type="text" id="code" autocomplete=off maxlength="6"/>
+              		<img src="images/refresh.png" width="25" alt="" id="refresh" />
+              		<span class="error_msg captacha_valid">please enter valid captcha</span>
+              	</div><!-- captcha -->
       </div><!--uploads-->
+      <div class="clear_both"></div>
+      <div class="form-group">
+				   <button type="submit" class="btn-style contest_submit" name="submit" value="submit">SUBMIT</button>
+				   <div class="clear_both"> </div>
+				</div>
 
        </form>
     </div><!-- container -->

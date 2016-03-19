@@ -14,9 +14,25 @@ $(document).ready(function () {
 		  return false
 		  }, function(){
 	  });
-	  	$(".slider").hide();
-     	$(".social_links").on('click',function(){
-        $(".slider").toggle(150);
+	  	
+     	$(".slider_show").on('click',function(){
+        // $(".social_link_holder").toggle(150);
+        $(".slider_show").css({'right':'45px'});
+        $(".slider").css({'right':'0px'});
+        $(".slider").show();
+        $(".slider_show").addClass('slider_hide');
+        $(".social_links").removeClass('slider_show');
+        
+     });
+     
+     $(".slider_hide").on('click',function(){
+     	alert('test');
+        // $(".social_link_holder").toggle(150);
+        $(".slider_hide").css({'right':'0px'});
+        $(".slider").css({'right':'-45px'});
+        $(".slider").hide();
+        $(".slider_hide").addClass('slider_hide');
+        $(".social_links").removeClass('slider_show');
      });
 });
 
