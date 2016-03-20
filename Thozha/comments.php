@@ -31,4 +31,13 @@
     		echo "exist";
 		}else { echo 'notexist'; }
 	}
+	
+	if(isset($_GET['mobile_check'])){
+		$sql = "SELECT contest_mobile FROM contest WHERE contest_mobile = '".$_POST['mobileno']."'";
+		$select=mysql_query($sql);
+		$row = mysql_fetch_assoc($select);
+		if (mysql_num_rows($select) > 0) {
+    		echo "exist";
+		}else { echo 'notexist'; }
+	}
 ?>

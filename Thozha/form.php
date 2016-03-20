@@ -290,6 +290,7 @@ chmod("$tsrc",0777);
                     <label>Enter your Mobile number<p>*</p></label><br>
                     <input type="text" maxlength="10" class="input-block-level form_align mobile_number" name='phone' data-validation="number" autocomplete="off">
                 	<span class="error_msg">Mobile number should be 10 digit only!</span>
+                	<span class="error_msg exist_mobileno">Mobile Number already exist!</span>
                 </div>
                 <div class="form-group">
                     <label>Enter City/State<p>*</p></label><br>
@@ -459,6 +460,21 @@ chmod("$tsrc",0777);
         }
     });
  });
+ 
+ $('.mobile_number').blur(function() {
+    var mobileVal = $('.mobile_number').val(); // assuming this is a input text field
+    $.post('comments.php?mobile_check=true', {'mobileno' : mobileVal}, function(data) {
+        if(data.trim()=='exist'){
+        	$('.exist_mobileno').addClass('db');
+        	$('.mobile_number').focus();
+        }
+        else {
+        	$('.exist_mobileno').removeClass('db');
+        }
+    });
+ });
+ 
+ 
  $(".reset").click(function() {
 		    $(this).closest('form').find("input[type=text], textarea").val("");
 		   $('#image-holder').empty();

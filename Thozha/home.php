@@ -67,7 +67,7 @@ include('dbcon.php');
 			    postComment: function(commentJSON, success, error) {
 			        $.ajax({
 			            type: 'post',
-			            url: '/Thozha/comments.php?post_comment=true',
+			            url: '/comments.php?post_comment=true',
 			            data: commentJSON,
 			            success: function(comment) {
 			                success(commentJSON);
@@ -79,7 +79,7 @@ include('dbcon.php');
     		  getComments: function(success, error) {
 			        $.ajax({
 			            type: 'get',
-			            url: '/Thozha/comments.php?get_comments=true',
+			            url: '/comments.php?get_comments=true',
 			            success: function(data) {
 			            	var commentsArray = $.parseJSON(data);
 			                success(commentsArray)

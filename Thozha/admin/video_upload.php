@@ -13,7 +13,7 @@
                     <!-- block -->
                     <div id="block_bg" class="block">
                         <div class="navbar navbar-inner block-header">
-                            <div class="muted pull-left">Image upload</div>
+                            <div class="muted pull-left">Video upload</div>
                         </div>
                         <div class="block-content collapse in">
                             <div class="span12">
@@ -34,7 +34,7 @@
 										 		$i=1;
 										 		while($row = mysql_fetch_array($query)){
 										 ?>
-										 <tr><td><input id="optionsCheckbox" class="uniform_on" name="selector1[]" type="checkbox" value="<?php echo $row['related_video_id']; ?>"></td><td><?php echo $i; ?></td><td><?php echo $row['video_url']; ?></td></tr>
+										 <tr><td><input id="optionsCheckbox" class="uniform_on" name="selector1[]" type="checkbox" value="<?php echo $row['related_video_id']; ?>"></td><td><?php echo $i; ?></td><td>https://www.youtube.com/watch?v=<?php echo $row['video_url']; ?></td></tr>
 										 <?php
 										 		$i++;
 										 	}

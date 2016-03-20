@@ -10,14 +10,14 @@ if (isset($_POST['save'])) {
 <div class="row-fluid">
     <div class="block">
 		<div class="navbar navbar-inner block-header">
-			<div class="muted pull-left">Add User</div>
+			<div class="muted pull-left">Add Youtube video URL</div>
 		</div>
 		<div class="block-content collapse in">
 			<div class="span12">
 				<form method="post" enctype="multipart/form-data">
 					<div class="control-group">
 						<div class="controls">
-							<textarea name="url"></textarea>
+							<textarea name="url" placeholder="https://www.youtube.com/watch?v=GE3hb7YAs8Y"></textarea>
 						
 						</div>
 					</div>

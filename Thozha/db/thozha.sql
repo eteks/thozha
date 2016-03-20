@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2016 at 12:13 PM
+-- Generation Time: Mar 20, 2016 at 03:47 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+
 
 --
 -- Database: `thozha`
@@ -48,11 +48,37 @@ CREATE TABLE `contest` (
   `contest_id` int(10) NOT NULL,
   `contest_name` varchar(50) NOT NULL,
   `contest_email` varchar(250) NOT NULL,
-  `contest_mobile` int(11) NOT NULL,
+  `contest_mobile` bigint(22) NOT NULL,
   `contest_comment` varchar(250) NOT NULL,
   `contest_image` varchar(250) NOT NULL,
   `contest_status` tinyint(1) NOT NULL,
   `contest_create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `related_image`
+--
+
+CREATE TABLE `related_image` (
+  `related_image_id` int(10) NOT NULL,
+  `image` varchar(500) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `related_video`
+--
+
+CREATE TABLE `related_video` (
+  `related_video_id` int(10) NOT NULL,
+  `video_url` varchar(1000) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -105,6 +131,18 @@ ALTER TABLE `contest`
   ADD PRIMARY KEY (`contest_id`);
 
 --
+-- Indexes for table `related_image`
+--
+ALTER TABLE `related_image`
+  ADD PRIMARY KEY (`related_image_id`);
+
+--
+-- Indexes for table `related_video`
+--
+ALTER TABLE `related_video`
+  ADD PRIMARY KEY (`related_video_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -124,7 +162,17 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `contest`
 --
 ALTER TABLE `contest`
-  MODIFY `contest_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `contest_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `related_image`
+--
+ALTER TABLE `related_image`
+  MODIFY `related_image_id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `related_video`
+--
+ALTER TABLE `related_video`
+  MODIFY `related_video_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
 --
