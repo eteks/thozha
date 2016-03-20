@@ -12,7 +12,7 @@ include('dbcon.php');
 		<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Thozha New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - thozha.net</title>
+        <title>Thozha</title>
 		<meta name="description" content="Check out the latest new movies coming soon to theaters &amp; video games to come to market. Read latest buzz &amp; watch exclusive trailers!"/>
 		<link rel="canonical" href="http://thozha.net" />
 		<link rel="next" href="http://thozha.net" />
@@ -29,7 +29,6 @@ include('dbcon.php');
 		<meta name="p:domain_verify" content="4868adfa25d99f1e78fa2dcc91892866" />
 		<link rel="canonical" href="http:/thozha.net">
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-		<link rel="shortcut icon" href="//a.dilcdn.com/a/favicon-94e3862e7fb9.ico">
 		<meta name="google-site-verification" content="l2uHJfvECElzBCRHpqcVjgJUuPc-Mry-yL8Ry7anz6Y">
 		<meta name="description" content="The official website for all things thozha: tv, shows, movies, characters, games, videos, music, shopping, and more!">
 		<meta property="og:title" content="thozha.net | The official home for all things thozha">
