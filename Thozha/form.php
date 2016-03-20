@@ -275,7 +275,7 @@ chmod("$tsrc",0777);
             </div><!--container-->
   		</header><!--header_area-->	
     <div class="container container_form">
-    	<h2>PARTICIPATE IN THE FREE SEFLIE <b>CONTEST FOR FREE TICKETS</b></h2>
+    	<h2>PARTICIPATE IN THE FREE FRIENDSHIP SEFLIE <b>CONTEST FOR FREE TICKETS</b></h2>
        
 			<form enctype="multipart/form-data" method="post" id="tec_reg" role="form">
 			<div class="form-box fl">
