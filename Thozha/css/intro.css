@@ -360,9 +360,9 @@ body {
   }
 }
 @-webkit-keyframes glowing {
-  0% { background-color: #004A7F; -webkit-box-shadow: 0 0 3px #004A7F; }
-  50% { background-color: #0094FF; -webkit-box-shadow: 0 0 10px #0094FF; }
-  100% { background-color: #004A7F; -webkit-box-shadow: 0 0 3px #004A7F; }
+  0% {-webkit-box-shadow: 0 0 3px #f80104; }
+  50% {-webkit-box-shadow: 0 0 10px #f80104; }
+  100% {-webkit-box-shadow: 0 0 3px #f80104; }
 }
 
 @-moz-keyframes glowing {
@@ -446,4 +446,13 @@ body {
       -ms-transform: translateY(0px);
        -o-transform: translateY(0px);
           transform: translateY(0px);
+}
+.enter_mbl a {
+    color: #f80104;
+    font-family: Gotham;
+    font-size: 30px;
+    left: 35%;
+    position: absolute;
+    text-decoration: none;
+    top: 85%;
 }
