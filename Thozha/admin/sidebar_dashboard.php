@@ -7,5 +7,8 @@
         <li>
             <a href="video_upload.php"><i class="icon-chevron-right"></i><i class="icon-list-alt"></i>Video Upload</a>
         </li>
+        <li>
+            <a href="add_category.php"><i class="icon-chevron-right"></i><i class="icon-list-alt"></i>Add Related Image Category </a>
+        </li>
     </ul>
 </div>

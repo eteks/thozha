@@ -450,7 +450,7 @@ include('dbcon.php');
 	
 				});
 				$('.image_info	').click(function(){
-					 var id = $(this).attr('data_url');
+					var id = $(this).attr('data_url');
 				    $('.desktop_video').empty().prepend('<iframe width="623" height="340" src="'+id+'" frameborder="0" allowfullscreen></iframe>');
 				    $('.mobile_video').empty().prepend('<iframe width="260" height="200" src="'+id+'" frameborder="0" allowfullscreen></iframe>'); 
 				});
