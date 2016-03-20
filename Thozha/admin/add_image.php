@@ -86,7 +86,7 @@ chmod("$tsrc",0777);
 	
 	
 	$add_ex = explode('/', $add);
-	$sql = "insert into related_image (image,status) values ('$add_ex[2]','1')";
+	$sql = "insert into related_image (category_id,image,status) values (".$_POST['category'].",'$add_ex[2]','1')";
 	mysql_query($sql);
 echo $j. ').<span id="noerror">Image uploaded successfully!.</span><br/><br/>';
 } else {    
@@ -109,6 +109,19 @@ echo $j. ').<span id="error">***Invalid file Size or Type***</span><br/><br/>';
 					<div class="control-group">
 						<div class="controls">
                             <div id="filediv"><input name="file[]" type="file" id="file"/></div><br/>
+                            <div>
+                            	<select name = 'category'>
+									<?php
+										$sql = 'select * from category';
+										$query = mysql_query($sql);
+										while($row = mysql_fetch_array($query)){
+											?>
+											<option value="<?php echo $row['category_id']; ?>"><?php echo $row['category_name']; ?></option>
+											<?php
+										}
+									?>                            	
+                            	</select>
+                            </div><br/>
                             <input type="button" id="add_more" class="upload" value="Add More Files"/>
 							<input type="submit" value="Upload File" name="submit" id="upload" class="upload"/>
 						</div>
@@ -119,21 +132,25 @@ echo $j. ').<span id="error">***Invalid file Size or Type***</span><br/><br/>';
     </div>
     <!-- /block -->
 </div>
+
 <script type="text/javascript">
 
 
 var abc = 0;      // Declaring and defining global increment variable.
 $(document).ready(function() {
 //  To add new input file field dynamically, on click of "Add More Files" button below function will be executed.
-$('#add_more').click(function() {
-$(this).before($("<div/>", {
-id: 'filediv'
-}).fadeIn('slow').append($("<input/>", {
-name: 'file[]',
-type: 'file',
-id: 'file'
-}), $("<br/><br/>")));
-});
+	$('#add_more').click(function() {
+		$.ajax({
+             type: "POST",
+             url: "delete_users.php?get_category=true",
+             data: {'data_id':'data_id'},
+             cache: false,
+             success: function(data) {
+             	$('#add_more').before('<div id="filediv"><input name="file[]" type="file" id="file"/></div><br/><br/><div><select name ="category">'+data+'</select></div><br/>');
+			   
+             }
+          });
+	});
 // Following function will executes on change event of file input to select different file.
 $('body').on('change', '#file', function() {
 if (this.files && this.files[0]) {
