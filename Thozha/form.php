@@ -399,18 +399,18 @@ chmod("$tsrc",0777);
                return false;
      }
   });
-   $(document).on('change','#fileUpload',function(){
-          files = this.files;
-          size = files[0].size;
-          //max size 50kb => 50*1000
-          if( size > 1000*1000){
-             //alert('Please upload less than 50kb file');
-             $('.preview').empty();
-             $('.preview').next('.error_msg').addClass('db');
-             return false;
-          }
-          return true;
-     });
+   // $(document).on('change','#fileUpload',function(){
+          // files = this.files;
+          // size = files[0].size;
+          // //max size 50kb => 50*1000
+          // if( size > 1000*1000){
+             // //alert('Please upload less than 50kb file');
+             // $('.preview').empty();
+             // $('.preview').next('.error_msg').addClass('db');
+             // return false;
+          // }
+          // return true;
+     // });
   
    $("#fileUpload").on('change',function () {
  

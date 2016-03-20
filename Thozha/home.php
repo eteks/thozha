@@ -396,6 +396,7 @@ include('dbcon.php');
           
            <div class="related_photos fl visible-lg visible-md visible-sm">
            			<h2>RELATED <b>PHOTOS</b></h2>
+           			<span>All</span><span>Audio launch</span><span>Teasar release</span>
            			<div class="photos_holder">
            	<div class="idp_shoe_gallery">
               <div id="product_angle">
