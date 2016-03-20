@@ -2,15 +2,20 @@
 include('dbcon.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Thozha New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - thozha.net</title>
 		<meta name="description" content="Check out the latest new movies coming soon to theaters &amp; video games to come to market. Read latest buzz &amp; watch exclusive trailers!"/>
 		<link rel="canonical" href="http://thozha.net" />
-		<link rel="next" href="http://thozha.net/" />
+		<link rel="next" href="http://thozha.net" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - thozha.net" />
@@ -32,10 +37,11 @@ include('dbcon.php');
 		<meta property="og:type" content="website">
 		<meta property="og:site_name" content="thozha">
 		<meta property="og:url" content="http://thozha.net">
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+		<link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/jquery-comments.css">
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
 		<link rel="icon" href="images/fav.png"/> 
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/font-awesome.css">
-		<link rel="stylesheet" href="css/intro.css">
 		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/jquery-comments.js"></script>
 		<script src="js/base.js" type="text/javascript"></script>
@@ -43,7 +49,7 @@ include('dbcon.php');
 		<script src="js/mrova-feedback-form.js" type="text/javascript"></script>
 		
 		<script type="text/javascript">
-		 $(function() {
+			$(function() {
 			$('#comments-container').comments({
 			
 			    profilePictureURL: 'https://app.viima.com/static/media/user_profiles/user-icon.png',
@@ -86,14 +92,14 @@ include('dbcon.php');
 		});
 		</script>
 	</head>
-		<body class="bg_home home_body">
+		<body class="home_body bg_home">	
 		<header class="header_area">
             <div class="container">
                 <div class="header_content">
                     <div class="row">
                         <div class="col-md-3 col-sm-2 col-xs-4">
                             <div class="logo">
-                             	<a href="index.php"><img src="images/logo.png"></a>
+                             	<a href="home.php"><img src="images/logo.png"></a>
                              	
                                 <div class="navbar-header">
                                     <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -131,16 +137,16 @@ include('dbcon.php');
 		</div> -->
 	
        <div class="wrapper">
-       	<div class="slider_holder">
+       	<!-- <div class="slider_holder">
        	<div class="slider">
 			<div><a class="icon1" target="_blank" href="https://www.facebook.com/thozhatamilmovie"></a></div>
 			<div><a class="icon2" target="_blank" href="https://www.youtube.com/channel/UCHDR6dL_xHlkIlsuF3dlNYQ"></a></div>
 			<div><a class="icon3" target="_blank" href="https://twitter.com/thozhamovie"></a></div>
 		</div>
 		<div class="social_links slider_show"> </div><!-- social_links -->
-        </div><!-- slider_holder -->
+        <!-- </div><!-- slider_holder --> 
         <div class="container container_bg">
-        	<?php
+         <?php
            		$sql1 = "select * from related_video order by related_video_id desc limit 1";
            		$query1 = mysql_query($sql1);
            		while($row1= mysql_fetch_array($query1)){
@@ -151,10 +157,11 @@ include('dbcon.php');
            <div class="video_holder fl visible-xs mobile_video">
            		<iframe width="260" height="200" src="https://www.youtube.com/embed/<?php echo $row1['video_url'] ?>" frameborder="0" allowfullscreen></iframe>
            </div><!-- video_holder https://www.youtube-nocookie.com/embed/J9pvhzgeKZE-->
-           <div class="related_vedios fl"> 
+          
            		<?php
            		}
            		?>
+           <div class="related_vedios fl"> 
            	<h2>RELATED <b>VIDEOS</b></h2>
            	<ul>
            		<?php
@@ -179,30 +186,7 @@ include('dbcon.php');
            		<?php
            		}
            		?>
-           		<!-- <li>
-           			<div class="related_vedios_holder">
-           				<div class="image_poster fl" data_url="https://www.youtube.com/embed/zZ56bTZtKlA">
-           					<a><img src="images/related_video2.png"/></a>
-           				</div><!- image_poster ->
-           				<div class="image_info fl" data_url="https://www.youtube.com/embed/zZ56bTZtKlA">
-           					<h3><a >THOZHA full audio launch | Karthi | Nagarjuna | Tamannaah | Gopi Sundar </a></h3>
-           					<span></span>
-           				</div>
-           				<div class="clear_both"> </div>
-           			</div><!- related_vedios_holder ->
-           		</li>
-           		<li>
-           			<div class="related_vedios_holder">
-           				<div class="image_poster fl" data_url="https://www.youtube.com/embed/O36B6U5aguA">
-           					<a><img src="images/related_video3.png"/></a>
-           				</div><!- image_poster ->
-           				<div class="image_info fl" data_url="https://www.youtube.com/embed/O36B6U5aguA">
-           					<h3><a>Thozha Audio Jukebox | Karthi | Nagarjuna | Tamannah | Gopi Sundar </a></h3>
-           					<span></span>
-           				</div>
-           				<div class="clear_both"> </div>
-           			</div><!- related_vedios_holder >
-           		</li> -->
+        
            	</ul>
            </div><!-- related_vedios -->
            <div class="clear_both"> </div>
@@ -371,37 +355,30 @@ include('dbcon.php');
            			<div class="photos_holder">
            	<div class="idp_shoe_gallery">
               <div id="product_angle">
-                  <img src="images/1.jpg" alt="" />                                        </div><!-- product_angle -->
-                 <div class="idp_views_tab">
-                     <div class="view_gallery" id="black" style="display:block;">
-                     	<?php
-			           		$sql2 = "select * from related_image order by related_image_id desc limit 9";
+                  <?php
+			           		$sql2 = "select * from related_image order by related_image_id desc limit 1";
 			           		$query2 = mysql_query($sql2);
 			           		while($row2= mysql_fetch_array($query2)){
            				?>
-                         <span class="view_glallery_opacity"><img src="admin/uploads/thumb/<?php $row2['image'] ?>" alt="" /></span>
-                         <div><img src="admin/uploads/original/<?php $row2['image'] ?>" alt="" /></div>
+                  <img src="admin/uploads/original/<?php echo $row2['image']; ?>" alt="" />    
+                   <?php
+                        }
+                     ?>                                          </div><!-- product_angle -->
+                 <div class="idp_views_tab">
+                     <div class="view_gallery" id="black" style="display:block;">
                          <?php
+			           		$sql3 = "select * from related_image order by related_image_id desc limit 9";
+			           		$query3 = mysql_query($sql3);
+			           			$j=1;	
+			           		while($row3= mysql_fetch_array($query3)){
+			           	
+           				?>
+                         <span <?php if($j==1){ echo "class='view_glallery_opacity'"; }?>><img src="admin/uploads/thumb/<?php echo $row3['image']; ?>" alt="" /></span>
+                         <div><img src="admin/uploads/original/<?php echo $row3['image']; ?>" alt="" /></div>
+                         <?php
+                         $j++;
                         }
                          ?>
-                         <!-- <span><img src="images/2_t.jpg" alt="" /></span>
-                         <div><img src="images/2.jpg" alt="" /></div>
-                         
-                         <span><img src="images/3_t.jpg" alt="" /></span>
-                         <div><img src="images/3.jpg" alt="" /></div>
-                         
-                         <span><img src="images/4_t.jpg" alt="" /></span>
-                         <div><img src="images/4.jpg" alt="" /></div>
-                         <span><img src="images/5_t.jpg" alt="" /></span>
-                         <div><img src="images/5.jpg" alt="" /></div>
-                         <span><img src="images/6_t.jpg" alt="" /></span>
-                         <div><img src="images/6.jpg" alt="" /></div>
-                         <span><img src="images/7_t.jpg" alt="" /></span>
-                         <div><img src="images/7.jpg" alt="" /></div>
-                         <span><img src="images/8_t.jpg" alt="" /></span>
-                         <div><img src="images/8.jpg" alt="" /></div>
-                         <span><img src="images/9_t.jpg" alt="" /></span>
-                         <div><img src="images/9.jpg" alt="" /></div> -->
                
                      </div><!-- view_gallery -->
                      <div class="clear_both"></div>
@@ -417,36 +394,37 @@ include('dbcon.php');
            <div class="video_comment fl" id="comments-container">
            		
            </div><!--video_comment-->
+          
            <div class="related_photos fl visible-lg visible-md visible-sm">
            			<h2>RELATED <b>PHOTOS</b></h2>
            			<div class="photos_holder">
            	<div class="idp_shoe_gallery">
               <div id="product_angle">
-              	<?php
-			           		$sql3 = "select * from related_image order by related_image_id desc limit 1";
-			           		$query3 = mysql_query($sql3);
-			           		while($row3= mysql_fetch_array($query3)){
+                  <?php
+			           		$sql4 = "select * from related_image order by related_image_id desc limit 1";
+			           		$query4 = mysql_query($sql4);
+			           		while($row4= mysql_fetch_array($query4)){
            				?>
-                  <img src="admin/uploads/original/<?php echo $row3['image']; ?>" alt="" />    
+                  <img src="admin/uploads/original/<?php echo $row4['image']; ?>" alt="" />    
                    <?php
                         }
-                     ?>                                    </div><!-- product_angle -->
+                     ?>                                          </div><!-- product_angle -->
                  <div class="idp_views_tab">
                      <div class="view_gallery" id="black" style="display:block;">
-                     	<?php
-			           		$sql2 = "select * from related_image order by related_image_id desc limit 9";
-			           		$query2 = mysql_query($sql2);
+                         <?php
+			           		$sql5 = "select * from related_image order by related_image_id desc limit 9";
+			           		$query5 = mysql_query($sql5);
 			           			$j=1;	
-			           		while($row2= mysql_fetch_array($query2)){
+			           		while($row5= mysql_fetch_array($query5)){
 			           	
            				?>
-                         <span <?php if($j==1){ echo "class='view_glallery_opacity'"; }?>><img src="admin/uploads/thumb/<?php echo $row2['image']; ?>" alt="" /></span>
-                         <div><img src="admin/uploads/original/<?php echo $row2['image']; ?>" alt="" /></div>
+                         <span <?php if($j==1){ echo "class='view_glallery_opacity'"; }?>><img src="admin/uploads/thumb/<?php echo $row5['image']; ?>" alt="" /></span>
+                         <div><img src="admin/uploads/original/<?php echo $row5['image']; ?>" alt="" /></div>
                          <?php
                          $j++;
                         }
                          ?>
-                    
+               
                      </div><!-- view_gallery -->
                      <div class="clear_both"></div>
                  </div><!-- idp_views_tab -->
@@ -478,8 +456,8 @@ include('dbcon.php');
 				    $('.mobile_video').empty().prepend('<iframe width="260" height="200" src="'+id+'" frameborder="0" allowfullscreen></iframe>'); 
 				});
 			});
-</script>
-
-	
-</body> <!-- body closed -->
-</html> <!-- html closed -->
+			
+		</script>
+		
+	</body><!-- Syntax Highlighter -->
+</html>

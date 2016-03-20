@@ -284,10 +284,11 @@ chmod("$tsrc",0777);
                     <label>Enter your email<p>*</p></label><br>
                     <input type="text" class="input-block-level form_align email" name='email' data-validation="email" autocomplete="off">
                 	<span class="error_msg">Please enter valid email</span>
+                	<span class="error_msg exist_mail">Email already exist!</span>
                 </div>
                 <div class="form-group">
                     <label>Enter your Mobile number<p>*</p></label><br>
-                    <input type="text" class="input-block-level form_align mobile_number" name='phone' data-validation="number" autocomplete="off">
+                    <input type="text" maxlength="10" class="input-block-level form_align mobile_number" name='phone' data-validation="number" autocomplete="off">
                 	<span class="error_msg">Mobile number should be 10 digit only!</span>
                 </div>
                 <div class="form-group">
@@ -311,7 +312,7 @@ chmod("$tsrc",0777);
       			
 
       		</div><!--preview-->
-      		
+      		<span class="error_msg">Please upload image!</span>
 	         <div class="photos_upload fl">
 	         	<label>UPLOAD</label>
 	      		<div class="form-group photo-browse">
@@ -328,17 +329,17 @@ chmod("$tsrc",0777);
 	   		<div class="clear_both"></div>
 	   		<span class="upload_note">Hint: Upload JPG,JPEG,PNG images with 1 MB only</span>
 	   		<div class="form-group captcha">
-              		<img src="get_captcha.php" alt="" id="captcha" />
+              		<img src="captcha/captcha_code_file.php?rand=<?php echo rand(); ?>" alt="" id="captcha" />
               		
               		<input name="code" type="text" id="code" autocomplete=off maxlength="6"/>
               		<img src="images/refresh.png" width="25" alt="" id="refresh" />
-              		<span class="error_msg captacha_valid">please enter valid captcha</span>
+              		<span class="error_msg captacha_valid msg_validate" id="er_captcha_code">Please enter captcha</span>
               	</div><!-- captcha -->
       </div><!--uploads-->
       <div class="clear_both"></div>
       <div class="form-group">
       				<button type="submit" class="btn-style contest_submit" name="submit" value="submit">SUBMIT</button>
-				   <button type="reset" class="btn-style contest_submit" name="submit" value="clear">CLEAR</button>
+				   <button type="reset" class="btn-style contest_reset reset" name="clear" value="clear">CLEAR</button>
 
 				   <div class="clear_both"> </div>
 				</div>
@@ -347,25 +348,7 @@ chmod("$tsrc",0777);
    </div><!-- contest_wrapper -->
    <script type="text/javascript">
 	$(document).ready(function(){
-		
 
-  	$('#refresh').click(function() {  
-			
-			change_captcha();
-	 });
-	 
-	 function change_captcha()
-	 {
-	 	
-	 	document.getElementById('captcha').src="get_captcha.php?rnd=" + Math.random();
-	 }
-	 
-	 function clear_form()
-	 {
-	 	$("#name").val('');
-		$("#email").val('');
-		$("#message").val('');
-	 }
 	 function validateEmail(sEmail) {
 		var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
 		if (filter.test(sEmail)) {
@@ -404,31 +387,11 @@ chmod("$tsrc",0777);
 			}else{
 				$('.preview').next('.error_msg').removeClass('db');
 			}
-			if($("#code").val()=="" ){
+			if($("#code").val()=='' ){
 				$('.captacha_valid').addClass('db');
 				return false;
 			}
-			else{
-				var code = $("#code").val();
-		  		 $.ajax({
-		             type: "POST",
-		             url: "comments.php?captcha_check=true",
-		             data: {'code':code},
-		             cache: false,
-		             success: function(data) {
-		             	if(data.trim() == 'invalid'){
-		             		$('.captacha_valid').addClass('db');
-		             		return false;
-		             	}else{
-		             		return data;
-		             	}
-		         
-		             }
-				});
-		}
-  });
-  $('#code').blur(function(){
-  		
+			
   });
     		
   $(".mobile_number").keypress(function (e) {
@@ -484,6 +447,58 @@ chmod("$tsrc",0777);
      }
      
  });
+ $('.email').blur(function() {
+    var emailVal = $('.email').val(); // assuming this is a input text field
+    $.post('comments.php?email_check=true', {'email' : emailVal}, function(data) {
+        if(data.trim()=='exist'){
+        	$('.exist_mail').addClass('db');
+        	$('.email').focus();
+        }
+        else {
+        	$('.exist_mail').removeClass('db');
+        }
+    });
+ });
+ $(".reset").click(function() {
+		    $(this).closest('form').find("input[type=text], textarea").val("");
+		   $('#image-holder').empty();
+});
+$("#refresh").on("click", function() {
+        var a = document.images.captcha;
+        a.src = a.src.substring(0, a.src.lastIndexOf("?")) + "?rand=" + 1e3 * Math.random()
+    }), 
+
+    $("#code").keyup(function(e) {
+        var t = $("#code").val();
+        $.ajax({
+            url: "captcha/captcha.php",
+            data: "atm_j_captura=" + t + "&action=captacha",
+            type: "post",
+            success: function(e) {
+                if ("ok" == $.trim(e)) {
+                    $("#er_captcha_code").css({
+                        color: "green"
+                    }), $("#er_captcha_code").addClass('db').html("Valid Security Code"), $("#er_captcha_code").html("");
+                    $('.contest_submit').removeAttr('disabled');
+                    var t = !0;
+                    return t
+                }
+                if ("ok" != $.trim(e)) {
+                    $("#er_captcha_code").css({
+                        color: "red"
+                    }), $("#er_captcha_code").addClass('db').html("Invalid Security Code"), $("#code").focus();
+                    $('.contest_submit').attr('disabled','disabled');
+                    var t = !1;
+                    return t
+                }
+            }
+        })
+    });
+
+    $(".contest_submit").on("click", function() {     
+    // if ($("#er_captcha_code").html(""), "Invalid Security Code" == $("#er_captcha_code").html()) return alert("Please Enter Valid Security Code"), $("#code").val(""), $("#er_captcha_code").html(""), $("#code").focus(), !1;
+ });
+
  	});
    	</script>
 	</body>
