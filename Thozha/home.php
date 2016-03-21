@@ -531,9 +531,9 @@ $tw_followers =  $parsed[0]['followers_count'];
 		</script>
 <aside id="sticky-social">
     <ul>
-        <li><a href="#" class="fa fa-facebook" target="_blank"><span>Facebook</span></a></li>
-        <li><a href="#" class="fa fa-twitter" target="_blank"><span>Twitter</span></a></li>
-        <li><a href="#" class="fa fa-youtube" target="_blank"><span>You tube</span></a></li>
+        <li><a href="https://www.facebook.com/thozhatamilmovie" class="fa fa-facebook" target="_blank"><span>Facebook</span></a></li>
+        <li><a href="https://twitter.com/thozhamovie" class="fa fa-twitter" target="_blank"><span>Twitter</span></a></li>
+        <li><a href="https://www.youtube.com/channel/UCHDR6dL_xHlkIlsuF3dlNYQ" class="fa fa-youtube" target="_blank"><span>You tube</span></a></li>
     </ul>
 </aside>
 	</body><!-- Syntax Highlighter -->
