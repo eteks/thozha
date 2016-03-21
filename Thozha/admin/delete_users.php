@@ -12,10 +12,7 @@ if (isset($_POST)){
 			$result = mysql_query("DELETE FROM related_image where related_image_id='$id[$i]'");
 		}
 		header("location: image_upload.php");
-	}else{
-		header("location: image_upload.php");
 	}
-	
 	
 	
 	if(isset($_POST['selector1'])){
@@ -26,8 +23,6 @@ if (isset($_POST)){
 		$result = mysql_query("DELETE FROM related_video where related_video_id='$id[$i]'");
 	}
 	header("location: video_upload.php");
-	}else{
-		header("location: video_upload.php");
 	}
 	
 	
@@ -41,8 +36,6 @@ if (isset($_POST)){
 		$result = mysql_query("DELETE FROM category where category_id='$id[$i]'");
 	}
 	header("location:add_category.php");
-	}else{
-		header("location:add_category.php");
 	}
 	
 	

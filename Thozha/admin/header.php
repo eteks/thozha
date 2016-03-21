@@ -8,8 +8,8 @@
             <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
             <link href="bootstrap/css/font-awesome.css" rel="stylesheet" media="screen">
             <link href="bootstrap/css/my_style.css" rel="stylesheet" media="screen">
-            <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
-            <link href="vendors/datetimepicker.css" rel="stylesheet" media="screen">
+            
+           
             <link href="assets/styles.css" rel="stylesheet" media="screen">
             <link rel="stylesheet" href="css/lightbox.min.css">
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -17,7 +17,7 @@
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 		<!-- calendar css -->
-		<link href="vendors/fullcalendar/fullcalendar.css" rel="stylesheet" media="screen">
+		
 		<script src="vendors/jquery-1.9.1.min.js" type="text/javascript"></script>
                 <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 		<!-- data table -->
@@ -28,7 +28,7 @@
 		<link rel="stylesheet" type="text/css" href="vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css"></link>
 	
 		<script src="vendors/jGrowl/jquery.jgrowl.js"></script>
-		<script src="vendors/datetimepicker.js" type="text/javascript"></script>
+		
 		<script src="vendors/custom.js" type="text/javascript"></script>
 		<style type="text/css">
 			.tftable {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #a9a9a9;border-collapse: collapse;}
