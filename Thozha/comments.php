@@ -40,4 +40,19 @@
     		echo "exist";
 		}else { echo 'notexist'; }
 	}
+	if(isset($_GET['category_rel'])){
+		$arr = array();
+		if($_POST['data_id']=='0'){
+			$sql = "SELECT * FROM related_image order by related_image_id desc limit 9";
+		}else{
+			$sql = "SELECT * FROM related_image WHERE category_id = '".$_POST['data_id']."'order by related_image_id desc limit 9";
+		}
+		
+		$select=mysql_query($sql);
+		while($row = mysql_fetch_assoc($select)){
+			$arr[]=$row;
+		}
+		print(json_encode($arr));
+		
+	}
 ?>

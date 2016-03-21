@@ -14,9 +14,15 @@
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
+                        	      <form action="delete_users.php" method="post">
                                     <table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
+                                    	
+                                    	<a data-toggle="modal" href="#zip_download" id="delete"  class="btn btn-success" name=""><i class="icon-download icon-large"></i></a>
+                                    	<a data-toggle="modal" href="#user_delete" id="delete"  class="btn btn-danger" name=""><i class="icon-trash icon-large"></i></a>
+                                        <?php include('modal_delete.php'); ?>
                                         <thead>
                                             <tr>
+                                            	<th></th>
                                                 <th>S.No</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
@@ -33,6 +39,7 @@
 												while($row = mysql_fetch_array($subject_query)){
                                                 ?>
                                                 <tr>
+                                                	<td><input id="optionsCheckbox" class="uniform_on" name="selector3[]" type="checkbox" value="<?php echo $row['contest_image']; ?>"></td>
                                                     <td><?php echo $i; ?></td>
                                                     <td><?php echo $row['contest_email']; ?></td>
                                                     <td><?php echo $row['contest_mobile']; ?></td>
@@ -44,6 +51,7 @@
                                             <?php $i++;} ?>
                                         </tbody>
                                     </table>
+                                   </form>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +62,12 @@
         <?php include('footer.php'); ?>
     </div>
     <?php include('script.php'); ?>
-   
+   	<script type="text/javascript">
+   		$('.zip_file_download').click(function(){
+   			$('#zip_download').hide();
+   			$('.modal-backdrop').hide();
+   		});
+   	</script>
 </body>
 
 </html>

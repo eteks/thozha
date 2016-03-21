@@ -138,6 +138,7 @@ chmod("$tsrc",0777);
 ?>
 		        <script>
 		        	alert('Thanks for Participating.We will contact soon!');
+		        	window.location = "home.php";
 		        </script>
 <?php
 		}
@@ -272,8 +273,8 @@ chmod("$tsrc",0777);
     <div class="container container_form">
     	<h2>PARTICIPATE IN FREE FRIENDSHIP SELFIE AND <b>WIN FREE 
 <span itemprop="name">TICKETS</span></b></h2>
-       
-			<form enctype="multipart/form-data" method="post" id="tec_reg" role="form">
+		
+		<form enctype="multipart/form-data" method="post" id="tec_reg" role="form">
 			<div class="form-box fl">
                 <div class="form-group">
                     <label>Enter your email<p>*</p></label><br>
@@ -323,7 +324,7 @@ chmod("$tsrc",0777);
 	            
 	   		</div><!--photos_upload-->
 	   		<div class="clear_both"></div>
-	   		<span class="upload_note">Hint: Upload JPG,JPEG,PNG images with 1 MB only</span>
+	   		<span class="upload_note">Hint: Upload JPG,JPEG,PNG images BELOW 1.5 MB</span>
 	   		<div class="form-group captcha">
               		<img src="captcha/captcha_code_file.php?rand=<?php echo rand(); ?>" alt="" id="captcha" />
               		
@@ -395,18 +396,18 @@ chmod("$tsrc",0777);
                return false;
      }
   });
-   $(document).on('change','#fileUpload',function(){
-          files = this.files;
-          size = files[0].size;
-          //max size 50kb => 50*1000
-          if( size > 1000*1000){
-             //alert('Please upload less than 50kb file');
-             $('.preview').empty();
-             $('.preview').next('.error_msg').addClass('db');
-             return false;
-          }
-          return true;
-     });
+   // $(document).on('change','#fileUpload',function(){
+          // files = this.files;
+          // size = files[0].size;
+          // //max size 50kb => 50*1000
+          // if( size > 1000*1000){
+             // //alert('Please upload less than 50kb file');
+             // $('.preview').empty();
+             // $('.preview').next('.error_msg').addClass('db');
+             // return false;
+          // }
+          // return true;
+     // });
   
    $("#fileUpload").on('change',function () {
  
