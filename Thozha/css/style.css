@@ -925,7 +925,7 @@ border: 0;
 	background-color: #fff;
     height: 505px;
     margin: 29px -17px 0;
-    width: 340px;
+    width: 356px;
 }
 .background_none, .background_none:hover {
 	background:none !important;
@@ -1392,13 +1392,14 @@ right:0px;
 	 float: left;
 	 position: relative;
 	 left: 13px;
- 
+ 	 /*border: 1px solid #b0b0b0;*/
 }
 @media (min-width:789px){
 	.idp_shoe_gallery {
 	 float: left;
 	 position: relative;
- 		left:auto;
+ 	 left:13px;
+ 	 /*border: 1px solid #b0b0b0;*/
 	}
 }
 .idp_shoegallery_display {
@@ -1714,14 +1715,14 @@ right:0px;
 }
 
 #product_angle {
-	 background: #fff;
+	 background: transparent;
 	 margin: auto;
 	 clear: both;
      width: 312px;
 }
 @media (min-width:789px){
 	#product_angle {
-	 background: #fff;
+	 background: transparent;
 	 margin: auto;
 	 clear: both;
 	 width: auto;
@@ -1941,7 +1942,7 @@ right:0px;
 }
 .view_gallery {
     max-height: 200px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .ec-comment-form fieldset{
 	background: transparent !important;
@@ -2224,3 +2225,65 @@ input{
 	    color:#000;
 	}
 }
+.categories_list li {
+    background :#dfdfdf;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #000;
+    cursor: pointer;
+    display: inline;
+    font-family: Arial;
+    font-size: 14px;
+    list-style: outside none none;
+    margin: 0 0 0 -3px;
+    padding: 4px 15px;
+}
+.selected{
+	color: #000 !important;
+	 background: #fdbc41 none repeat scroll 0 0 !important;
+}
+/* For social_links */
+ul{
+	list-style: none;
+	padding:0px;
+	margin:0px;
+}
+#sticky-social {
+   right: 0;
+   position: fixed;
+   top: 150px;
+}
+#sticky-social a {
+   background: #333;
+   color: #fff;
+   display: block;
+   height: 35px;
+   font-size: 16px;
+   line-height: 35px;
+   position: relative;
+   text-align: center;
+   width: 35px;
+}
+#sticky-social a span {
+   line-height: 35px;
+   right: -120px;
+   position: absolute;
+   text-align:center;
+   width:120px;
+   font-family: Arial;
+}
+#sticky-social a:hover span {
+   right: 100%;
+}
+#sticky-social a[class*="facebook"],
+#sticky-social a[class*="facebook"]:hover,
+#sticky-social a[class*="facebook"] span { background: #3b5998; }
+
+#sticky-social a[class*="twitter"],
+#sticky-social a[class*="twitter"]:hover,
+#sticky-social a[class*="twitter"] span { background: #00aced; }
+
+#sticky-social a[class*="youtube"],
+#sticky-social a[class*="youtube"]:hover,
+#sticky-social a[class*="youtube"] span { background: #dd4b39; }  
+

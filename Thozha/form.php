@@ -153,40 +153,35 @@ chmod("$tsrc",0777);
 		$_SESSION['captcha_id'] = $str;
 	?>
 <!DOCTYPE html>
-<!--[if IE]><![endif]-->
-<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Microdata markup added by Google Structured Data Markup Helper. -->
+<html lang="en"><!-- <![endif] --><head>
+		<meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Thozha</title>
-		<meta name="description" content="Check out the latest new movies coming soon to theaters &amp; video games to come to market. Read latest buzz &amp; watch exclusive trailers!"/>
-		<link rel="canonical" href="http://thozha.net" />
-		<link rel="next" href="http://thozha.net/" />
-		<meta property="og:locale" content="en_US" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - thozha.net" />
-		<meta property="og:description" content="Check out the latest new movies coming soon to theaters &amp; video games to come to market. Read latest buzz &amp; watch exclusive trailers!" />
-		<meta property="og:url" content="http://thozha.net" />
-		<meta property="og:site_name" content="thozha.net" />
-		<meta property="article:publisher" content="https://www.facebook.com/thozha" />
-		<meta property="og:image" content="http://cdn3-thozha.net/assets/uploads/2015/08/logo_assets_cs.png" />
-		<script type='application/ld+json'>{ "@context": "http://schema.org","@type": "WebSite","url": "http://thozha.net/","potentialAction": {"@type": "SearchAction","target": "http://thozha.net/?s={search_term}","query-input": "required name=search_term"}}</script>
-		<meta name="msvalidate.01" content="4FDA7A3B5937248982778768D127CD37" />
-		<meta name="p:domain_verify" content="4868adfa25d99f1e78fa2dcc91892866" />
-		<link rel="canonical" href="http:/thozha.net">
-		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="google-site-verification" content="l2uHJfvECElzBCRHpqcVjgJUuPc-Mry-yL8Ry7anz6Y">
-		<meta name="description" content="The official website for all things thozha: tv, shows, movies, characters, games, videos, music, shopping, and more!">
-		<meta property="og:title" content="thozha.net | The official home for all things thozha">
-		<meta property="og:description" content="The official website for all things thozha: tv, shows, movies, characters, games, videos, music, shopping, and more!">
-		<meta property="og:type" content="website">
-		<meta property="og:site_name" content="thozha">
-		<meta property="og:url" content="http://thozha.net">
+		<meta name="description" content="Check out the latest new movies coming soon to theaters & video games to come to market. Read latest buzz & watch exclusive trailers!"/>
+		<link rel="canonical" href="http://thozha.net"/>
+		<link rel="next" href="http://thozha.net/"/>
+		<meta property="og:locale" content="en_US"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:title" content="New Movies, Movie Trailers, DVD, TV & Video Game News! - thozha.net"/>
+		<meta property="og:description" content="Check out the latest new movies coming soon to theaters & video games to come to market. Read latest buzz & watch exclusive trailers!"/>
+		<meta property="og:url" content="http://thozha.net"/>
+		<meta property="og:site_name" content="thozha.net"/>
+		<meta property="article:publisher" content="https://www.facebook.com/thozha"/>
+		<meta property="og:image" content="http://cdn3-thozha.net/assets/uploads/2015/08/logo_assets_cs.png"/>
+		<script type="application/ld+json"></script>
+		<meta name="msvalidate.01" content="4FDA7A3B5937248982778768D127CD37"/>
+		<meta name="p:domain_verify" content="4868adfa25d99f1e78fa2dcc91892866"/>
+		<link rel="canonical" href="http:/thozha.net"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="google-site-verification" content="l2uHJfvECElzBCRHpqcVjgJUuPc-Mry-yL8Ry7anz6Y"/>
+		<meta name="description" content="The official website for all things thozha: tv, shows, movies, characters, games, videos, music, shopping, and more!"/>
+		<meta property="og:title" content="thozha.net | The official home for all things thozha"/>
+		<meta property="og:description" content="The official website for all things thozha: tv, shows, movies, characters, games, videos, music, shopping, and more!"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:site_name" content="thozha"/>
+		<meta property="og:url" content="http://thozha.net"/>
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 		<link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
 		<link href="css/style.css" rel="stylesheet" type="text/css"/>
@@ -242,14 +237,14 @@ chmod("$tsrc",0777);
 		}
 	</style>
 	<body class="bg_form form_body">
-  	<div class="contest_wrapper">
+  	<div itemscope itemtype="http://schema.org/Movie" class="contest_wrapper">
   		<header class="header_area">
             <div class="container">
                 <div class="header_content">
                     <div class="row">
                         <div class="col-md-3 col-sm-2 col-xs-4">
                             <div class="logo">
-                             	<a href="home.php"><img src="images/logo.png"></a>
+                             	<a href="home.php"><img itemprop="image" src="images/logo.png"></a>
                           	
                                 <div class="navbar-header">
                                     <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -275,7 +270,8 @@ chmod("$tsrc",0777);
             </div><!--container-->
   		</header><!--header_area-->	
     <div class="container container_form">
-    	<h2>PARTICIPATE IN THE FREE FRIENDSHIP SEFLIE <b>CONTEST FOR FREE TICKETS</b></h2>
+    	<h2>PARTICIPATE IN FREE FRIENDSHIP SELFIE AND <b>WIN FREE 
+<span itemprop="name">TICKETS</span></b></h2>
        
 			<form enctype="multipart/form-data" method="post" id="tec_reg" role="form">
 			<div class="form-box fl">
@@ -345,7 +341,7 @@ chmod("$tsrc",0777);
 				</div>
    			</form>
     </div><!-- container -->
-   </div><!-- contest_wrapper -->
+   <meta itemprop="url" content="http://www.thozha.net/"></div><!-- contest_wrapper -->
    <script type="text/javascript">
 	$(document).ready(function(){
 

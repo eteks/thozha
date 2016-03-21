@@ -2,43 +2,38 @@
 include('dbcon.php');
 ?>
 <!DOCTYPE html>
-<!--[if IE]><![endif]-->
-<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Microdata markup added by Google Structured Data Markup Helper. -->
+<html lang="en"><!-- <![endif] --><head>
+		<meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Thozha</title>
-		<meta name="description" content="Check out the latest new movies coming soon to theaters &amp; video games to come to market. Read latest buzz &amp; watch exclusive trailers!"/>
-		<link rel="canonical" href="http://thozha.net" />
-		<link rel="next" href="http://thozha.net" />
-		<meta property="og:locale" content="en_US" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="New Movies, Movie Trailers, DVD, TV &amp; Video Game News! - thozha.net" />
-		<meta property="og:description" content="Check out the latest new movies coming soon to theaters &amp; video games to come to market. Read latest buzz &amp; watch exclusive trailers!" />
-		<meta property="og:url" content="http://thozha.net" />
-		<meta property="og:site_name" content="thozha.net" />
-		<meta property="article:publisher" content="https://www.facebook.com/thozha" />
-		<meta property="og:image" content="http://cdn3-thozha.net/assets/uploads/2015/08/logo_assets_cs.png" />
-		<script type='application/ld+json'>{ "@context": "http://schema.org","@type": "WebSite","url": "http://thozha.net/","potentialAction": {"@type": "SearchAction","target": "http://thozha.net/?s={search_term}","query-input": "required name=search_term"}}</script>
-		<meta name="msvalidate.01" content="4FDA7A3B5937248982778768D127CD37" />
-		<meta name="p:domain_verify" content="4868adfa25d99f1e78fa2dcc91892866" />
-		<link rel="canonical" href="http:/thozha.net">
-		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="google-site-verification" content="l2uHJfvECElzBCRHpqcVjgJUuPc-Mry-yL8Ry7anz6Y">
-		<meta name="description" content="The official website for all things thozha: tv, shows, movies, characters, games, videos, music, shopping, and more!">
-		<meta property="og:title" content="thozha.net | The official home for all things thozha">
-		<meta property="og:description" content="The official website for all things thozha: tv, shows, movies, characters, games, videos, music, shopping, and more!">
-		<meta property="og:type" content="website">
-		<meta property="og:site_name" content="thozha">
-		<meta property="og:url" content="http://thozha.net">
+		<meta name="description" content="Check out the latest new movies coming soon to theaters & video games to come to market. Read latest buzz & watch exclusive trailers!"/>
+		<link rel="canonical" href="http://thozha.net"/>
+		<link rel="next" href="http://thozha.net"/>
+		<meta property="og:locale" content="en_US"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:title" content="New Movies, Movie Trailers, DVD, TV & Video Game News! - thozha.net"/>
+		<meta property="og:description" content="Check out the latest new movies coming soon to theaters & video games to come to market. Read latest buzz & watch exclusive trailers!"/>
+		<meta property="og:url" content="http://thozha.net"/>
+		<meta property="og:site_name" content="thozha.net"/>
+		<meta property="article:publisher" content="https://www.facebook.com/thozha"/>
+		<meta property="og:image" content="http://cdn3-thozha.net/assets/uploads/2015/08/logo_assets_cs.png"/>
+		<script type="application/ld+json"></script>
+		<meta name="msvalidate.01" content="4FDA7A3B5937248982778768D127CD37"/>
+		<meta name="p:domain_verify" content="4868adfa25d99f1e78fa2dcc91892866"/>
+		<link rel="canonical" href="http:/thozha.net"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="google-site-verification" content="l2uHJfvECElzBCRHpqcVjgJUuPc-Mry-yL8Ry7anz6Y"/>
+		<meta name="description" content="The official website for all things thozha: tv, shows, movies, characters, games, videos, music, shopping, and more!"/>
+		<meta property="og:title" content="thozha.net | The official home for all things thozha"/>
+		<meta property="og:description" content="The official website for all things thozha: tv, shows, movies, characters, games, videos, music, shopping, and more!"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:site_name" content="thozha"/>
+		<meta property="og:url" content="http://thozha.net"/>
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 		<link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
-		<link rel="stylesheet" type="text/css" href="css/jquery-comments.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery-comments.css"/>
 		<link href="css/style.css" rel="stylesheet" type="text/css"/>
 		<link rel="icon" href="images/fav.png"/> 
 		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
@@ -92,7 +87,7 @@ include('dbcon.php');
 		</script>
 	</head>
 		<body class="home_body bg_home">	
-		<header class="header_area">
+<span itemscope itemtype="http://schema.org/Movie"><header class="header_area">
             <div class="container">
                 <div class="header_content">
                     <div class="row">
@@ -134,7 +129,7 @@ include('dbcon.php');
 		</div>
 		<div id="mrova-img-control"></div>
 		</div> -->
-	
+		
        <div class="wrapper">
        	<!-- <div class="slider_holder">
        	<div class="slider">
@@ -196,7 +191,12 @@ include('dbcon.php');
            	<div class="desc_content fl">
            			<h2><b>THOZHA</b> </h2>
            		<p>
-           			Oopiri in Telugu, titled Thozha in Tamil, is an upcoming Indian Telugu-Tamil comedy-drama film directed by Vamsi Paidipally. Produced by Prasad V Potluri in both Telugu and Tamil languages, the film features Nagarjuna Akkineni and Karthi playing the male leads, while Tamannaah plays the female lead. Slight differences exist in the supporting cast between both versions. Gopi Sunder composes the film's music. Production began on 11 February 2015 in Hyderabad and principal photography began on 16 March 2015 at Chennai. The film is scheduled for a worldwide release on 25 March 2016.
+           			Oopiri in Telugu, titled Thozha in Tamil, is an upcoming Indian Telugu-Tamil comedy-drama film directed by 
+<span itemprop="director" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name">Vamsi</span> </span>Paidipally. Produced by Prasad V Potluri in both Telugu and Tamil languages, the film features Nagarjuna Akkineni and 
+<span itemprop="actor" itemscope itemtype="http://schema.org/Person">
+<span itemprop="name">Karthi</span> </span>playing the male leads, while Tamannaah plays the female lead. Slight differences exist in the supporting cast between both versions. Gopi Sunder composes the film's music. Production began on 11 February 2015 in Hyderabad and principal photography began on 16 March 2015 at Chennai. The film is scheduled for a worldwide release on 
+<span itemprop="datePublished" content="Please insert valid ISO 8601 date/time here. Examples: 2015-07-27 or 2015-07-27T15:30">25 March 2016.</span>
            		</p>
            	</div><!--desc_content-->
            	<div class="rating_holder fl">
@@ -351,6 +351,12 @@ include('dbcon.php');
            </div><!--video_description-->
            <div class="related_photos fl hidden-lg hidden-md hidden-sm">
            			<h2>RELATED <b>PHOTOS</b></h2>
+           			<ul class="categories_list">
+           				<li>All</li>
+           				<li>Videos</li>
+           				<li>Launch</li>
+           				<li>Media</li>
+           			</ul>
            			<div class="photos_holder">
            	<div class="idp_shoe_gallery">
               <div id="product_angle">
@@ -391,11 +397,18 @@ include('dbcon.php');
            </div> -->
            
            <div class="video_comment fl" id="comments-container">
-           		
+           		<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+       			<span itemprop="name">nagarjuna</span> 
            </div><!--video_comment-->
           
            <div class="related_photos fl visible-lg visible-md visible-sm">
            			<h2>RELATED <b>PHOTOS</b></h2>
+           			<ul class="categories_list">
+           				<li class="active">All</li>
+           				<li>Videos</li>
+           				<li>Launch</li>
+           				<li>Media</li>
+           			</ul>
            			<div class="photos_holder">
            	<div class="idp_shoe_gallery">
               <div id="product_angle">
@@ -457,6 +470,12 @@ include('dbcon.php');
 			});
 			
 		</script>
-		
+<aside id="sticky-social">
+    <ul>
+        <li><a href="#" class="fa fa-facebook" target="_blank"><span>Facebook</span></a></li>
+        <li><a href="#" class="fa fa-twitter" target="_blank"><span>Twitter</span></a></li>
+        <li><a href="#" class="fa fa-youtube" target="_blank"><span>You tube</span></a></li>
+    </ul>
+</aside>
 	</body><!-- Syntax Highlighter -->
 </html>
