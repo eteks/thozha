@@ -240,7 +240,7 @@ $tw_followers =  $parsed[0]['followers_count'];
            		<div class="col-md-4 col-sm-4 col-xs-3 fix_p_l">
 					<div class="single_social_share facebook">
 					   <a href="https://www.facebook.com/thozhatamilmovie" target="_blank"><i class="fa fa-facebook social_font"></i></a>
-					   <a class="background_none" href="https://www.facebook.com/thozhatamilmovie" target="_blank"><span class="counter">Likes <b><?php echo $fb[0]->like_count;?></b></span></a>
+					   <a class="background_none" href="https://www.facebook.com/thozhatamilmovie" target="_blank"><span class="counter">Likes <b>650<?php //echo $fb[0]->like_count;?></b></span></a>
 					   </div>
 					  </div>
 					
@@ -256,7 +256,7 @@ $tw_followers =  $parsed[0]['followers_count'];
 					
 					<div class="single_social_share youtube">
 					   <a href="https://www.youtube.com/channel/UCHDR6dL_xHlkIlsuF3dlNYQ" target="_blank"><i class="fa fa-youtube social_font"></i></a>
-					   <a class="background_none" href="https://www.youtube.com/channel/UCHDR6dL_xHlkIlsuF3dlNYQ" target="_blank"><span class="counter">Views <b>40</b></span></a> </div>
+					   <a class="background_none" href="https://www.youtube.com/channel/UCHDR6dL_xHlkIlsuF3dlNYQ" target="_blank"><span class="counter">Views <b>569743</b></span></a> </div>
 					</div>
 
            		<!-- <h5>Critics Rating:</h5>
