@@ -138,6 +138,7 @@ chmod("$tsrc",0777);
 ?>
 		        <script>
 		        	alert('Thanks for Participating.We will contact soon!');
+		        	window.location = "home.php";
 		        </script>
 <?php
 		}
@@ -275,7 +276,7 @@ chmod("$tsrc",0777);
             </div><!--container-->
   		</header><!--header_area-->	
     <div class="container container_form">
-    	<h2>PARTICIPATE IN THE FREE FRIENDSHIP SEFLIE <b>CONTEST FOR FREE TICKETS</b></h2>
+    	<h2>PARTICIPATE IN FREE FRIENDSHIP SELFIE AND <b>WIN FREE TICKETS</b></h2>
        
 			<form enctype="multipart/form-data" method="post" id="tec_reg" role="form">
 			<div class="form-box fl">
@@ -327,7 +328,7 @@ chmod("$tsrc",0777);
 	            
 	   		</div><!--photos_upload-->
 	   		<div class="clear_both"></div>
-	   		<span class="upload_note">Hint: Upload JPG,JPEG,PNG images with 1 MB only</span>
+	   		<span class="upload_note">Hint: Upload JPG,JPEG,PNG images BELOW 1.5 MB</span>
 	   		<div class="form-group captcha">
               		<img src="captcha/captcha_code_file.php?rand=<?php echo rand(); ?>" alt="" id="captcha" />
               		

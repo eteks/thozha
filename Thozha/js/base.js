@@ -3,20 +3,19 @@ $(document).ready(function () {
 	var the_width = $(window).innerWidth();
 	$('.left_img').css({'height':the_height});
 	
-    package_menu();
-    package_menu_1();
-     $(".view_gallery> span").hover(function(){
+     package_menu();
+     package_menu_1();
+    $(document).on('mouseover','.view_gallery> span',function(){
+     //$(".view_gallery> span").hover(function(){
 	  $('.color_gallery> div').hide(); 
 	  $(this).addClass('view_glallery_opacity');
 	  $(this).siblings().removeClass('view_glallery_opacity');
 	 });
-
-	 $(".view_gallery> span").hover(function(){
+	 //$(".view_gallery> span").hover(function(){
+	 $(document).on('mouseover','.view_gallery> span',function(){
 		  $(this).siblings('div:visible').hide();
-		 
 		  $(this).next().fadeIn('fast');
-		  return false
-		  }, function(){
+		  return false;
 	  });
 	  	
      	$(".slider_show").on('click',function(){
@@ -39,6 +38,31 @@ $(document).ready(function () {
         $(".slider_show").addClass('slider_hide');
         $(".social_links").removeClass('slider_show');
      });
+     
+     //code added by muthu for related image shows based on category
+     $('.category_rel').click(function() {
+     	var dataid = $(this).attr('data-cate');
+		$.ajax({
+             type: "POST",
+             url: "comments.php?category_rel=true",
+             data: {'data_id':dataid},
+             cache: false,
+             dataType:'json',
+             success: function(data) {
+             	$('.view_gallery').empty();
+             	$.each(data,function(i){
+             		if(i== 0){
+             			$('.product_angle').empty().append('<img src="admin/uploads/original/'+data[i].image+'" alt="" />');
+             			$('.view_gallery').append('<span class="view_glallery_opacity"><img src="admin/uploads/thumb/'+data[i].image+'" alt="" /></span><div><img src="admin/uploads/original/'+data[i].image+'" alt=""/></div>');
+             		 }else{
+             			$('.view_gallery').append('<span><img src="admin/uploads/thumb/'+data[i].image+'" alt="" /></span><div><img src="admin/uploads/original/'+data[i].image+'" alt=""/></div>');
+             		 }
+             		
+             	});
+			   
+             }
+  		});
+	});
      	
 });
 

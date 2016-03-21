@@ -1,5 +1,42 @@
-<?php
+﻿<?php
 include('dbcon.php');
+//Social media
+function facebook_count($url){
+ 
+    // Query in FQL
+    $fql  = "SELECT share_count, like_count, comment_count ";
+    $fql .= " FROM link_stat WHERE url = '$url'";
+ 
+    $fqlURL = "https://api.facebook.com/method/fql.query?format=json&query=" . urlencode($fql);
+ 
+    // Facebook Response is in JSON
+    $response = file_get_contents($fqlURL);
+    return json_decode($response);
+ 
+}
+$fb = facebook_count('https://www.facebook.com/thozhatamilmovie');
+ 
+// facebook share count
+//echo $fb[0]->share_count;
+ 
+// facebook like count
+//echo $fb[0]->like_count;
+ 
+// facebook comment count
+//echo $fb[0]->comment_count; 
+//************************Twitter************************//
+$tw_username = 'ThozhaMovie'; 
+$data = file_get_contents('https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names='.$tw_username); 
+$parsed =  json_decode($data,true);
+$tw_followers =  $parsed[0]['followers_count'];
+//youtube
+
+// $video_ID = 'EaxHnDbsfws';
+// $json_output = file_get_contents("http://gdata.youtube.com/feeds/api/videos/EaxHnDbsfws?v=2&alt=json");
+// $json = json_decode($json_output, true);
+// //This gives you the video views count
+// $view_count = $json['entry']['yt$statistics']['viewCount'];
+// echo $view_count; 
 ?>
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
@@ -66,7 +103,7 @@ include('dbcon.php');
 			    postComment: function(commentJSON, success, error) {
 			        $.ajax({
 			            type: 'post',
-			            url: '/comments.php?post_comment=true',
+			            url: '/Thozha/comments.php?post_comment=true',
 			            data: commentJSON,
 			            success: function(comment) {
 			                success(commentJSON);
@@ -78,7 +115,7 @@ include('dbcon.php');
     		  getComments: function(success, error) {
 			        $.ajax({
 			            type: 'get',
-			            url: '/comments.php?get_comments=true',
+			            url: '/Thozha/comments.php?get_comments=true',
 			            success: function(data) {
 			            	var commentsArray = $.parseJSON(data);
 			                success(commentsArray)
@@ -111,12 +148,12 @@ include('dbcon.php');
                             </div><!--logo-->
                         </div><!--col-md-3-->                                  
                         <div class="col-md-9 col-sm-10 nav_area visible-lg">
-                        	<a class="contest_btn" href="form.php"><img src="images/ticket_free.png" /></a>
+                        	<a class="contest_btn" href="form.php" target="_blank"><img src="images/ticket_free.png" /></a>
                         	<div align='center' class="visitor_count"><a>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
                         </div><!--nav_area-->
                         
                         <div class="col-md-9 col-sm-10 col-xs-8 nav_area visible-xs">
-                        	<a class="contest_btn" href="form.php"><img src="images/ticket_mbl.png" /></a>
+                        	<a class="contest_btn" href="form.php" target="_blank"><img src="images/ticket_mbl.png" /></a>
                         	<div align='center' class="visitor_count"><a>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
                         </div><!--nav_area-->
                     </div><!--row-->
@@ -203,7 +240,7 @@ include('dbcon.php');
            		<div class="col-md-4 col-sm-4 col-xs-3 fix_p_l">
 					<div class="single_social_share facebook">
 					   <a href="https://www.facebook.com/thozhatamilmovie" target="_blank"><i class="fa fa-facebook social_font"></i></a>
-					   <a class="background_none" href="https://www.facebook.com/thozhatamilmovie" target="_blank"><span class="counter">Likes <b>649</b></span></a>
+					   <a class="background_none" href="https://www.facebook.com/thozhatamilmovie" target="_blank"><span class="counter">Likes <b><?php echo $fb[0]->like_count;?></b></span></a>
 					   </div>
 					  </div>
 					
@@ -211,7 +248,7 @@ include('dbcon.php');
 					
 					<div class="single_social_share twitter">
 					 <a href="https://twitter.com/thozhamovie" target="_blank"><i class="fa fa-twitter social_font"></i></a>
-					 <a class="background_none" href="https://twitter.com/thozhamovie" target="_blank"><span class="counter">Tweets <b>62</b></span></a>
+					 <a class="background_none" href="https://twitter.com/thozhamovie" target="_blank"><span class="counter">Followers <b><?php echo $tw_followers; ?></b></span></a>
 					      </div>
 					</div>
 					
@@ -351,6 +388,21 @@ include('dbcon.php');
            </div><!--video_description-->
            <div class="related_photos fl hidden-lg hidden-md hidden-sm">
            			<h2>RELATED <b>PHOTOS</b></h2>
+           			<ul class="categories_list">
+           			<li class="category_rel selected" data-cate='0'>All</li>
+           			<?php
+		           					$sql6 = "select * from category";
+	           						$query6 = mysql_query($sql6);
+		           					$k=1;	
+		           					while($row6= mysql_fetch_array($query6)){
+		           	
+       							?>
+		               <li class="category_rel" data-cate='<?php echo $row6['category_id']; ?>'><?php echo $row6['category_name']; ?></li>
+		               <?php
+                     				$k++;
+                    				}
+                     			?>
+                     	</ul>
            			<div class="photos_holder">
            	<div class="idp_shoe_gallery">
               <div id="product_angle">
@@ -394,45 +446,59 @@ include('dbcon.php');
            		
            </div><!--video_comment-->
           
-           <div class="related_photos fl visible-lg visible-md visible-sm">
-           			<h2>RELATED <b>PHOTOS</b></h2>
-           			<span>All</span><span>Audio launch</span><span>Teasar release</span>
-           			<div class="photos_holder">
-           	<div class="idp_shoe_gallery">
-              <div id="product_angle">
-                  <?php
-			           		$sql4 = "select * from related_image order by related_image_id desc limit 1";
-			           		$query4 = mysql_query($sql4);
-			           		while($row4= mysql_fetch_array($query4)){
-           				?>
-                  <img src="admin/uploads/original/<?php echo $row4['image']; ?>" alt="" />    
-                   <?php
-                        }
-                     ?>                                          </div><!-- product_angle -->
-                 <div class="idp_views_tab">
-                     <div class="view_gallery" id="black" style="display:block;">
-                         <?php
-			           		$sql5 = "select * from related_image order by related_image_id desc limit 9";
-			           		$query5 = mysql_query($sql5);
-			           			$j=1;	
-			           		while($row5= mysql_fetch_array($query5)){
-			           	
-           				?>
-                         <span <?php if($j==1){ echo "class='view_glallery_opacity'"; }?>><img src="admin/uploads/thumb/<?php echo $row5['image']; ?>" alt="" /></span>
-                         <div><img src="admin/uploads/original/<?php echo $row5['image']; ?>" alt="" /></div>
-                         <?php
-                         $j++;
-                        }
-                         ?>
-               
-                     </div><!-- view_gallery -->
-                     <div class="clear_both"></div>
-                 </div><!-- idp_views_tab -->
-                 <div class="clear_both"></div>
-            </div><!--  -->
-           			</div><!--photos_holder-->
-           </div><!--related_photos-->
-           
+			<div class="related_photos fl visible-lg visible-md visible-sm">
+       			<h2>RELATED <b>PHOTOS</b></h2>
+       			
+       			<ul class="categories_list">
+       				<li class="category_rel selected" data-cate='0'>All</li>
+       					<?php
+		           					$sql6 = "select * from category";
+	           						$query6 = mysql_query($sql6);
+		           					$k=1;	
+		           					while($row6= mysql_fetch_array($query6)){
+		           	
+       							?>
+		               <li class="category_rel " data-cate='<?php echo $row6['category_id']; ?>'><?php echo $row6['category_name']; ?></li>
+		               <?php
+                     				$k++;
+                    				}
+                     			?>
+              		</ul>
+				<div class="photos_holder">
+       				<div class="idp_shoe_gallery">
+          				<div id="product_angle" class="product_angle">
+              				<?php
+		           				$sql4 = "select * from related_image order by related_image_id desc limit 1";
+	           					$query4 = mysql_query($sql4);
+		           				while($row4= mysql_fetch_array($query4)){
+   							?>
+              				<img src="admin/uploads/original/<?php echo $row4['image']; ?>" alt="" />    
+               				<?php
+                    			}
+     						?>                                          	
+ 						</div><!-- product_angle -->
+             			<div class="idp_views_tab">
+                 			<div class="view_gallery" id="black" style="display:block;">
+                     			<?php
+		           					$sql5 = "select * from related_image order by related_image_id desc limit 9";
+	           						$query5 = mysql_query($sql5);
+		           					$j=1;	
+		           					while($row5= mysql_fetch_array($query5)){
+		           	
+       							?>
+                     			<span <?php if($j==1){ echo "class='view_glallery_opacity'"; }?>><img src="admin/uploads/thumb/<?php echo $row5['image']; ?>" alt="" /></span>
+                     			<div><img src="admin/uploads/original/<?php echo $row5['image']; ?>" alt="" /></div>
+                     			<?php
+                     				$j++;
+                    				}
+                     			?>
+                 			</div><!-- view_gallery -->
+             				<div class="clear_both"></div>
+             			</div><!-- idp_views_tab -->
+         				<div class="clear_both"></div>
+        			</div><!--  -->
+       			</div><!--photos_holder-->
+       		</div><!--related_photos-->
 		</div><!-- container -->
 		
 		
@@ -455,6 +521,10 @@ include('dbcon.php');
 				    $('.desktop_video').empty().prepend('<iframe width="623" height="340" src="'+id+'" frameborder="0" allowfullscreen></iframe>');
 				    $('.mobile_video').empty().prepend('<iframe width="260" height="200" src="'+id+'" frameborder="0" allowfullscreen></iframe>'); 
 				});
+				$('.categories_list li').on('click',function() {
+     				$('.categories_list li').removeClass('selected');
+     				$(this).addClass('selected');
+ 				});
 			});
 			
 		</script>

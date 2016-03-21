@@ -387,10 +387,12 @@ body {
   bottom: 100%;
   color: #fff;
   display: block;
-  left: -25px;
+  left: -3px;
   margin-bottom: 15px;
   opacity: 0;
-  padding: 20px;
+  font-size:15px;
+  text-align:center;
+  padding: 5px;
   pointer-events: none;
   position: absolute;
   width: 100%;
