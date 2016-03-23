@@ -131,7 +131,13 @@ $tw_followers =  $parsed[0]['followers_count'];
                         <div class="col-md-3 col-sm-2 col-xs-4">
                             <div class="logo">
                              	<a href="home.php"><img src="images/logo.png"></a>
-                             	
+                             	<div class="hidden-lg mbl_count">
+                             		<div class="selfie_count">
+		                        		<h5>SELFIES COUNTS</h5>
+		                        		<span>070</span>
+                        			</div>
+                        			<div align='center' class="visitor_count"><a>VISITORS COUNTS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
+                             	</div>
                                 <div class="navbar-header">
                                     <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                         <span class="sr-only">Toggle navigation</span>
@@ -141,15 +147,19 @@ $tw_followers =  $parsed[0]['followers_count'];
                                     </button>  -->
                                 </div><!--navbar-header-->                           
                             </div><!--logo-->
-                        </div><!--col-md-3-->                                  
+                        </div><!--col-md-3-->
+                                                          
                         <div class="col-md-9 col-sm-10 nav_area visible-lg">
                         	<a class="contest_btn" href="form.php" target="_blank"><img src="images/ticket_free.png" /></a>
-                        	<div align='center' class="visitor_count"><a>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
+                        	<div class="selfie_count">
+                        		<h5>SELFIES COUNTS</h5>
+                        		<span>070</span>
+                        	</div>
+                        	<div align='center' class="visitor_count"><a>VISITORS COUNTS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
                         </div><!--nav_area-->
                         
-                        <div class="col-md-9 col-sm-10 col-xs-8 nav_area visible-xs">
+                        <div class="col-md-9 col-sm-10 col-xs-12 nav_area visible-xs" style="padding: 0px;">
                         	<a class="contest_btn" href="form.php" target="_blank"><img src="images/ticket_mbl.png" /></a>
-                        	<div align='center' class="visitor_count"><a>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
                         </div><!--nav_area-->
                     </div><!--row-->
                 </div><!--header_content-->
