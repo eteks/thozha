@@ -17,12 +17,12 @@
                         	      <form action="delete_users.php" method="post">
                                     <table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
                                     	
-                                    	<a data-toggle="modal" href="#zip_download" id="delete"  class="btn btn-success" name=""><i class="icon-download icon-large"></i></a>
-                                    	<a data-toggle="modal" href="#user_delete" id="delete"  class="btn btn-danger" name=""><i class="icon-trash icon-large"></i></a>
+                                    	<a data-toggle="modal" id="delete"  class="btn btn-success download_btn" name=""><i class="icon-download icon-large"></i></a>
+                                    	<a data-toggle="modal" id="delete"  class="btn btn-danger delete_btn" name=""><i class="icon-trash icon-large"></i></a>
                                         <?php include('modal_delete.php'); ?>
                                         <thead>
                                             <tr>
-                                            	<th></th>
+                                            	<th><input type="checkbox" class="checkall"></th>
                                                 <th>S.No</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
@@ -66,6 +66,38 @@
    		$('.zip_file_download').click(function(){
    			$('#zip_download').hide();
    			$('.modal-backdrop').hide();
+   		});
+   		$('.checkall').change(function(){
+   			
+   			if(this.checked){
+   				$(".uniform_on").prop('checked', $(this).prop("checked"));
+   				$('.download_btn').attr('href','#zip_download');
+   				$('.delete_btn').attr('href','#user_delete');
+   			}else{
+   				$('.uniform_on').removeAttr('checked');
+   				$('.download_btn').removeAttr('href');
+   				$('.delete_btn').removeAttr('href');
+   			}
+   		});
+   		
+   		$('.uniform_on').change(function(){
+   			if($('.uniform_on').is(":checked")){
+   				$('.download_btn').attr('href','#zip_download');
+   				$('.delete_btn').attr('href','#user_delete');
+   			}else{
+   				$('.download_btn').removeAttr('href');
+   				$('.delete_btn').removeAttr('href');
+   			}
+   		});
+   		$('.download_btn').click(function(){
+   			if(!$('.uniform_on').is(":checked")){
+ 				alert('Please check any one record!');
+   			}
+   		});
+   		$('.delete_btn').click(function(){
+   			if(!$('.uniform_on').is(":checked")){
+ 				alert('Please check any one record!');
+   			}
    		});
    	</script>
 </body>

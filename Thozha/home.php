@@ -37,6 +37,8 @@ $tw_followers =  $parsed[0]['followers_count'];
 // //This gives you the video views count
 // $view_count = $json['entry']['yt$statistics']['viewCount'];
 // echo $view_count; 
+$sql7 = "select * from contest";
+$query7 = mysql_query($sql7);
 ?>
 <!DOCTYPE html>
 <!-- Microdata markup added by Google Structured Data Markup Helper. -->
@@ -134,7 +136,7 @@ $tw_followers =  $parsed[0]['followers_count'];
                              	<div class="hidden-lg mbl_count">
                              		<div class="selfie_count">
 		                        		<h5>SELFIES COUNTS</h5>
-		                        		<span>070</span>
+		                        		<span><?php echo mysql_num_rows($query7); ?></span>
                         			</div>
                         			<div align='center' class="visitor_count"><a>VISITORS COUNTS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
                              	</div>
@@ -153,7 +155,7 @@ $tw_followers =  $parsed[0]['followers_count'];
                         	<a class="contest_btn" href="form.php" target="_blank"><img src="images/ticket_free.png" /></a>
                         	<div class="selfie_count">
                         		<h5>SELFIES COUNTS</h5>
-                        		<span>070</span>
+                        		<span><?php echo mysql_num_rows($query7); ?></span>
                         	</div>
                         	<div align='center' class="visitor_count"><a>VISITORS COUNTS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
                         </div><!--nav_area-->

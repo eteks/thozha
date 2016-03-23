@@ -477,8 +477,9 @@ chmod("$tsrc",0777);
 });
 $("#refresh").on("click", function() {
         var a = document.images.captcha;
-        a.src = a.src.substring(0, a.src.lastIndexOf("?")) + "?rand=" + 1e3 * Math.random()
-    }), 
+        a.src = a.src.substring(0, a.src.lastIndexOf("?")) + "?rand=" + 1e3 * Math.random();
+        $("#code").val('');
+    }); 
 
     $("#code").keyup(function(e) {
         var t = $("#code").val();
