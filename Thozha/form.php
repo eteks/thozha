@@ -304,12 +304,8 @@ chmod("$tsrc",0777);
          	<div class="upload_info">
          		<p>UPLOAD CREATIVE FRIENDSHIP SELFIES</p>
          	</div>
-      		<div class="preview">
-      			<span>Preview</span>
-      			
-
-      		</div><!--preview-->
-      		<span class="error_msg">Please upload image!</span>
+      		
+      		
 	         <div class="photos_upload fl">
 	         	<label>UPLOAD</label>
 	      		<div class="form-group photo-browse">
@@ -323,6 +319,10 @@ chmod("$tsrc",0777);
 	            </div>
 	            
 	   		</div><!--photos_upload-->
+	   		<div class="preview">
+      			<span>Preview</span>
+      		</div><!--preview-->
+      		<span class="error_msg">Please upload image!</span>
 	   		<div class="clear_both"></div>
 	   		<span class="upload_note">Hint: Upload JPG,JPEG,PNG images BELOW 1.5 MB</span>
 	   		<div class="form-group captcha">

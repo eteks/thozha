@@ -1215,7 +1215,7 @@ border: 0;
 	}
 }
 .form_align{
-	width:234px;
+	width:246px;
 	/*height:20px;*/
 	padding : 5px;
 	border:1px solid #b4b4b4;
@@ -1275,7 +1275,7 @@ border: 0;
 }
 .photos_upload {
 	float: left;
-    margin: 20px 40px 0 20px;
+    margin: 35px 40px 0 20px;
 }
 .photos_upload label {
 	color: #510707;
@@ -2045,12 +2045,13 @@ right:0px;
 }
 #image-holder img{
 	border: 6px solid #fff;
-    bottom: 82%;
+    bottom: 100%;
     box-shadow: 5px 5px 6px #aeaeae;
     height: 100%;
+    left: 152%;
     position: relative;
-    right: 120%;
     width: 100%;
+    z-index: 9999;
 }
 #signupform { 
     padding-left: 40px;
@@ -2085,7 +2086,7 @@ input{
    	border-radius: 5px;
 }
 .uploads {
-    margin: -10px 0 0 25px;
+    margin: -10px 0 0 14px;
     width: 280px;
 }
 @media (min-width:789px){
@@ -2115,7 +2116,7 @@ input{
     font-size: 11px;
     display: none;
     height: 2px;
-     width: 215px;
+     width: 300px;
 }
 @media (min-width:789px){
 	.error_msg{
