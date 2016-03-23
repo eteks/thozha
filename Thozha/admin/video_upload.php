@@ -19,7 +19,7 @@
                             <div class="span12">
                                 <form action="delete_users.php" method="post">
                                     <table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
-                                        <a data-toggle="modal" href="#user_delete" id="delete"  class="btn btn-danger" name=""><i class="icon-trash icon-large"></i></a>
+                                        <a data-toggle="modal" id="delete"  class="btn btn-danger delete_btn" name=""><i class="icon-trash icon-large"></i></a>
                                         <?php include('modal_delete.php'); ?>
                                         <thead>
                                             <tr>
@@ -54,6 +54,20 @@
         <?php include('footer.php'); ?>
     </div>
     <?php include('script.php'); ?>
+    <script type="text/javascript">
+    	$('.uniform_on').change(function(){
+   			if($('.uniform_on').is(":checked")){
+   				$('.delete_btn').attr('href','#user_delete');
+   			}else{
+				$('.delete_btn').removeAttr('href');
+   			}
+   		});
+   		$('.delete_btn').click(function(){
+   			if(!$('.uniform_on').is(":checked")){
+ 				alert('Please check any one record!');
+   			}
+   		});
+    </script>
 </body>
 
 </html>

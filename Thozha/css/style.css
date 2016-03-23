@@ -1692,6 +1692,8 @@ right:0px;
 .view_gallery div img {
  position:relative;
   z-index:100 !important;
+  width:339px;
+  height: 278px;
 }
 .color_gallery div h3 {
  position: absolute;
@@ -1739,6 +1741,8 @@ right:0px;
  		margin-top: 10px;
  		left: auto;
     	position: relative;
+    	width:338px;
+    	height: 278px;
 	}
 }
 .add_to_cart_reviews {
@@ -2291,3 +2295,7 @@ ul{
 #sticky-social a[class*="youtube"]:hover,
 #sticky-social a[class*="youtube"] span { background: #dd4b39; }  
 
+#black span img {
+    height: 75px;
+    width: 100px;
+}

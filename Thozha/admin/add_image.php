@@ -86,7 +86,7 @@ chmod("$tsrc",0777);
 	
 	
 	$add_ex = explode('/', $add);
-	$sql = "insert into related_image (category_id,image,status) values (".$_POST['category'].",'$add_ex[2]','1')";
+	$sql = "insert into related_image (category_id,image,status) values (".$_POST['category'][$i].",'$add_ex[2]','1')";
 	mysql_query($sql);
 echo $j. ').<span id="noerror">Image uploaded successfully!.</span><br/><br/>';
 } else {    
@@ -101,7 +101,7 @@ echo $j. ').<span id="error">***Invalid file Size or Type***</span><br/><br/>';
 <div class="row-fluid">
     <div class="block">
 		<div class="navbar navbar-inner block-header">
-			<div class="muted pull-left">Add User</div>
+			<div class="muted pull-left">Add image</div>
 		</div>
 		<div class="block-content collapse in">
 			<div class="span12">
@@ -110,7 +110,7 @@ echo $j. ').<span id="error">***Invalid file Size or Type***</span><br/><br/>';
 						<div class="controls">
                             <div id="filediv"><input name="file[]" type="file" id="file"/></div><br/>
                             <div>
-                            	<select name = 'category'>
+                            	<select name = 'category[]'>
 									<?php
 										$sql = 'select * from category';
 										$query = mysql_query($sql);
@@ -146,7 +146,7 @@ $(document).ready(function() {
              data: {'data_id':'data_id'},
              cache: false,
              success: function(data) {
-             	$('#add_more').before('<div id="filediv"><input name="file[]" type="file" id="file"/></div><br/><br/><div><select name ="category">'+data+'</select></div><br/>');
+             	$('#add_more').before('<div id="filediv"><input name="file[]" type="file" id="file"/></div><br/><br/><div><select name ="category[]">'+data+'</select></div><br/>');
 			   
              }
           });

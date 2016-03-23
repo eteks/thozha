@@ -20,7 +20,7 @@
                             <div class="span12">
                                 <form action="delete_users.php" method="post">
                                     <table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
-                                        <a data-toggle="modal" href="#user_delete" id="delete"  class="btn btn-danger" name=""><i class="icon-trash icon-large"></i></a>
+                                        <a data-toggle="modal" id="delete"  class="btn btn-danger delete_btn" name=""><i class="icon-trash icon-large"></i></a>
                                         <?php include('modal_delete.php'); ?>
                                         <thead>
                                             <tr>
@@ -35,7 +35,7 @@
 										 $i=1;
 										 while($row = mysql_fetch_array($query)){
 										 ?>
-										 <tr><td><input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $row['related_image_id']; ?>"></td><td><?php echo $i; ?></td><td><img src="<?php echo 'uploads/original/'.$row['image']; ?>" /></td></tr>
+										 <tr><td><input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $row['related_image_id']; ?>"></td><td><?php echo $i; ?></td><td><img src="<?php echo 'uploads/thumb/'.$row['image']; ?>" /></td></tr>
 										 <?php
 										 $i++;
 										 }
@@ -55,6 +55,20 @@
         <?php include('footer.php'); ?>
     </div>
     <?php include('script.php'); ?>
+    <script type="text/javascript">
+    	$('.uniform_on').change(function(){
+   			if($('.uniform_on').is(":checked")){
+   				$('.delete_btn').attr('href','#user_delete');
+   			}else{
+				$('.delete_btn').removeAttr('href');
+   			}
+   		});
+   		$('.delete_btn').click(function(){
+   			if(!$('.uniform_on').is(":checked")){
+ 				alert('Please check any one record!');
+   			}
+   		});
+    </script>
 </body>
 
 </html>
