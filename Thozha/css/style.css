@@ -51,6 +51,12 @@
   50% {box-shadow: 0 0 10px #49063e; }
   100% {box-shadow: 0 0 3px #49063e; }
 }
+.blink_me1{
+	background: rgba(0, 0, 0, 0) url("../images/booking.gif") no-repeat scroll 0 0;
+    height: 35px;
+    width: 223px;
+    margin: 0 0 0 17px;
+}
 /*  Index Page */
 .bg_home{
 	background: url("../images/index_bg.jpg") no-repeat scroll center center / cover ;

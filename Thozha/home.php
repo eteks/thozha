@@ -240,7 +240,7 @@ $query7 = mysql_query($sql7);
            	</div><!--desc_img-->
            	<div class="desc_content fl">
            			<h2 class="fl"><b>THOZHA</b></h2>
-           			<span class="fl blink_me">BOOKING STARTS TODAY</span>
+           			<span class="fl blink_me1"></span>
            			<div class="clear_both"> </div>
            		<p>
            			Oopiri in Telugu, titled Thozha in Tamil, is an upcoming Indian Telugu-Tamil comedy-drama film directed by 
