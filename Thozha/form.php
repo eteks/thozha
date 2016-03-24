@@ -51,9 +51,9 @@ session_start();
 		
 		
 // Below lines are to display file name, temp name and file type , you can use them for testing your script only//////
-
+$time = time();
 ///////////////////////////////////////////////////////////////////////////
-$add="uploads/original/".$_FILES['photo']['name']; // the path with the file name where the file will be stored, upload is the directory name. 
+$add="uploads/original/".$time.$_FILES['photo']['name']; // the path with the file name where the file will be stored, upload is the directory name. 
 //echo $add;
 if(move_uploaded_file ($_FILES['photo']['tmp_name'],$add)){
 //echo "Successfully uploaded the mage";
@@ -69,7 +69,7 @@ $n_width=200;          // Fix the width of the thumb nail images
 $n_height=200;         // Fix the height of the thumb nail imaage
 ////////////////////////////////////////////
 
-$tsrc="uploads/thumb/".$_FILES['photo']['name'];   // Path where thumb nail image will be stored
+$tsrc="uploads/thumb/".$time.$_FILES['photo']['name'];   // Path where thumb nail image will be stored
 //echo $tsrc;
 if (!($_FILES['photo']['type'] =="image/jpeg" OR $_FILES['photo']['type']=="image/gif" OR $_FILES['photo']['type']=="image/png")){echo "Your uploaded file must be of JPG or GIF. Other file types are not allowed<BR>";
 exit;}
@@ -259,12 +259,12 @@ chmod("$tsrc",0777);
                         </div><!--col-md-3-->                                  
                         <div class="col-md-9 col-sm-10 nav_area visible-lg">
                         	<!-- <a class="contest_btn" href="form.php"><img src="images/ticket_free.png" /></a> -->
-                        	<div align='center' class="visitor_count"><a>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
+                        	<div align='center' class="visitor_count"><a>VISITORS COUNT<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
                         </div><!--nav_area-->
                         
                         <div class="col-md-9 col-sm-10 col-xs-8 nav_area visible-xs">
                         	
-                        	<div align='center' class="visitor_count"><a>VISITORS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
+                        	<div align='center' class="visitor_count"><a>VISITORS COUNT<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
                         </div><!--nav_area-->
                     </div><!--row-->
                 </div><!--header_content-->

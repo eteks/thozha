@@ -126,20 +126,14 @@ $query7 = mysql_query($sql7);
 		</script>
 	</head>
 		<body class="home_body bg_home">	
-<span itemscope itemtype="http://schema.org/Movie"><header class="header_area">
+<span itemscope itemtype="http://schema.org/Movie">
+	<header class="header_area">
             <div class="container">
                 <div class="header_content">
                     <div class="row">
                         <div class="col-md-3 col-sm-2 col-xs-4">
                             <div class="logo">
                              	<a href="home.php"><img src="images/logo.png"></a>
-                             	<div class="hidden-lg mbl_count">
-                             		<div class="selfie_count">
-		                        		<h5>SELFIES COUNTS</h5>
-		                        		<span><?php echo mysql_num_rows($query7); ?></span>
-                        			</div>
-                        			<div align='center' class="visitor_count"><a>VISITORS COUNTS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
-                             	</div>
                                 <div class="navbar-header">
                                     <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                         <span class="sr-only">Toggle navigation</span>
@@ -154,10 +148,10 @@ $query7 = mysql_query($sql7);
                         <div class="col-md-9 col-sm-10 nav_area visible-lg">
                         	<a class="contest_btn" href="form.php" target="_blank"><img src="images/ticket_free.png" /></a>
                         	<div class="selfie_count">
-                        		<h5>SELFIES COUNTS</h5>
+                        		<h5>SELFIES COUNT</h5>
                         		<span><?php echo mysql_num_rows($query7); ?></span>
                         	</div>
-                        	<div align='center' class="visitor_count"><a>VISITORS COUNTS<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
+                        	<div align='center' class="visitor_count"><a>VISITORS COUNT<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
                         </div><!--nav_area-->
                         
                         <div class="col-md-9 col-sm-10 col-xs-12 nav_area visible-xs" style="padding: 0px;">
@@ -165,6 +159,13 @@ $query7 = mysql_query($sql7);
                         </div><!--nav_area-->
                     </div><!--row-->
                 </div><!--header_content-->
+                <div class="hidden-lg mbl_count">
+             		<div class="selfie_count">
+                		<h5>SELFIES COUNT &nbsp;&nbsp;<b><?php echo mysql_num_rows($query7); ?></b></h5>
+                		
+        			</div>
+        			<div align='center' class="visitor_count"><a>VISITORS COUNT<img src='http://www.hit-counts.com/counter.php?t=MTM4MjEzMQ==' border='0' alt='Visitor Counter'></a></div>
+             	</div>
             </div><!--container-->
   		</header><!--header_area-->
   		
@@ -238,7 +239,9 @@ $query7 = mysql_query($sql7);
            		<img src="images/image.png"/>
            	</div><!--desc_img-->
            	<div class="desc_content fl">
-           			<h2><b>THOZHA</b> </h2>
+           			<h2 class="fl"><b>THOZHA</b></h2>
+           			<span class="fl blink_me">BOOKING STARTS TODAY</span>
+           			<div class="clear_both"> </div>
            		<p>
            			Oopiri in Telugu, titled Thozha in Tamil, is an upcoming Indian Telugu-Tamil comedy-drama film directed by 
 <span itemprop="director" itemscope itemtype="http://schema.org/Person">
@@ -252,7 +255,7 @@ $query7 = mysql_query($sql7);
            		<div class="col-md-4 col-sm-4 col-xs-3 fix_p_l">
 					<div class="single_social_share facebook">
 					   <a href="https://www.facebook.com/thozhatamilmovie" target="_blank"><i class="fa fa-facebook social_font"></i></a>
-					   <a class="background_none" href="https://www.facebook.com/thozhatamilmovie" target="_blank"><span class="counter">Likes <b>650<?php //echo $fb[0]->like_count;?></b></span></a>
+					   <a class="background_none" href="https://www.facebook.com/thozhatamilmovie" target="_blank"><span class="counter">Likes <b>1134<?php //echo $fb[0]->like_count;?></b></span></a>
 					   </div>
 					  </div>
 					
@@ -267,140 +270,18 @@ $query7 = mysql_query($sql7);
 					<div class="col-md-4 col-sm-4 col-xs-3 fix_p_l">
 					
 					<div class="single_social_share youtube">
-					   <a href="https://www.youtube.com/channel/UCHDR6dL_xHlkIlsuF3dlNYQ" target="_blank"><i class="fa fa-youtube social_font"></i></a>
-					   <a class="background_none" href="https://www.youtube.com/channel/UCHDR6dL_xHlkIlsuF3dlNYQ" target="_blank"><span class="counter">Views <b>569743</b></span></a> </div>
+					   <a href="https://www.youtube.com/watch?v=EaxHnDbsfws" target="_blank"><i class="fa fa-youtube social_font"></i></a>
+					   <a class="background_none" href="https://www.youtube.com/watch?v=EaxHnDbsfws" target="_blank"><span class="counter">Views <b>1,015,223</b></span></a> </div>
+						<div class="clear_both"></div>
 					</div>
-
-           		<!-- <h5>Critics Rating:</h5>
-           			<span>
-           				<form class="rating-form" action="#" method="post" name="rating-movie">
-						  <fieldset class="form-group">
-						    <legend class="form-legend">Rating:</legend>
-						    <div class="form-item">
-						      
-						      <input id="rating-5" name="rating" type="radio" value="5" />
-						      <label for="rating-5" data-value="5">
-						        <span class="rating-star">
-						          <i class="fa fa-star-o"></i>
-						          <i class="fa fa-star"></i>
-						        </span>
-						        <span class="ir">5</span>
-						      </label>
-						      <input id="rating-4" name="rating" type="radio" value="4" />
-						      <label for="rating-4" data-value="4">
-						        <span class="rating-star">
-						          <i class="fa fa-star-o"></i>
-						          <i class="fa fa-star"></i>
-						        </span>
-						        <span class="ir">4</span>
-						      </label>
-						      <input id="rating-3" name="rating" type="radio" value="3" />
-						      <label for="rating-3" data-value="3">
-						        <span class="rating-star">
-						          <i class="fa fa-star-o"></i>
-						          <i class="fa fa-star"></i>
-						        </span>
-						        <span class="ir">3</span>
-						      </label>
-						      <input id="rating-2" name="rating" type="radio" value="2" />
-						      <label for="rating-2" data-value="2">
-						        <span class="rating-star">
-						          <i class="fa fa-star-o"></i>
-						          <i class="fa fa-star"></i>
-						        </span>
-						        <span class="ir">2</span>
-						      </label>
-						      <input id="rating-1" name="rating" type="radio" value="1" />
-						      <label for="rating-1" data-value="1">
-						        <span class="rating-star">
-						          <i class="fa fa-star-o"></i>
-						          <i class="fa fa-star"></i>
-						        </span>
-						        <span class="ir">1</span>
-						      </label>
-						      
-						      <!-- <div class="form-action">
-						        <input class="btn-reset" type="reset" value="Reset" />   
-						      </div> -->
-						
-						      <!-- <div class="form-output">
-						        ? / 5
-						      </div>
-						      
-						    </div>
-						    
-						  </fieldset>
-						</form>
-           			</span>
-           			<br> -->
-           			<!-- <h5>Avg.Readers Rating</h5>
-           			<span>
-           				<form class="rating-avg" action="#" method="post" name="rating-movie">
-						  <fieldset class="form-group">
-						    <legend class="form-legend-avg">Rating:</legend>
-						    <div class="form-item-avg">
-						      
-						      <input id="rating-5" name="rating" type="radio" value="5" />
-						      <label for="rating-5" data-value="5">
-						        <span class="rating-star">
-						          <i class="fa fa-star-o"></i>
-						          <i class="fa fa-star"></i>
-						        </span>
-						        <span class="ir">5</span>
-						      </label>
-						      <input id="rating-4" name="rating" type="radio" value="4" />
-						      <label for="rating-4" data-value="4">
-						        <span class="rating-star">
-						          <i class="fa fa-star-o"></i>
-						          <i class="fa fa-star"></i>
-						        </span>
-						        <span class="ir">4</span>
-						      </label>
-						      <input id="rating-3" name="rating" type="radio" value="3" />
-						      <label for="rating-3" data-value="3">
-						        <span class="rating-star">
-						          <i class="fa fa-star-o"></i>
-						          <i class="fa fa-star"></i>
-						        </span>
-						        <span class="ir">3</span>
-						      </label>
-						      <input id="rating-2" name="rating" type="radio" value="2" />
-						      <label for="rating-2" data-value="2">
-						        <span class="rating-star">
-						          <i class="fa fa-star-o"></i>
-						          <i class="fa fa-star"></i>
-						        </span>
-						        <span class="ir">2</span>
-						      </label>
-						      <input id="rating-1" name="rating" type="radio" value="1" />
-						      <label for="rating-1" data-value="1">
-						        <span class="rating-star">
-						          <i class="fa fa-star-o"></i>
-						          <i class="fa fa-star"></i>
-						        </span>
-						        <span class="ir">1</span>
-						      </label>
-						       -->
-						      <!-- <div class="form-action">
-						        <input class="btn-reset" type="reset" value="Reset" />   
-						      </div> -->
-						
-						      <!-- <div class="form-output-avg">
-						        ? / 5
-						      </div>
-						      
-						    </div>
-						    
-						  </fieldset>
-						</form>
-           			</span>
-           			<br> --> 
-           			
+					<div class="clear_both"></div>
            	</div><!--rating_holder-->
+           	<div class="clear_both"> </div>
            </div><!--video_description-->
+           <div class="clear_both"> </div>
            <div class="related_photos fl hidden-lg hidden-md hidden-sm">
            			<h2>RELATED <b>PHOTOS</b></h2>
-           			<ul class="categories_list">
+           			<ul class="categories_list fl">
            			<li class="category_rel selected" data-cate='0'>All</li>
            			<?php
 		           					$sql6 = "select * from category";
@@ -415,6 +296,7 @@ $query7 = mysql_query($sql7);
                     				}
                      			?>
                      	</ul>
+                     	<div class="clear_both"> </div>
            			<div class="photos_holder">
            	<div class="idp_shoe_gallery">
               <div id="product_angle">
@@ -427,10 +309,11 @@ $query7 = mysql_query($sql7);
                    <?php
                         }
                      ?>                                          </div><!-- product_angle -->
+                     <div class="clear_both"> </div>
                  <div class="idp_views_tab">
                      <div class="view_gallery" id="black" style="display:block;">
                          <?php
-			           		$sql3 = "select * from related_image order by related_image_id desc limit 9";
+			           		$sql3 = "select * from related_image order by related_image_id desc";
 			           		$query3 = mysql_query($sql3);
 			           			$j=1;	
 			           		while($row3= mysql_fetch_array($query3)){
@@ -448,8 +331,10 @@ $query7 = mysql_query($sql7);
                  </div><!-- idp_views_tab -->
                  <div class="clear_both"></div>
             </div><!--  -->
+            <div class="clear_both"></div>
            			</div><!--photos_holder-->
            </div><!--related_photos-->
+           <div class="clear_both"> </div>
            <!-- <div class="comment_heading">
            	<h2>POST YOUR<b>COMMENTS</b></h2>
            </div> -->
@@ -462,7 +347,7 @@ $query7 = mysql_query($sql7);
 			<div class="related_photos fl visible-lg visible-md visible-sm">
        			<h2>RELATED <b>PHOTOS</b></h2>
        			
-       			<ul class="categories_list">
+       			<ul class="categories_list fl">
        				<li class="category_rel selected" data-cate='0'>All</li>
        					<?php
 		           					$sql6 = "select * from category";
@@ -477,6 +362,7 @@ $query7 = mysql_query($sql7);
                     				}
                      			?>
               		</ul>
+              		<div class="clear_both"> </div>
 				<div class="photos_holder">
        				<div class="idp_shoe_gallery">
           				<div id="product_angle" class="product_angle">
@@ -493,7 +379,7 @@ $query7 = mysql_query($sql7);
              			<div class="idp_views_tab">
                  			<div class="view_gallery" id="black" style="display:block;">
                      			<?php
-		           					$sql5 = "select * from related_image order by related_image_id desc limit 9";
+		           					$sql5 = "select * from related_image order by related_image_id desc";
 	           						$query5 = mysql_query($sql5);
 		           					$j=1;	
 		           					while($row5= mysql_fetch_array($query5)){

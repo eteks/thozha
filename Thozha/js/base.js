@@ -1,4 +1,7 @@
 $(document).ready(function () {
+	$(function blink() { 
+    $('.blink_me').fadeOut(800).fadeIn(800, blink); 
+	});
 	var the_height = $(window).innerHeight();
 	var the_width = $(window).innerWidth();
 	$('.left_img').css({'height':the_height});
